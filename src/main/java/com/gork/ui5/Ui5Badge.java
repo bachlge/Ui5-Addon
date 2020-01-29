@@ -32,5 +32,4 @@ public class Ui5Badge extends Component implements HasComponents {
 		this.getElement().setProperty("colorScheme", color);
 	}
 
-
 }
