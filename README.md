@@ -14,6 +14,13 @@ add dependency in your `pom.xml`:
 </dependency>
 ```
 
+additionally add in the using application the dependencies like (don't know why this is necessary!)
+
+```
+cd /Users/georg/Develop/vaadin/flow/ui5-addon-demo
+npm install @ui5/webcomponents
+npm install @ui5/webcomponents-fiori
+```
 
 ## Demo Application
 
