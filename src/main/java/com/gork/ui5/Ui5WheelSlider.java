@@ -12,14 +12,14 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-datepicker")
+@Tag("ui5-wheelslider")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
-@JsModule("@ui5/webcomponents/dist/DatePicker.js")
-public class Ui5DatePicker extends Component implements HasComponents {
+@JsModule("@ui5/webcomponents/dist/WheelSlider.js")
+public class Ui5WheelSlider extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5DatePicker.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5WheelSlider.class);
 
-	public Ui5DatePicker() {
+	public Ui5WheelSlider() {
 		LOGGER.info("constructor ...");
 	}
 
@@ -28,9 +28,16 @@ public class Ui5DatePicker extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	public void setPlaceholder(String placeholder) {
-		this.getElement().setProperty("placeholder", placeholder);
+	public void setValue(String value) {
+		this.getElement().setProperty("value", value);
 	}
 
+	public void setLabel(String label) {
+		this.getElement().setProperty("label", label);
+	}
+
+	public void setDisabled(Boolean disabled) {
+		this.getElement().setProperty("disabled", disabled);
+	}
 
 }

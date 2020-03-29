@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/BusyIndicator/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -8,9 +11,11 @@ import org.slf4j.LoggerFactory;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-busyindicator")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
 @JsModule("@ui5/webcomponents/dist/BusyIndicator.js")
 public class Ui5BusyIndicator extends Component {
 
@@ -30,24 +35,9 @@ public class Ui5BusyIndicator extends Component {
 	}
 
 	public void setSize(BusyIndicatorSize size) {
-		this.getElement().setProperty("size", size.name());
+		this.getElement().setProperty("size", size.toString());
 	}
 
-	public enum BusyIndicatorSize {
-		SMALL		( "Small" ),
-		MEDIUM		( "Medium" ),
-		LARGE		( "Large" );
-
-		private String size;
-
-		BusyIndicatorSize(String size) {
-			this.size = size;
-		}
-
-		public String size() {
-			return size;
-		}
-
-	}
+	public enum BusyIndicatorSize { Small, Medium, Large }
 
 }

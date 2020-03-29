@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/ShellBar/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -9,9 +12,11 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-shellbar")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.0-rc.6")
 @JsModule("@ui5/webcomponents-fiori/dist/ShellBar.js")
 public class Ui5ShellBar extends Component implements HasComponents {
 
@@ -43,5 +48,14 @@ public class Ui5ShellBar extends Component implements HasComponents {
 	public void showProductSwitch(Boolean productswitch) {
 		this.getElement().setProperty("showProductSwitch", productswitch);
 	}
+
+	public void showNotifications(Boolean showNotifications) {
+		this.getElement().setProperty("showNotifications", showNotifications);
+	}
+
+	public void setNotificationCount(String notificationCount) {
+		this.getElement().setProperty("notificationCount", notificationCount);
+	}
+
 
 }

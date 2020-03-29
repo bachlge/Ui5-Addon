@@ -9,9 +9,11 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-li-groupheader")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
 @JsModule("@ui5/webcomponents/dist/GroupHeaderListItem.js")
 public class Ui5ListGroupHeader extends Component implements HasComponents {
 

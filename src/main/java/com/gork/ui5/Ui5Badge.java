@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/Badge/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -9,9 +12,11 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-badge")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
 @JsModule("@ui5/webcomponents/dist/Badge.js")
 public class Ui5Badge extends Component implements HasComponents {
 
@@ -28,8 +33,10 @@ public class Ui5Badge extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	public void setColor(int color) {
-		this.getElement().setProperty("colorScheme", color);
+	public void setColor(ColorScheme color) {
+		this.getElement().setProperty("colorScheme", color.toString().substring(1));
 	}
+
+	public enum ColorScheme { C1, C2, C3, C4, C5, C6, C7, C8, C9, C10 }
 
 }

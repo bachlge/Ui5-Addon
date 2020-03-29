@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/Card/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -9,9 +12,12 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-card")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.6")
 @JsModule("@ui5/webcomponents/dist/Card.js")
 @JsModule("@ui5/webcomponents-icons/dist/icons/example.js")
 public class Ui5Card extends Component implements HasComponents {
@@ -43,7 +49,7 @@ public class Ui5Card extends Component implements HasComponents {
 	}
 
 	public void setSubTitle(String title) {
-		this.getElement().setProperty("subtitle", title);
+		this.getElement().setProperty("subheading", title);
 	}
 
 	public void setStatus(String status) {

@@ -9,9 +9,11 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-li")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
 @JsModule("@ui5/webcomponents/dist/StandardListItem.js")
 public class Ui5ListItem extends Component implements HasComponents {
 
@@ -24,6 +26,10 @@ public class Ui5ListItem extends Component implements HasComponents {
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
+	}
+
+	public void setSlot(String slot) {
+		this.getElement().setProperty("slot", slot);
 	}
 
 }

@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/TabContainer/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -12,14 +15,14 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-datepicker")
+@Tag("ui5-tabcontainer")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
-@JsModule("@ui5/webcomponents/dist/DatePicker.js")
-public class Ui5DatePicker extends Component implements HasComponents {
+@JsModule("@ui5/webcomponents/dist/TabContainer.js")
+public class Ui5TabContainer extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5DatePicker.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TabContainer.class);
 
-	public Ui5DatePicker() {
+	public Ui5TabContainer() {
 		LOGGER.info("constructor ...");
 	}
 
@@ -27,10 +30,5 @@ public class Ui5DatePicker extends Component implements HasComponents {
 	private void init() {
 		LOGGER.info("init ...");
 	}
-
-	public void setPlaceholder(String placeholder) {
-		this.getElement().setProperty("placeholder", placeholder);
-	}
-
 
 }
