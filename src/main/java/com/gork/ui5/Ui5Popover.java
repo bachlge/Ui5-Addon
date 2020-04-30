@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-popover")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.7")
 @JsModule("@ui5/webcomponents/dist/Popover.js")
 public class Ui5Popover extends Component implements HasComponents {
 

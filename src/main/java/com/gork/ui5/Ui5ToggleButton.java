@@ -13,8 +13,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-togglebutton")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.6")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.7")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.7")
 @JsModule("@ui5/webcomponents/dist/ToggleButton.js")
 public class Ui5ToggleButton extends Component implements HasComponents {
 

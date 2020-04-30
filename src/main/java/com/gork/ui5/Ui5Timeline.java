@@ -29,7 +29,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timeline")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.7")
 @JsModule("@ui5/webcomponents/dist/Timeline.js")
 public class Ui5Timeline extends Component implements HasComponents {
 

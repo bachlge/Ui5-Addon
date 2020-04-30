@@ -15,7 +15,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-busyindicator")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.6")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.7")
 @JsModule("@ui5/webcomponents/dist/BusyIndicator.js")
 public class Ui5BusyIndicator extends Component {
 
