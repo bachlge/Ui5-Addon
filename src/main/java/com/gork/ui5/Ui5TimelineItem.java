@@ -13,8 +13,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timeline-item")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.7")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.7")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.9")
 @JsModule("@ui5/webcomponents/dist/TimelineItem.js")
 @JsModule("@ui5/webcomponents-icons/dist/icons/calendar.js")
 public class Ui5TimelineItem extends Component implements HasComponents {
@@ -45,6 +45,15 @@ public class Ui5TimelineItem extends Component implements HasComponents {
 
 	public void setItemName(String name) {
 		this.getElement().setProperty("itemName", name);
+	}
+
+	public void setItemNameClickable(boolean clickable) {
+		this.getElement().setProperty("itemNameClickable", clickable);
+	}
+
+	public void setColor(String color) {
+		this.getElement().getStyle().set("color", color);
+		this.getElement().getStyle().set("background-color", color);
 	}
 
 }

@@ -12,14 +12,14 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-wheelslider")
+@Tag("ui5-progress-indicator")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
-@JsModule("@ui5/webcomponents/dist/WheelSlider.js")
-public class Ui5WheelSlider extends Component implements HasComponents {
+@JsModule("@ui5/webcomponents/dist/ProgressIndicator.js")
+public class Ui5ProgressIndicator extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5WheelSlider.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ProgressIndicator.class);
 
-	public Ui5WheelSlider() {
+	public Ui5ProgressIndicator() {
 		LOGGER.info("constructor ...");
 	}
 
@@ -28,16 +28,14 @@ public class Ui5WheelSlider extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	public void setValue(String value) {
-		this.getElement().setProperty("value", value);
+	public void setValue(Number value) {
+		this.getElement().setProperty("value", value.toString());
 	}
 
-	public void setLabel(String label) {
-		this.getElement().setProperty("label", label);
+	public void setValueState(ValueState design) {
+		this.getElement().setProperty("valueState", design.toString());
 	}
 
-	public void setDisabled(Boolean disabled) {
-		this.getElement().setProperty("disabled", disabled);
-	}
+	public enum ValueState { None, Error, Warning, Success, Information }
 
 }

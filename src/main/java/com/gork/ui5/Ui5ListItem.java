@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-li")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.7")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
 @JsModule("@ui5/webcomponents/dist/StandardListItem.js")
 public class Ui5ListItem extends Component implements HasComponents {
 

@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/Input/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -11,15 +14,19 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-calendar")
+@Tag("ui5-input")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
-@JsModule("@ui5/webcomponents/dist/Calendar.js")
-public class Ui5Calendar extends Component {
+@JsModule("@ui5/webcomponents/dist/Input.js")
+public class Ui5Input extends Component {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Calendar.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Input.class);
 
-	public Ui5Calendar() {
+	public Ui5Input() {
 		LOGGER.info("constructor ...");
+	}
+
+	public void setValue(String value) {
+		this.getElement().setProperty("value", value);
 	}
 
 	@PostConstruct
