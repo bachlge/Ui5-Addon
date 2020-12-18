@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-list")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.10")
 @JsModule("@ui5/webcomponents/dist/List.js")
 public class Ui5List extends Component implements HasComponents {
 
@@ -21,11 +21,38 @@ public class Ui5List extends Component implements HasComponents {
 
 	public Ui5List() {
 		LOGGER.info("constructor ...");
+		setNoDataText("list contains no data");
 	}
 
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
+
+		getElement().addEventListener("item-click", e -> {
+			LOGGER.info("received 'item-click' from the client ...");
+			LOGGER.info("event-data=" + e.getEventData());
+		});
+
+		getElement().addEventListener("itemClick", e -> {
+			LOGGER.info("received 'itemClick' from the client ...");
+		});
+
+		getElement().addEventListener("selction-change", e -> {
+			LOGGER.info("received 'selction-change' from the client ...");
+		});
+
+		getElement().addEventListener("selctionChange", e -> {
+			LOGGER.info("received 'selctionChange' from the client ...");
+		});
+
+		getElement().addEventListener("item-delete", e -> {
+			LOGGER.info("received 'item-delete' from the client ...");
+		});
+
+		getElement().addEventListener("load-more", e -> {
+			LOGGER.info("received 'load-more' from the client ...");
+		});
+
 	}
 
 	public void setHeader(String header) {
@@ -39,5 +66,41 @@ public class Ui5List extends Component implements HasComponents {
 	public int getNumItems() {
 		return this.getElement().getChildCount();
 	}
+
+	// Defines the text that is displayed when the ui5-list contains no items.
+	// Default value (implemented by SAP) is false
+	// Default value implemented in constructor
+	public void setNoDataText(String value) {
+		this.getElement().setProperty("noDataText", value);
+	}
+
+	// Determines whether the list items are indented.
+	// Default value (implemented by SAP) is false
+	public void setInset(boolean value) {
+		this.getElement().setProperty("inset", value);
+	}
+
+	// Defines if the component would fire the load-more event when the user scrolls to the bottom of the list,
+	// and helps achieving an "infinite scroll" effect by adding new items each time.
+	// Default value (implemented by SAP) is false
+	public void setInfiniteScroll(boolean value) {
+		this.getElement().setProperty("infiniteScroll", value);
+	}
+
+	// Default value (implemented by SAP) is None
+	public void setMode(Mode value) {
+		this.getElement().setProperty("mode", value.name());
+	}
+
+	// Default value (implemented by SAP) is All
+	public void setSeparators(Separators value) {
+		this.getElement().setProperty("separators", value.name());
+	}
+
+	public void addSelectListener() {}
+
+	public enum Mode { None, SingleSelect, SingleSelectBegin, SingleSelectEnd, MultiSelect, Delete }
+	public enum Separators { All, None, Inner }
+
 
 }

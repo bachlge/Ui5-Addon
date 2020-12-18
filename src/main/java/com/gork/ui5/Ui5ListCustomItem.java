@@ -14,12 +14,12 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @SuppressWarnings("serial")
 @Tag("ui5-li")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.10")
-@JsModule("@ui5/webcomponents/dist/StandardListItem.js")
-public class Ui5ListItem extends Component implements HasComponents {
+@JsModule("@ui5/webcomponents/dist/CustomListItem.js")
+public class Ui5ListCustomItem extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ListItem.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ListCustomItem.class);
 
-	public Ui5ListItem() {
+	public Ui5ListCustomItem() {
 		LOGGER.info("constructor ...");
 	}
 

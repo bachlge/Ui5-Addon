@@ -21,7 +21,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-flexible-column-layout")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.0-rc.10")
 @JsModule("@ui5/webcomponents-fiori/dist/FlexibleColumnLayout.js")
 public class Ui5FlexibleColumnLayout extends Component implements HasComponents {
 
@@ -56,6 +56,11 @@ public class Ui5FlexibleColumnLayout extends Component implements HasComponents 
 	public void addToEnd(Component component) {
 		this.addTo(component, Slot.endColumn);
 	}
+
+	public void setNoArrows(boolean value) {
+		this.getElement().setProperty("noArrows", value);
+	}
+
 
 	public enum Layout {
 		OneColumn,

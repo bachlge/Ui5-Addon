@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
 @NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.9")
 @JsModule("@ui5/webcomponents/dist/TimelineItem.js")
-@JsModule("@ui5/webcomponents-icons/dist/icons/calendar.js")
+@JsModule("@ui5/webcomponents-icons/dist/calendar.js")
 public class Ui5TimelineItem extends Component implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TimelineItem.class);

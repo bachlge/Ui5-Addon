@@ -15,11 +15,14 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-icon")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.10")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.10")
+@NpmPackage(value = "@ui5/webcomponents-icons-tnt", version = "^1.0.0-rc.10")
 @JsModule("@ui5/webcomponents/dist/Icon.js")
-@JsModule("@ui5/webcomponents-icons/dist/icons/employee.js")
-@JsModule("@ui5/webcomponents-icons/dist/icons/loan.js")
+@JsModule("@ui5/webcomponents-icons/dist/employee.js")
+@JsModule("@ui5/webcomponents-icons/dist/factory.js")
+@JsModule("@ui5/webcomponents-icons/dist/loan.js")
+@JsModule("@ui5/webcomponents-icons-tnt/dist/antenna.js")
 public class Ui5Icon extends Component {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Icon.class);

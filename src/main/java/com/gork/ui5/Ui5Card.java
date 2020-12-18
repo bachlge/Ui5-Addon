@@ -19,7 +19,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
 @NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.9")
 @JsModule("@ui5/webcomponents/dist/Card.js")
-@JsModule("@ui5/webcomponents-icons/dist/icons/example.js")
+@JsModule("@ui5/webcomponents-icons/dist/example.js")
 public class Ui5Card extends Component implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Card.class);
