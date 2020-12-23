@@ -29,8 +29,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timeline")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
-@JsModule("@ui5/webcomponents/dist/Timeline.js")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.0-rc.11")
+@JsModule("@ui5/webcomponents-fiori/dist/Timeline.js")
 public class Ui5Timeline extends Component implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Timeline.class);

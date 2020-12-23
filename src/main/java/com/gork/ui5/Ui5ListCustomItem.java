@@ -6,14 +6,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.EventData;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-li")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.10")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.10"
+		+ "1")
 @JsModule("@ui5/webcomponents/dist/CustomListItem.js")
 public class Ui5ListCustomItem extends Component implements HasComponents {
 
@@ -26,6 +33,7 @@ public class Ui5ListCustomItem extends Component implements HasComponents {
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
+		setType(Type.Detail);
 	}
 
 	public void setSlot(String slot) {
@@ -55,4 +63,20 @@ public class Ui5ListCustomItem extends Component implements HasComponents {
 	public enum InfoState { None, Success, Warning, Information, Erorr }
 	public enum Type { Active, Inactive, Detail }
 
+	@DomEvent("detail-click")
+	public static class DetailClickEvent extends ComponentEvent<Ui5ListCustomItem> {
+		private Element item;
+		public DetailClickEvent(Ui5ListCustomItem source, boolean fromClient, @EventData("event.item.bla") Element item) {
+			super(source, fromClient);
+			LOGGER.info("Custom List item detail-click event occured");
+			this.item = item;
+		}
+		public Element getElement() {
+			return item;
+		}
+	}
+
+	public Registration addDetailListener(ComponentEventListener<DetailClickEvent> listener) {
+		return addListener(DetailClickEvent.class, listener);
+	}
 }

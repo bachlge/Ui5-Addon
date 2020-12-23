@@ -15,7 +15,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
 @JsModule("@ui5/webcomponents/dist/Input.js")
 public class Ui5Input extends Component {
 

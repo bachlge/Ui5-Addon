@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-table")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
 @JsModule("@ui5/webcomponents/dist/Table.js")
 public class Ui5Table extends Component implements HasComponents {
 

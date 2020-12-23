@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-tabcontainer")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
 @JsModule("@ui5/webcomponents/dist/TabContainer.js")
 public class Ui5TabContainer extends Component implements HasComponents {
 

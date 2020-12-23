@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-shellbar")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.0-rc.11")
 @JsModule("@ui5/webcomponents-fiori/dist/ShellBar.js")
 public class Ui5ShellBar extends Component implements HasComponents {
 

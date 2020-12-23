@@ -1,19 +1,28 @@
 package com.gork.ui5;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.EventData;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.dom.Element;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-list")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.10")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.1q")
 @JsModule("@ui5/webcomponents/dist/List.js")
 public class Ui5List extends Component implements HasComponents {
 
@@ -27,33 +36,8 @@ public class Ui5List extends Component implements HasComponents {
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
-
-		getElement().addEventListener("item-click", e -> {
-			LOGGER.info("received 'item-click' from the client ...");
-			LOGGER.info("event-data=" + e.getEventData());
-		});
-
-		getElement().addEventListener("itemClick", e -> {
-			LOGGER.info("received 'itemClick' from the client ...");
-		});
-
-		getElement().addEventListener("selction-change", e -> {
-			LOGGER.info("received 'selction-change' from the client ...");
-		});
-
-		getElement().addEventListener("selctionChange", e -> {
-			LOGGER.info("received 'selctionChange' from the client ...");
-		});
-
-		getElement().addEventListener("item-delete", e -> {
-			LOGGER.info("received 'item-delete' from the client ...");
-		});
-
-		getElement().addEventListener("load-more", e -> {
-			LOGGER.info("received 'load-more' from the client ...");
-		});
-
 	}
+
 
 	public void setHeader(String header) {
 		this.getElement().setProperty("headerText", header);
@@ -102,5 +86,45 @@ public class Ui5List extends Component implements HasComponents {
 	public enum Mode { None, SingleSelect, SingleSelectBegin, SingleSelectEnd, MultiSelect, Delete }
 	public enum Separators { All, None, Inner }
 
+
+	// Events: item-click, item-close, item-delete, item-toggle, load-more, selection-change
+	@DomEvent("item-click")
+//	@DomEvent("itemClick")
+	public static class ItemClickEvent extends ComponentEvent<Ui5List> {
+		private Element item;
+		public ItemClickEvent(Ui5List source, boolean fromClient,
+				@EventData("element.item") Element item) {
+			super(source, fromClient);
+			LOGGER.info("Item click event occured - item=" + item);
+			this.item = item;
+		}
+		public Element getElement() {
+			return item;
+		}
+	}
+
+	public Registration addItemClickListener(ComponentEventListener<ItemClickEvent> listener) {
+		return addListener(ItemClickEvent.class, listener);
+	}
+
+	@DomEvent("selection-change")
+//	@DomEvent("selectionChange")
+	public static class SelectionEvent extends ComponentEvent<Ui5List> {
+		private List<Element> selectedItems;
+		public SelectionEvent(Ui5List source, boolean fromClient,
+				@EventData("event.selectedItems") Element selectedItems,
+				@EventData("event.previouslySelectedItems") Element prevItems) {
+			super(source, fromClient);
+			LOGGER.info("List selection click event occured - " + selectedItems + " was: " + prevItems);
+			this.selectedItems = Arrays.asList(selectedItems);
+		}
+		public List<Element> getSelectedItems() {
+			return selectedItems;
+		}
+	}
+
+	public Registration addChangeListener(ComponentEventListener<SelectionEvent> listener) {
+		return addListener(SelectionEvent.class, listener);
+	}
 
 }

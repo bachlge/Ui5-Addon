@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-wheelslider-item")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
 @JsModule("@ui5/webcomponents/dist/WheelSlider.js")  // <== TODO: change as soon as available
 public class Ui5WheelSliderItem extends Component implements HasComponents {
 

@@ -16,8 +16,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-card")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.9")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.9")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.11")
 @JsModule("@ui5/webcomponents/dist/Card.js")
 @JsModule("@ui5/webcomponents-icons/dist/example.js")
 public class Ui5Card extends Component implements HasComponents {
