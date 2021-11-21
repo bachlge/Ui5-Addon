@@ -24,7 +24,7 @@ npm install @ui5/webcomponents-fiori
 
 ## Demo Application
 
-see ui5-addin-demo how the components are used.
+see ui5-addon-demo how the components are used.
 
 ## Components and their features
 
@@ -48,7 +48,7 @@ see ui5-addin-demo how the components are used.
 
 Binding ... means that the component is extending AbstractSinglePropertyField
 HasComponents ... Components can be added 
-Event ... Listeners can be attached fot listed event(s)
+Event ... Listeners can be attached for listed event(s)
 
 For a fUll list, visit the [Playground](https://sap.github.io/ui5-webcomponents/playground/components) or have a look on the Sources in [Github](https://github.com/SAP/ui5-webcomponents)
 
@@ -56,7 +56,7 @@ For a fUll list, visit the [Playground](https://sap.github.io/ui5-webcomponents/
 
 - bug: Ui5BusyIndicator: does not show
 - bug: Ui5Card: setIcon() should replace the default icon but adds instead
-- bug: Ui5Badge: shold be possible to add icon/icon only
+- bug: Ui5Badge: should be possible to add icon/icon only
 - general: no listeners yet implemented on buttons/menus 
 - general: data binding not yet implemented 
 
