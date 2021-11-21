@@ -19,8 +19,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-li")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.10"
-		+ "1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
 @JsModule("@ui5/webcomponents/dist/CustomListItem.js")
 public class Ui5ListCustomItem extends Component implements HasComponents {
 

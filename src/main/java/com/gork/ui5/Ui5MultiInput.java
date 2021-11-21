@@ -16,8 +16,10 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
 @JsModule("@ui5/webcomponents/dist/MultiInput.js")
+@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
+@JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
 public class Ui5MultiInput extends Component implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5MultiInput.class);
@@ -33,6 +35,10 @@ public class Ui5MultiInput extends Component implements HasComponents {
 
 	public void setShowSuggestions(Boolean value) {
 		this.getElement().setProperty("showSuggestions", value);
+	}
+
+	public void setPlaceholder(String value) {
+		this.getElement().setProperty("placeholder", value);
 	}
 
 	@PostConstruct

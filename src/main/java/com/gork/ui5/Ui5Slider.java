@@ -8,26 +8,26 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.HasValue;
+import com.vaadin.flow.component.AbstractSinglePropertyField;
+import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
-import com.vaadin.flow.shared.Registration;
+import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-slider")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
 @JsModule("@ui5/webcomponents/dist/Slider.js")
-public class Ui5Slider extends Component implements HasValue {
+public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Slider.class);
 
-	private boolean readOnly = false;
-	private boolean requiredIndicatorVisible = false;
-
 	public Ui5Slider() {
+		super("value", 0, false);
 		LOGGER.info("constructor ...");
+		addListener(ValueChangeEvent.class, null);
 	}
 
 	@PostConstruct
@@ -43,41 +43,46 @@ public class Ui5Slider extends Component implements HasValue {
 		this.getElement().setProperty("showTickmarks", value);
 	}
 
-	@Override
-	public void setValue(Object value) {
-		this.getElement().setProperty("value", value.toString());
+	public void setStep(int value) {
+		this.getElement().setProperty("step", value);
 	}
 
-	@Override
-	public Object getValue() {
-		return new Float(this.getElement().getProperty("value"));
+	public void setLabelInterval(int value) {
+		this.getElement().setProperty("labelInterval", value);
 	}
 
-	@Override
-	public Registration addValueChangeListener(ValueChangeListener listener) {
-		// TODO Auto-generated method stub
-		return null;
+	public void setMin(Float value) {
+		this.getElement().setProperty("min", value);
 	}
 
-	@Override
-	public void setReadOnly(boolean readOnly) {
-		this.readOnly = readOnly;
+	public void setMax(Float value) {
+		this.getElement().setProperty("max", value);
+	}
+
+	public void setValue(Float value) {
+		this.getElement().setProperty("value", value);
+	}
+
+	// Convenience
+	public void setValue(Integer value) {
+		this.getElement().setProperty("value", value);
+	}
+
+	// Convenience
+	public void setValue(Long value) {
+		this.getElement().setProperty("value", value);
+	}
+
+	@DomEvent("change")
+	public static class ValueChangeEvent extends ComponentEvent<Ui5Slider> {
+
+		public ValueChangeEvent(Ui5Slider source, boolean fromClient) {
+			super(source, fromClient);
+			LOGGER.info("value changed to " + source.getElement().getProperty("value"));
+			Notification.show("value changed to " + source.getElement().getProperty("value"));
+		}
 		
 	}
 
-	@Override
-	public boolean isReadOnly() {
-		return readOnly;
-	}
-
-	@Override
-	public void setRequiredIndicatorVisible(boolean requiredIndicatorVisible) {
-		this.requiredIndicatorVisible = requiredIndicatorVisible;
-	}
-
-	@Override
-	public boolean isRequiredIndicatorVisible() {
-		return requiredIndicatorVisible;
-	}
 
 }

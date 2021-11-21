@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-token")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
 @JsModule("@ui5/webcomponents/dist/Token.js")
 public class Ui5Token extends Component implements HasComponents {
 
@@ -24,13 +24,14 @@ public class Ui5Token extends Component implements HasComponents {
 
 	public Ui5Token() {
 		LOGGER.info("constructor ...");
-		this.getElement().setProperty("slot", "tokens"); // default value
+		this.setSlot("tokens"); // default value
+		this.setText("Token");
 	}
 
 	public Ui5Token(String text) {
-		super();
+		this();
 		LOGGER.info("constructor(text) ...");
-		setText(text);
+		this.setText(text);
 	}
 
 	public void setText(String value) {

@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-progress-indicator")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
 @JsModule("@ui5/webcomponents/dist/ProgressIndicator.js")
 public class Ui5ProgressIndicator extends Component implements HasComponents {
 
@@ -28,8 +28,8 @@ public class Ui5ProgressIndicator extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	public void setValue(Number value) {
-		this.getElement().setProperty("value", value.toString());
+	public void setValue(int value) {
+		this.getElement().setProperty("value", value);
 	}
 
 	public void setValueState(ValueState design) {

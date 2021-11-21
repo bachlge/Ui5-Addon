@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-product-switch-item")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.1")
 @JsModule("@ui5/webcomponents-fiori/dist/ProductSwitchItem.js")
 public class Ui5ProductSwitchItem extends Component implements HasComponents {
 
@@ -28,12 +28,20 @@ public class Ui5ProductSwitchItem extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	public void setHeading(String heading) {
-		this.getElement().setProperty("heading", heading);
+	public void setHeading(String value) {
+		this.getElement().setProperty("heading", value);
 	}
 
-	public void setIcon(String icon) {
-		this.getElement().setProperty("icon", icon);
+	public void setSubtitle(String value) {
+		this.getElement().setProperty("subtitle", value);
+	}
+
+	public void setIcon(String value) {
+		this.getElement().setProperty("icon", value);
+	}
+
+	public void setTargetSrc(String value) {
+		this.getElement().setProperty("targetSrc", value);
 	}
 
 }

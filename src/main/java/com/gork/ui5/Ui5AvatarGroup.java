@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-avatar-group")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
 @JsModule("@ui5/webcomponents/dist/AvatarGroup.js")
 public class Ui5AvatarGroup extends Component implements HasComponents {
 

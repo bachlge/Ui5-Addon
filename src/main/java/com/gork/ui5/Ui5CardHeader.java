@@ -15,22 +15,18 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-card")
+@Tag("ui5-card-header")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
 @NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.1")
-@JsModule("@ui5/webcomponents/dist/Card.js")
-//@JsModule("@ui5/webcomponents-icons/dist/example.js")
-//@JsModule("@ui5/webcomponents-icons/dist/folder-blank.js")
-public class Ui5Card extends Component implements HasComponents {
+@JsModule("@ui5/webcomponents/dist/CardHeader.js")
+public class Ui5CardHeader extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Card.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5CardHeader.class);
 
-	private Ui5CardHeader header = new Ui5CardHeader();
-
-	public Ui5Card() {
+	public Ui5CardHeader() {
 		LOGGER.info("constructor ...");
 		setIcon("example"); // default icon
-		add(header);
+		getElement().setProperty("slot", "header");
 	}
 
 	@PostConstruct
@@ -39,7 +35,6 @@ public class Ui5Card extends Component implements HasComponents {
 	}
 
 	public void setIcon(String icon) {
-/*
 		Ui5Icon ui5Icon = new Ui5Icon();
 		ui5Icon.setIcon(icon);
 		ui5Icon.getElement().setProperty("slot", "avatar");
@@ -47,24 +42,18 @@ public class Ui5Card extends Component implements HasComponents {
 		// docu says: <ui5-card avatar="group" heading="Team Space" ...>
 		// but: (Error) : Cannot set slots directly, use the DOM APIs
 //		this.getElement().setProperty("avatar", icon);
- * 
- */
-		header.setIcon(icon);
 	}
 
 	public void setTitle(String title) {
-//		this.getElement().setProperty("titleText", title);
-		header.setTitle(title);
+		this.getElement().setProperty("titleText", title);
 	}
 
 	public void setSubTitle(String title) {
-//		this.getElement().setProperty("subtitleText", title);
-		header.setSubTitle(title);
+		this.getElement().setProperty("subtitleText", title);
 	}
 
 	public void setStatus(String status) {
-//		this.getElement().setProperty("status", status);
-		header.setStatus(status);
+		this.getElement().setProperty("status", status);
 	}
 
 }

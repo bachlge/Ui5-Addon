@@ -1,5 +1,7 @@
 /**
  * https://sap.github.io/ui5-webcomponents/playground/components/Icon/
+ * 
+ * NOTE: need to import every icon that is used! TODO: look for universal import
  */
 package com.gork.ui5;
 
@@ -15,13 +17,18 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-icon")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.0-rc.11")
-@NpmPackage(value = "@ui5/webcomponents-icons-tnt", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents-icons-tnt", version = "^1.0.1")
 @JsModule("@ui5/webcomponents/dist/Icon.js")
+
+@JsModule("@ui5/webcomponents-icons/dist/home.js")
 @JsModule("@ui5/webcomponents-icons/dist/employee.js")
+@JsModule("@ui5/webcomponents-icons/dist/folder-blank.js")
 @JsModule("@ui5/webcomponents-icons/dist/factory.js")
 @JsModule("@ui5/webcomponents-icons/dist/loan.js")
+@JsModule("@ui5/webcomponents-icons/dist/value-help.js")
+
 @JsModule("@ui5/webcomponents-icons-tnt/dist/antenna.js")
 public class Ui5Icon extends Component {
 

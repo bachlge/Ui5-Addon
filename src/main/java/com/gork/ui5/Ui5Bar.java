@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-bar")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.1")
 @JsModule("@ui5/webcomponents-fiori/dist/Bar.js")
 public class Ui5Bar extends Component implements HasComponents {
 
@@ -29,6 +29,40 @@ public class Ui5Bar extends Component implements HasComponents {
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
+	}
+
+	public void addTo(Component component, Slot slot) {
+		component.getElement().setAttribute("slot", slot.toString());
+		this.add(component);
+	}
+
+	public void addToStart(Component component) {
+		addTo(component, Slot.startContent);
+	}
+
+	public void addToMid(Component component) {
+		add(component);
+	}
+
+	public void addToEnd(Component component) {
+		addTo(component, Slot.endContent);
+	}
+
+	public void setDesign(BarDesign design) {
+		this.getElement().setProperty("design", design.toString());
+	}
+
+	public enum BarDesign {
+		Header,
+		Subheader,
+		Footer,
+		FloatingFooter
+	}
+
+	public enum Slot {
+		startContent,
+		middleContent,
+		endContent
 	}
 
 }

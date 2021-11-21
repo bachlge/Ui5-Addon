@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-badge")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.0-rc.11")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
 @JsModule("@ui5/webcomponents/dist/Badge.js")
 public class Ui5Badge extends Component implements HasComponents {
 
@@ -24,13 +24,14 @@ public class Ui5Badge extends Component implements HasComponents {
 
 	public Ui5Badge() {
 		LOGGER.info("constructor ...");
-		this.getElement().setProperty("colorScheme", "7");
+//		this.getElement().setProperty("colorScheme", "7");
 //		this.getElement().setProperty("icon", "sap-ui5");
 	}
 
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
+		setColor(ColorScheme.C7); // default Color
 	}
 
 	public void setColor(ColorScheme color) {
