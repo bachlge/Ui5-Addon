@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-avatar-group")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/AvatarGroup.js")
 public class Ui5AvatarGroup extends Component implements HasComponents {
 
@@ -30,5 +30,11 @@ public class Ui5AvatarGroup extends Component implements HasComponents {
 	private void init() {
 		LOGGER.info("init ...");
 	}
+
+	public void setType(AvatarTypeGroup type) {
+		this.getElement().setProperty("type", type.toString());
+	}
+
+	public enum AvatarTypeGroup { Group, Individual }
 
 }

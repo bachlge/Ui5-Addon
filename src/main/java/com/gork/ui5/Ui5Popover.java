@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/Popover/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -13,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-popover")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/Popover.js")
 public class Ui5Popover extends Component implements HasComponents {
 

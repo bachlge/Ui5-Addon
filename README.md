@@ -28,22 +28,20 @@ see ui5-addon-demo how the components are used.
 
 ## Components and their features
 
----
-| Component 				| HasComponents	| Binding		| Event			|<br>
-| --- 					| ---	 		| ---	 		| --- 			|<br>
-| Ui5Avatar				| no				| no				|				|<br>
-| Ui5AvatarGroup			| yes			| no				|				|<br>
-| Ui5Badge				| yes			| no				| 				|<br>
-| Ui5Bar					| yes			| no				| 				|<br>
-| Ui5Button				| no				| no				| click			|<br>
-| Ui5Input				| no				| yes:String		| change			|<br>
-| Ui5Label				| no				| no				| click			|<br>
-| Ui5RadioButton			| no				| no				| select			|<br>
-| Ui5AvatarGroup			| yes			| no				|				|<br>
-| Ui5RatingIndicator		| no				| yes: Integer	| change			|<br>
-| Ui5Timeline			| no				| no				|				|<br>
+Component 				| HasComponents	| Binding		| Event				|<br>
+Ui5Avatar				| no				| no				|					|<br>
+| Ui5AvatarGroup			| yes			| no				|					|<br>
+| Ui5Badge				| yes			| no				| 					|<br>
+| Ui5Bar					| yes			| no				| 					|<br>
+| Ui5Button				| no				| no				| click				|<br>
+| Ui5Input				| no				| yes:String		| change				|<br>
+| Ui5Label				| no				| no				| click				|<br>
+| Ui5RadioButton			| no				| no				| select				|<br>
+| Ui5AvatarGroup			| yes			| no				|					|<br>
+| Ui5RatingIndicator		| no				| yes: Integer	| change				|<br>
+| Ui5Timeline			| no				| no				|					|<br>
 | Ui5TimelineItem		| no				| no				| item-name-click	|<br>
-| Ui5ToggleButton		| no				| yes: Boolean	| click			|<br>
+| Ui5ToggleButton		| no				| yes: Boolean	| click				|<br>
 ---
 
 Binding ... means that the component is extending AbstractSinglePropertyField

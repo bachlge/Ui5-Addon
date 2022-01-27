@@ -18,11 +18,11 @@ import com.vaadin.flow.component.notification.Notification;
 @Tag("ui5-color-palette")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/ColorPalette.js")
-public class Ui5ColorPalette extends Component implements HasComponents {
+public class Ui5ColorPalettePopover extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ColorPalette.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ColorPalettePopover.class);
 
-	public Ui5ColorPalette() {
+	public Ui5ColorPalettePopover() {
 		LOGGER.info("constructor ...");
 	}
 
@@ -31,10 +31,29 @@ public class Ui5ColorPalette extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	@DomEvent("item-click")
-	public static class ItemClickEvent extends ComponentEvent<Ui5ColorPalette> {
+	public void setDefaultColor(String color) {
+		this.getElement().setProperty("defaultColor", color);
+	}
 
-		public ItemClickEvent(Ui5ColorPalette source, boolean fromClient) {
+	public void setShowDefaultColor(Boolean value) {
+		this.getElement().setProperty("showDefaultColor", value);
+	}
+
+
+	public void setShowMoreColors(Boolean value) {
+		this.getElement().setProperty("showMoreColors", value);
+	}
+
+
+	public void setShowRecentColors(Boolean value) {
+		this.getElement().setProperty("showRecentColors", value);
+	}
+
+
+	@DomEvent("item-click")
+	public static class ItemClickEvent extends ComponentEvent<Ui5ColorPalettePopover> {
+
+		public ItemClickEvent(Ui5ColorPalettePopover source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("ItemClickEvent ...");
 			Notification.show("clicked on button " + source.getElement().getProperty("color"));

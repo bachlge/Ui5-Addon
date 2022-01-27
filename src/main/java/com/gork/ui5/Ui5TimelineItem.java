@@ -1,4 +1,6 @@
 /**
+ * https://sap.github.io/ui5-webcomponents/playground/components/Timeline/
+ * 
  * Java implementation of SAP's UI5 TimeLineItem web component
  * 
  * javascript-event handled as described here:
@@ -24,8 +26,8 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timeline-item")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.1")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.1.2")
 @JsModule("@ui5/webcomponents-fiori/dist/TimelineItem.js")
 @JsModule("@ui5/webcomponents-icons/dist/calendar.js")
 public class Ui5TimelineItem extends Component implements HasComponents {

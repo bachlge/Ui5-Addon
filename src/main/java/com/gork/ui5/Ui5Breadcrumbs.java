@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-breadcrumbs")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/Breadcrumbs.js")
 public class Ui5Breadcrumbs extends Component implements HasComponents {
 
@@ -31,15 +31,25 @@ public class Ui5Breadcrumbs extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	/**
+	 * Defines the visual indication and behavior of the breadcrumbs.
+	 * Default: Standard
+	 * @param design
+	 */
 	public void setDesign(BreadcrumbsDesign design) {
 		this.getElement().setProperty("design", design.toString());
 	}
 
+	public enum BreadcrumbsDesign { Standard, NoCurrentPage }
+
+	/**
+	 * Determines the visual style of the separator between the breadcrumb items.
+	 * Default: Slash
+	 * @param separatorStyle
+	 */
 	public void setSeparatorStyle(BreadcrumbsSeparatorStyle separatorStyle) {
 		this.getElement().setProperty("separatorStyle", separatorStyle.toString());
 	}
-
-	public enum BreadcrumbsDesign { Standard, NoCurrentPage }
 
 	public enum BreadcrumbsSeparatorStyle { Slash, BackSlash, DoubleBackSlash, DoubleGreaterThan, DoubleSlash, GreaterThan }
 

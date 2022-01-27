@@ -1,5 +1,10 @@
 /**
  * https://sap.github.io/ui5-webcomponents/playground/components/Input/
+ * 
+ * + Label (implements HasLabel)
+ * + Data binding
+ * + Value Change Event
+ * 
  */
 package com.gork.ui5;
 
@@ -19,7 +24,7 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/Input.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
@@ -31,6 +36,12 @@ public class Ui5Input extends AbstractSinglePropertyField<Ui5Input, String> impl
 		super("value", "", false);
 		LOGGER.info("constructor ...");
 		addListener(ValueChangeEvent.class, null);
+	}
+
+	// For the name property to have effect, you must add the following import to your project:
+	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
+	public void setName(String value) {
+		this.getElement().setProperty("name", value);
 	}
 
 	public void setPlaceholder(String value) {

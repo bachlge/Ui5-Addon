@@ -1,5 +1,6 @@
-package com.gork.ui5;
 /**
+ * https://sap.github.io/ui5-webcomponents/playground/components/Timeline/
+ * 
  * How to use:
  * 
  * import com.gork.ui5.Ui5Timeline;
@@ -15,6 +16,7 @@ package com.gork.ui5;
  * getContent().add(ui5Timeline);
  * 
  */
+package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
 
@@ -29,7 +31,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timeline")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.1.2")
 @JsModule("@ui5/webcomponents-fiori/dist/Timeline.js")
 public class Ui5Timeline extends Component implements HasComponents {
 
@@ -43,5 +45,16 @@ public class Ui5Timeline extends Component implements HasComponents {
 	private void init() {
 		LOGGER.info("init ...");
 	}
+
+	public void setLayout(TimelineLayout layout) {
+		this.getElement().setProperty("layout", layout.toString());
+	}
+
+	/**
+	 * 
+	 * Default: Vertical
+	 *
+	 */
+	public enum TimelineLayout { Vertical, Horizontal }
 
 }

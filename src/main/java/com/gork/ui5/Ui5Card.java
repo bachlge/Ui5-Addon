@@ -16,8 +16,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-card")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/Card.js")
 //@JsModule("@ui5/webcomponents-icons/dist/example.js")
 //@JsModule("@ui5/webcomponents-icons/dist/folder-blank.js")
@@ -29,7 +29,8 @@ public class Ui5Card extends Component implements HasComponents {
 
 	public Ui5Card() {
 		LOGGER.info("constructor ...");
-		setIcon("example"); // default icon
+//		setIcon("example"); // default icon
+		header.setSlot("header");
 		add(header);
 	}
 
@@ -38,6 +39,18 @@ public class Ui5Card extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
+	}
+
+	public void setAccessibleNameRef(String accessibleNameRef) {
+		this.getElement().setProperty("accessibleNameRef", accessibleNameRef);
+	}
+
+	/**
+	 * Convenience Method: Set Header Icon
+	 * @param icon
+	 */
 	public void setIcon(String icon) {
 /*
 		Ui5Icon ui5Icon = new Ui5Icon();
@@ -52,16 +65,28 @@ public class Ui5Card extends Component implements HasComponents {
 		header.setIcon(icon);
 	}
 
+	/**
+	 * Convenience Method: Set Header Title
+	 * @param title
+	 */
 	public void setTitle(String title) {
 //		this.getElement().setProperty("titleText", title);
-		header.setTitle(title);
+		header.setTitleText(title);
 	}
 
+	/**
+	 * Convenience Method: Set Header SubtTitle
+	 * @param sub-title
+	 */
 	public void setSubTitle(String title) {
 //		this.getElement().setProperty("subtitleText", title);
-		header.setSubTitle(title);
+		header.setSubTitleText(title);
 	}
 
+	/**
+	 * Convenience Method: Set Header Statut
+	 * @param statut
+	 */
 	public void setStatus(String status) {
 //		this.getElement().setProperty("status", status);
 		header.setStatus(status);

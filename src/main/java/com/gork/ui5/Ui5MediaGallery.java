@@ -12,14 +12,14 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-table-row")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
-@JsModule("@ui5/webcomponents/dist/TableRow.js")
-public class Ui5TableRow extends Component implements HasComponents {
+@Tag("ui5-media-gallery")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.1.2")
+@JsModule("@ui5/webcomponents-fiori/dist/MediaGallery.js")
+public class Ui5MediaGallery extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TableRow.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5MediaGallery.class);
 
-	public Ui5TableRow() {
+	public Ui5MediaGallery() {
 		LOGGER.info("constructor ...");
 		this.getElement().setProperty("slot", "default");
 	}
@@ -28,5 +28,9 @@ public class Ui5TableRow extends Component implements HasComponents {
 	private void init() {
 		LOGGER.info("init ...");
 	}
+
+	public enum MediaGalleryLayout { Auto, Vertical, Horizontal }
+	public enum MediaGalleryMenuHorizontalAlign { Left, Right }
+	public enum MediaGalleryMenuVerticalAlign { Top, Bottom }
 
 }

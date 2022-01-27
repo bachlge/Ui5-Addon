@@ -1,5 +1,10 @@
 /**
  * https://sap.github.io/ui5-webcomponents/playground/components/Slider/
+ * 
+ * + Label (implements HasLabel)
+ * + Data binding
+ * + Change Event
+ * 
  */
 package com.gork.ui5;
 
@@ -11,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
@@ -18,9 +24,10 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-slider")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/Slider.js")
-public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> {
+@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js") // for `name`-property to have effect
+public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> implements HasLabel {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Slider.class);
 
@@ -33,6 +40,12 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> {
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
+	}
+
+	// For the name property to have effect, you must add the following import to your project:
+	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
+	public void setName(String value) {
+		this.getElement().setProperty("name", value);
 	}
 
 	public void setShowTooltip(Boolean value) {

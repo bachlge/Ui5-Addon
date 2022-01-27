@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-label")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/Label.js")
 public class Ui5Label extends Component implements HasComponents {
 
@@ -43,13 +43,30 @@ public class Ui5Label extends Component implements HasComponents {
 		this.getElement().setProperty("showColon", value);
 	}
 
-	public void setWrap(boolean value) {
-		this.getElement().setProperty("wrap", value);
+	public void setWrappingType(WrappingType value) {
+		this.getElement().setProperty("wrapping-type", value.toString());
+	}
+
+	// Convenience
+	public void setWrap(boolean wrap) {
+		if (wrap) {
+			setWrappingType(WrappingType.Normal);
+		} else {
+			setWrappingType(WrappingType.None);
+		}
 	}
 
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
 	}
+
+	/**
+	 * Defines how the text of a component will be displayed when there is not enough space.
+	 * Available options are:
+	 * 		None - The text will be truncated with an ellipsis.
+	 * 		Normal - The text will wrap. The words will not be broken based on hyphenation.
+	 */
+	public enum WrappingType { None, Normal }
 
 }

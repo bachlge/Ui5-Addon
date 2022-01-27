@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/ComboBox/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -12,21 +15,24 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-table-row")
+@Tag("ui5-combobox-group-item")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
-@JsModule("@ui5/webcomponents/dist/TableRow.js")
-public class Ui5TableRow extends Component implements HasComponents {
+@JsModule("@ui5/webcomponents/dist/ComboBox.js")
+public class Ui5ComboBoxGroupItem extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TableRow.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ComboBoxGroupItem.class);
 
-	public Ui5TableRow() {
+	public Ui5ComboBoxGroupItem() {
 		LOGGER.info("constructor ...");
-		this.getElement().setProperty("slot", "default");
 	}
 
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
+	}
+
+	public void setText(String text) {
+		this.getElement().setProperty("text", text);
 	}
 
 }

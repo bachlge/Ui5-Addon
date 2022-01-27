@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-color-palette-item")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/ColorPaletteItem.js")
 public class Ui5ColorPaletteItem extends Component implements HasComponents {
 
@@ -34,18 +34,10 @@ public class Ui5ColorPaletteItem extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	/**
-	 * The selected color
-	 */
 	public void getValue() {
 		this.getElement().getProperty("value");
 	}
 
-	/**
-	 * The selected color
-	 * 
-	 * @param value
-	 */
 	public void setValue(String value) {
 		this.getElement().setProperty("value", value);
 	}

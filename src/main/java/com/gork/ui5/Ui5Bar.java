@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-bar")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.1.2")
 @JsModule("@ui5/webcomponents-fiori/dist/Bar.js")
 public class Ui5Bar extends Component implements HasComponents {
 
@@ -31,23 +31,11 @@ public class Ui5Bar extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	public void addTo(Component component, Slot slot) {
-		component.getElement().setAttribute("slot", slot.toString());
-		this.add(component);
-	}
-
-	public void addToStart(Component component) {
-		addTo(component, Slot.startContent);
-	}
-
-	public void addToMid(Component component) {
-		add(component);
-	}
-
-	public void addToEnd(Component component) {
-		addTo(component, Slot.endContent);
-	}
-
+	/**
+	 * Defines the ui5-bar design.
+	 * Default: Header
+	 * @param design
+	 */
 	public void setDesign(BarDesign design) {
 		this.getElement().setProperty("design", design.toString());
 	}
@@ -57,6 +45,44 @@ public class Ui5Bar extends Component implements HasComponents {
 		Subheader,
 		Footer,
 		FloatingFooter
+	}
+
+	/**
+	 * Convenience Method
+	 * use to add a component to the desired slot
+	 * @param component
+	 * @param slot
+	 */
+	public void addTo(Component component, Slot slot) {
+		component.getElement().setAttribute("slot", slot.toString());
+		if (slot.equals(Slot.middleContent)) {
+			component.getElement().setAttribute("slot", "default");
+		}
+		this.add(component);
+	}
+
+	/**
+	 * Convenience Method
+	 * use to add a component to the `startContent` slot
+	 */
+	public void addToStart(Component component) {
+		addTo(component, Slot.startContent);
+	}
+
+	/**
+	 * Convenience Method
+	 * use to add a component to the `default` slot (which is the "middleContent")
+	 */
+	public void addToMid(Component component) {
+		addTo(component, Slot.middleContent);
+	}
+
+	/**
+	 * Convenience Method
+	 * use to add a component to the `endContent` slot
+	 */
+	public void addToEnd(Component component) {
+		addTo(component, Slot.endContent);
 	}
 
 	public enum Slot {

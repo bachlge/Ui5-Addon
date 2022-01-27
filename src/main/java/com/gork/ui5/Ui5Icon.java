@@ -17,10 +17,12 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-icon")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.0.1")
-@NpmPackage(value = "@ui5/webcomponents-icons-tnt", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents-icons-tnt", version = "^1.1.2")
+
 @JsModule("@ui5/webcomponents/dist/Icon.js")
+@JsModule("@ui5/webcomponents-icons/dist/Allicons.js")
 
 @JsModule("@ui5/webcomponents-icons/dist/home.js")
 @JsModule("@ui5/webcomponents-icons/dist/employee.js")
@@ -30,6 +32,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @JsModule("@ui5/webcomponents-icons/dist/value-help.js")
 
 @JsModule("@ui5/webcomponents-icons-tnt/dist/antenna.js")
+
+
 public class Ui5Icon extends Component {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Icon.class);
@@ -37,6 +41,11 @@ public class Ui5Icon extends Component {
 	public Ui5Icon() {
 		LOGGER.info("constructor ...");
 		this.getElement().setProperty("name", "employee"); // default icon
+	}
+
+	public Ui5Icon(String name) {
+		LOGGER.info("constructor(name) ...");
+		setIcon(name);
 	}
 
 	@PostConstruct
@@ -50,6 +59,16 @@ public class Ui5Icon extends Component {
 
 	public void setBig() {
 		this.getElement().setProperty("style", "width:3rem;height:3rem;font-size:1.5rem;color:crimson;background-color:#fafafa");
+	}
+
+	/**
+	 * Convenience Method
+	 * Ui5Badge for example wants the Icon to be put in slot `icon`
+	 * therefore will apply this method
+	 * @param slot
+	 */
+	public void setSlot(String slot) {
+		this.getElement().setProperty("slot", slot);
 	}
 
 }

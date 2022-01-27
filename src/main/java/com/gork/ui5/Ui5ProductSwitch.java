@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-product-switch")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.1.2")
 @JsModule("@ui5/webcomponents-fiori/dist/ProductSwitch.js")
 public class Ui5ProductSwitch extends Component implements HasComponents {
 

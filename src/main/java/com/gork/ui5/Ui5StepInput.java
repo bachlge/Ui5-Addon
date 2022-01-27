@@ -1,5 +1,10 @@
 /**
  * https://sap.github.io/ui5-webcomponents/playground/components/Input/
+ * 
+ * + Label (implements HasLabel)
+ * + Data binding
+ * + Value Change Event
+
  */
 package com.gork.ui5;
 
@@ -11,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
@@ -18,21 +24,21 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-step-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/StepInput.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js") // for `name`-property to have effect
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
-public class Ui5StepInput extends AbstractSinglePropertyField<Ui5StepInput, Integer> {
+public class Ui5StepInput extends AbstractSinglePropertyField<Ui5StepInput, Integer> implements HasLabel {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5StepInput.class);
 
+	// default value: 0
 	public Ui5StepInput() {
 		super("value", 0, false);
 		LOGGER.info("constructor ...");
 		addListener(ValueChangeEvent.class, null);
 }
 
-	// default: 0
 	public void setValue(String value) {
 		this.getElement().setProperty("value", value);
 	}

@@ -1,5 +1,10 @@
 /**
  * https://sap.github.io/ui5-webcomponents/playground/components/MultiInput/
+ * 
+ * + Label (implements HasLabel)
+ * + Data binding
+ * + Change Event
+ * 
  */
 package com.gork.ui5;
 
@@ -10,23 +15,30 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
+import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/MultiInput.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
-public class Ui5MultiInput extends Component implements HasComponents {
+public class Ui5MultiInput extends Component implements HasLabel, HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5MultiInput.class);
 
 	public Ui5MultiInput() {
 		LOGGER.info("constructor ...");
 		this.getElement().setProperty("slot", "tokens");
+	}
+
+	// For the name property to have effect, you must add the following import to your project:
+	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
+	public void setName(String value) {
+		this.getElement().setProperty("name", value);
 	}
 
 	public void setShowValueHelpIcon(Boolean value) {

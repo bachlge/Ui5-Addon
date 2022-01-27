@@ -14,7 +14,7 @@
  * 		A component to be used as custom list item within the ui5-list the same way as the standard ui5-li.
  * 		The component accepts arbitrary HTML content to allow full customization.
  * 
- * 	- ui5-li-groupheader
+ * 	- ui5-li-groupheade
  * 		The ui5-li-groupheader is a special list item, used only to separate other list items into logical groups.
  * 
  */
@@ -32,14 +32,14 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-li-groupheader")
+@Tag("ui5-li-notification")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
-@JsModule("@ui5/webcomponents/dist/GroupHeaderListItem.js")
-public class Ui5ListGroupHeader extends Component implements HasComponents {
+@JsModule("@ui5/webcomponents-fiori/dist/NotificationListItem.js")
+public class Ui5ListNotificationGroupItem extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ListGroupHeader.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ListNotificationGroupItem.class);
 
-	public Ui5ListGroupHeader() {
+	public Ui5ListNotificationGroupItem() {
 		LOGGER.info("constructor ...");
 	}
 
@@ -47,5 +47,43 @@ public class Ui5ListGroupHeader extends Component implements HasComponents {
 	private void init() {
 		LOGGER.info("init ...");
 	}
+
+	public void setTitleText(String titleText) {
+		this.getElement().setProperty("titleText", titleText);
+	}
+
+	public void setRead(Boolean read) {
+		this.getElement().setProperty("read", read);
+	}
+
+	public void setSlot(String slot) {
+		this.getElement().setProperty("slot", slot);
+	}
+
+	public void setIcon(String value) {
+		this.getElement().setProperty("icon", value);
+	}
+
+	public void setDescription(String value) {
+		this.getElement().setProperty("description", value);
+	}
+
+	public void setInfo(String value) {
+		this.getElement().setProperty("info", value);
+	}
+
+	public void setWrappingType(WrappingType wrappingType) {
+		this.getElement().setProperty("wrappingType", wrappingType.name());
+	}
+
+	public void setPriority(Priority priority) {
+		this.getElement().setProperty("priority", priority.name());
+	}
+
+	public enum ButtonDesign { Default, Emphasized, Positive, Negative, Transparent, Attention }
+
+	public enum Priority { None, Low, Medium, High }
+
+	public enum WrappingType { None }
 
 }

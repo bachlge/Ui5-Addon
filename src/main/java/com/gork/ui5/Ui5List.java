@@ -1,3 +1,25 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/List/
+ * 
+ * The ui5-list component allows displaying a list of items,
+ * advanced keyboard handling support for navigating between items,
+ * and predefined modes to improve the development efficiency.
+ * 
+ * The ui5-list is a container for the available list items:
+ * 	- ui5-li
+ * 		The ui5-li represents the simplest type of item for a ui5-list.
+ * 		This is a list item, providing the most common use cases such as text, image and icon.
+ * 
+ * 	- ui5-li-custom
+ * 		A component to be used as custom list item within the ui5-list the same way as the standard ui5-li.
+ * 		The component accepts arbitrary HTML content to allow full customization.
+ * 
+ * 	- ui5-li-groupheader
+ * 		The ui5-li-groupheader is a special list item, used only to separate other list items into logical groups.
+ * 
+ * 	- ui5-li-groupheader
+ * 
+ */
 package com.gork.ui5;
 
 import java.util.Arrays;
@@ -22,7 +44,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-list")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/List.js")
 public class Ui5List extends Component implements HasComponents {
 
@@ -38,17 +60,43 @@ public class Ui5List extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
+	}
 
-	public void setHeader(String header) {
+	public void setAccessibleNameRef(String accessibleNameRef) {
+		this.getElement().setProperty("accessibleNameRef", accessibleNameRef);
+	}
+
+	public void setAccessibleRole(String accessibleRole) {
+		this.getElement().setProperty("accessibleRole", accessibleRole);
+	}
+
+	public void setBusy(boolean value) {
+		this.getElement().setProperty("busy", value);
+	}
+
+	public void setHeaderText(String header) {
 		this.getElement().setProperty("headerText", header);
 	}
 
-	public void setFooter(String footer) {
+	public void setFooterText(String footer) {
 		this.getElement().setProperty("footerText", footer);
 	}
 
+	/**
+	 * Convenience Method
+	 * @return
+	 */
 	public int getNumItems() {
 		return this.getElement().getChildCount();
+	}
+
+	/**
+	 * Convenience Method
+	 */
+	public void clear() {
+		this.getElement().removeAllChildren();
 	}
 
 	// Defines the text that is displayed when the ui5-list contains no items.
@@ -59,14 +107,14 @@ public class Ui5List extends Component implements HasComponents {
 	}
 
 	// Determines whether the list items are indented.
-	// Default value (implemented by SAP) is false
-	public void setInset(boolean value) {
-		this.getElement().setProperty("inset", value);
+	// Default: false
+	public void setIndent(boolean value) {
+		this.getElement().setProperty("indent", value);
 	}
 
 	// Defines if the component would fire the load-more event when the user scrolls to the bottom of the list,
 	// and helps achieving an "infinite scroll" effect by adding new items each time.
-	// Default value (implemented by SAP) is false
+	// Default: false
 	public void setInfiniteScroll(boolean value) {
 		this.getElement().setProperty("infiniteScroll", value);
 	}

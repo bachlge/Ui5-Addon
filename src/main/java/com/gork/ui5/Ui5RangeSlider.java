@@ -8,21 +8,18 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.HasValue;
-import com.vaadin.flow.component.HasValue.ValueChangeEvent;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.customfield.CustomField;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
-import com.vaadin.flow.data.value.HasValueChangeMode;
-import com.vaadin.flow.data.value.ValueChangeMode;
 
 @SuppressWarnings("serial")
 @Tag("ui5-range-slider")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/RangeSlider.js")
-public class Ui5RangeSlider extends CustomField implements HasValue.ValueChangeListener {
+public class Ui5RangeSlider extends CustomField implements HasLabel, HasValue.ValueChangeListener {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5RangeSlider.class);
 

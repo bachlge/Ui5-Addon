@@ -12,7 +12,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-radiobutton")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.0.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/RadioButton.js")
 public class Ui5RadioButton extends Component {
 
@@ -59,6 +59,6 @@ public class Ui5RadioButton extends Component {
 		this.getElement().setProperty("selected", selected);
 	}
 
-	public enum ValueState { None, Warning, Error }
+	public enum ValueState { None, Warning, Error, Success }
 
 }

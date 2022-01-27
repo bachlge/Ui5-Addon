@@ -5,6 +5,7 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.gork.ui5.Ui5Button.ButtonDesign;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.DomEvent;
@@ -15,19 +16,19 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
-@Tag("ui5-button")
+@Tag("ui5-split-button")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
-@JsModule("@ui5/webcomponents/dist/Button.js")
-public class Ui5Button extends Component implements HasComponents {
+@JsModule("@ui5/webcomponents/dist/SplitButton.js")
+public class Ui5SplitButton extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Button.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5SplitButton.class);
 
-	public Ui5Button() {
+	public Ui5SplitButton() {
 		LOGGER.info("constructor ...");
 		addListener(ClickEvent.class, null);
 	}
 
-	public Ui5Button(String text) {
+	public Ui5SplitButton(String text) {
 		LOGGER.info("constructor(String text) ...");
 		add(text);
 	}
@@ -41,11 +42,17 @@ public class Ui5Button extends Component implements HasComponents {
 		this.getElement().setProperty("accessibleName", accessibleName);
 	}
 
+	public void setActiveIcon(String icon) {
+		this.getElement().setProperty("activeIcon", icon);
+	}
+
+	/**
+	 * Re-Use BottonDesign from Ui5Button
+	 * @param design
+	 */
 	public void setDesign(ButtonDesign design) {
 		this.getElement().setProperty("design", design.toString());
 	}
-
-	public enum ButtonDesign { Default, Emphasized, Positive, Negative, Transparent, Attention }
 
 	/**
 	 * Defines whether the component is disabled.
@@ -61,28 +68,10 @@ public class Ui5Button extends Component implements HasComponents {
 		this.getElement().setProperty("icon", icon);
 	}
 
-	/**
-	 * Defines whether the icon should be displayed after the component text.
-	 * default: false
-	 * @param iconEnd
-	 */
-	public void setIconEnd(Boolean iconEnd) {
-		this.getElement().setProperty("iconEnd", iconEnd);
-	}
-
-	/**
-	 * When set to true, the component will automatically submit the nearest form element upon press.
-	 * default: false
-	 * @param value
-	 */
-	public void setSubmits(Boolean value) {
-		this.getElement().setProperty("submits", value);
-	}
-
 	@DomEvent("click")
-	public static class ClickEvent extends ComponentEvent<Ui5Button> {
+	public static class ClickEvent extends ComponentEvent<Ui5SplitButton> {
 
-		public ClickEvent(Ui5Button source, boolean fromClient) {
+		public ClickEvent(Ui5SplitButton source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("ClickEvent ...");
 			Notification.show("clicked on button " + source.getElement().getProperty("text"));
