@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/Input/
+ * https://sap.github.io/ui5-webcomponents/playground/components/StepInput/
  * 
  * + Label (implements HasLabel)
  * + Data binding
@@ -15,19 +15,20 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-step-input")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/StepInput.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js") // for `name`-property to have effect
-@JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
 public class Ui5StepInput extends AbstractSinglePropertyField<Ui5StepInput, Integer> implements HasLabel {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5StepInput.class);
@@ -37,10 +38,27 @@ public class Ui5StepInput extends AbstractSinglePropertyField<Ui5StepInput, Inte
 		super("value", 0, false);
 		LOGGER.info("constructor ...");
 		addListener(ValueChangeEvent.class, null);
-}
+	}
 
-	public void setValue(String value) {
-		this.getElement().setProperty("value", value);
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
+	}
+
+	public void setAccessibleNameRef(String accessibleNameRef) {
+		this.getElement().setProperty("accessibleNameRef", accessibleNameRef);
+	}
+
+	// default: false
+	public void setDisabled(Boolean value) {
+		this.getElement().setProperty("disabled", value);
+	}
+
+	public void setMin(String value) {
+		this.getElement().setProperty("min", value);
+	}
+
+	public void setMax(String value) {
+		this.getElement().setProperty("max", value);
 	}
 
 	// For the name property to have effect, you must add the following import to your project:
@@ -53,12 +71,9 @@ public class Ui5StepInput extends AbstractSinglePropertyField<Ui5StepInput, Inte
 		this.getElement().setProperty("placeholder", value);
 	}
 
-	public void setMin(String value) {
-		this.getElement().setProperty("min", value);
-	}
-
-	public void setMax(String value) {
-		this.getElement().setProperty("max", value);
+	// default: false
+	public void setReadonly(Boolean value) {
+		this.getElement().setProperty("readonly", value);
 	}
 
 	// default: false
@@ -66,19 +81,12 @@ public class Ui5StepInput extends AbstractSinglePropertyField<Ui5StepInput, Inte
 		this.getElement().setProperty("required", value);
 	}
 
-	// default: false
-	public void setReadonly(Boolean value) {
-		this.getElement().setProperty("readonly", value);
-	}
-
-	// default: false
-	public void setDisabled(Boolean value) {
-		this.getElement().setProperty("disabled", value);
-	}
-
-	// default: 1
 	public void setStep(String value) {
 		this.getElement().setProperty("step", value);
+	}
+
+	public void setValue(String value) {
+		this.getElement().setProperty("value", value);
 	}
 
 	// number of digits after the decimal point 
@@ -91,12 +99,13 @@ public class Ui5StepInput extends AbstractSinglePropertyField<Ui5StepInput, Inte
 		this.getElement().setProperty("valueState", value.toString());
 	}
 
+	public enum ValueState { None, Error, Warning, Success, Information }
+
+
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
 	}
-
-	public enum ValueState { None, Error, Warning, Success, Information }
 
 	@DomEvent("change")
 	public static class ValueChangeEvent extends ComponentEvent<Ui5StepInput> {
@@ -106,8 +115,10 @@ public class Ui5StepInput extends AbstractSinglePropertyField<Ui5StepInput, Inte
 			LOGGER.info("value changed to " + source.getElement().getProperty("valiue"));
 			Notification.show("value changed to " + source.getElement().getProperty("value"));
 		}
-		
 	}
 
+	public Registration addChangeListener(ComponentEventListener<ValueChangeEvent> listener) {
+		return addListener(ValueChangeEvent.class, listener);
+	}
 
 }

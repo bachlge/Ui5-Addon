@@ -15,12 +15,14 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-switch")
@@ -34,9 +36,9 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 	public Ui5Switch() {
 		super("value", false, false);
 		LOGGER.info("constructor ...");
-		this.getElement().setProperty("textOn", "Yes");
-		this.getElement().setProperty("textOff", "No");
-		addListener(ValueChangeEvent.class, null);
+		setTextOn("Yes");
+		setTextOff("No");
+		addListener(ChangeEvent.class, null);
 	}
 
 	@PostConstruct
@@ -44,14 +46,44 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 		LOGGER.info("init ...");
 	}
 
+	public void setAccessibleNameRef(String accessibleNameRef) {
+		this.getElement().setProperty("accessibleNameRef", accessibleNameRef);
+	}
+
+	public boolean getChecked() {
+		return Boolean.getBoolean(getElement().getProperty("checked"));
+	}
+
+	public void setChecked(boolean value) {
+		this.getElement().setProperty("checked", value);
+	}
+
+	/**
+	 * Default: Textual
+	 * @param value
+	 */
+	public void setDesign(SwitchDesign value) {
+		this.getElement().setProperty("design", value.toString());
+	}
+
+	public enum SwitchDesign { Textual, Graphical }
+
+	public void setDisabled(boolean value) {
+		this.getElement().setProperty("disabled", value);
+	}
+
+	public void setTextOff(String value) {
+		this.getElement().setProperty("textOff", value);
+	}
+
+	public void setTextOn(String value) {
+		this.getElement().setProperty("textOn", value);
+	}
+
 	// For the name property to have effect, you must add the following import to your project:
 	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 	public void setName(String value) {
 		this.getElement().setProperty("name", value);
-	}
-
-	public void setDesign(SwitchDesign value) {
-		this.getElement().setProperty("design", value.toString());
 	}
 
 	// Convenience
@@ -63,25 +95,18 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 		}
 	}
 
-	public boolean getChecked() {
-		return Boolean.getBoolean(getElement().getProperty("checked"));
-	}
-
-	public void setChecked(Boolean checked) {
-		this.getElement().setProperty("checked", checked);
-	}
-
 	@DomEvent("change")
-	public static class ValueChangeEvent extends ComponentEvent<Ui5Switch> {
+	public static class ChangeEvent extends ComponentEvent<Ui5Switch> {
 
-		public ValueChangeEvent(Ui5Switch source, boolean fromClient) {
+		public ChangeEvent(Ui5Switch source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("value changed to " + source.getElement().getProperty("checked"));
 			Notification.show("value changed to " + source.getElement().getProperty("checked"));
 		}
-		
-	}
+			}
 
-	public enum SwitchDesign { Textual, Graphical }
+	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
+		return addListener(ChangeEvent.class, listener);
+	}
 
 }

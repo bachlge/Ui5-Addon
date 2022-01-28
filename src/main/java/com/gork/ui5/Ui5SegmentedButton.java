@@ -1,28 +1,6 @@
 /**
-
-	Vaadin Java Component for SAP UI5 SegmentedButton webcomponent 
-
-	see:
-		https://sap.github.io/ui5-webcomponents/playground/components/SegmentedButton/
-
-	overview:
-		The ui5-segmentedbutton shows a group of buttons.
-		When the user clicks or taps one of the buttons, it stays in a pressed state.
-		It automatically resizes the buttons to fit proportionally within the component.
-		When no width is set, the component uses the available width.
-
-		Note: There can be just one selected button at a time.
-
-	use:
-		Ui5SegmentedButton ui5SegmentedButtonRating = new Ui5SegmentedButton();
-
-		Ui5ToggleButton ui5ToggleButton_0 = new Ui5ToggleButton();
-		ui5ToggleButton_0.add("0");
-
-		Ui5ToggleButton ui5ToggleButton_1 = new Ui5ToggleButton();
-		ui5ToggleButton_1.add("1");
-
-		getContent().add(ui5SegmentedButtonRating);
+ * https://sap.github.io/ui5-webcomponents/playground/components/SegmentedButton/
+ * 
  */
 package com.gork.ui5;
 
@@ -33,12 +11,14 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-segmentedbutton")
@@ -50,7 +30,7 @@ public class Ui5SegmentedButton extends Component implements HasComponents {
 
 	public Ui5SegmentedButton() {
 		LOGGER.info("constructor ...");
-		addListener(ValueChangeEvent.class, null);
+		addListener(SelectionChangeEvent.class, null);
 	}
 
 	@PostConstruct
@@ -58,15 +38,22 @@ public class Ui5SegmentedButton extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	@DomEvent("selection-change")
-	public static class ValueChangeEvent extends ComponentEvent<Ui5SegmentedButton> {
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
+	}
 
-		public ValueChangeEvent(Ui5SegmentedButton source, boolean fromClient) {
+	@DomEvent("selection-change")
+	public static class SelectionChangeEvent extends ComponentEvent<Ui5SegmentedButton> {
+
+		public SelectionChangeEvent(Ui5SegmentedButton source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("value changed to " + source.getElement().getProperty("checked"));
 			Notification.show("value changed to " + source.getElement().getProperty("checked"));
 		}
-		
+	}
+
+	public Registration addChangeListener(ComponentEventListener<SelectionChangeEvent> listener) {
+		return addListener(SelectionChangeEvent.class, listener);
 	}
 
 

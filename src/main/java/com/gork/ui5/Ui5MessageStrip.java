@@ -31,6 +31,12 @@ public class Ui5MessageStrip extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	public void setDesign(MessageStripDesign design) {
+		this.getElement().setProperty("design", design.toString());
+	}
+
+	public enum MessageStripDesign { Information, Positive, Negative, Warning }
+
 	public void setHideCloseButton(Boolean iconEnd) {
 		this.getElement().setProperty("hideCloseButton", iconEnd);
 	}
@@ -39,14 +45,12 @@ public class Ui5MessageStrip extends Component implements HasComponents {
 		this.getElement().setProperty("hideIcon", iconEnd);
 	}
 
-	public void setIcon(String icon) {
-		this.getElement().setProperty("icon", icon);
+	/**
+	 * Slots: default, icon
+	 * @param slot
+	 */
+	public void setSlot(String slot) {
+		this.getElement().setProperty("slot", slot);
 	}
-
-	public void setDesign(MessageStripDesign design) {
-		this.getElement().setProperty("design", design.toString());
-	}
-
-	public enum MessageStripDesign { Information, Positive, Negative, Warning }
 
 }

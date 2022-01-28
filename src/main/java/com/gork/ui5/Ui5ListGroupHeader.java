@@ -48,4 +48,16 @@ public class Ui5ListGroupHeader extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
+	}
+
+	public void setSelected(Boolean value) {
+		this.getElement().setProperty("selected", value);
+	}
+
+	public void setSlot(String slot) {
+		this.getElement().setProperty("slot", slot);
+	}
+
 }

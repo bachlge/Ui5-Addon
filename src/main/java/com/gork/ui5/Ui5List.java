@@ -52,12 +52,12 @@ public class Ui5List extends Component implements HasComponents {
 
 	public Ui5List() {
 		LOGGER.info("constructor ...");
-		setNoDataText("list contains no data");
 	}
 
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
+		setNoDataText("list contains no data");
 	}
 
 	public void setAccessibleName(String accessibleName) {
@@ -76,13 +76,67 @@ public class Ui5List extends Component implements HasComponents {
 		this.getElement().setProperty("busy", value);
 	}
 
-	public void setHeaderText(String header) {
-		this.getElement().setProperty("headerText", header);
+	/**
+	 * Delay in milliseconds
+	 * @param value
+	 */
+	public void setBusyDelay(int value) {
+		this.getElement().setProperty("busyDelay", value);
 	}
 
 	public void setFooterText(String footer) {
 		this.getElement().setProperty("footerText", footer);
 	}
+
+	/**
+	 * Default: None
+	 * @param value
+	 */
+	public void setGrowing(ListGrowingMode value) {
+		this.getElement().setProperty("growing", value.name());
+	}
+
+	public enum ListGrowingMode { Button, None, Scroll }
+
+	public void setHeaderText(String header) {
+		this.getElement().setProperty("headerText", header);
+	}
+
+	/**
+	 * Determines whether the list items are indented.
+	 * Default: false
+	 * @param value
+	 */
+	public void setIndent(boolean value) {
+		this.getElement().setProperty("indent", value);
+	}
+
+	// Default value (implemented by SAP) is None
+	public void setMode(Mode value) {
+		this.getElement().setProperty("mode", value.name());
+	}
+
+	public enum Mode { None, SingleSelect, SingleSelectBegin, SingleSelectEnd, MultiSelect, Delete }
+
+	/**
+	 * Defines the text that is displayed when the ui5-list contains no items.
+	 * Default value (implemented by SAP) is ""
+	 * Therefore PostConstruct `init()` will set a default value
+	 * @param value
+	 */
+	public void setNoDataText(String value) {
+		this.getElement().setProperty("noDataText", value);
+	}
+
+	/**
+	 * Default: All
+	 * @param value
+	 */
+	public void setSeparators(ListSeparators value) {
+		this.getElement().setProperty("separators", value.name());
+	}
+
+	public enum ListSeparators { All, None, Inner }
 
 	/**
 	 * Convenience Method
@@ -99,45 +153,27 @@ public class Ui5List extends Component implements HasComponents {
 		this.getElement().removeAllChildren();
 	}
 
-	// Defines the text that is displayed when the ui5-list contains no items.
-	// Default value (implemented by SAP) is false
-	// Default value implemented in constructor
-	public void setNoDataText(String value) {
-		this.getElement().setProperty("noDataText", value);
-	}
-
-	// Determines whether the list items are indented.
-	// Default: false
-	public void setIndent(boolean value) {
-		this.getElement().setProperty("indent", value);
-	}
-
-	// Defines if the component would fire the load-more event when the user scrolls to the bottom of the list,
-	// and helps achieving an "infinite scroll" effect by adding new items each time.
-	// Default: false
+	/**
+	 * @deprecated use @setGrowing instead
+	 */
+	@Deprecated()
 	public void setInfiniteScroll(boolean value) {
 		this.getElement().setProperty("infiniteScroll", value);
 	}
 
-	// Default value (implemented by SAP) is None
-	public void setMode(Mode value) {
-		this.getElement().setProperty("mode", value.name());
-	}
-
-	// Default value (implemented by SAP) is All
-	public void setSeparators(Separators value) {
-		this.getElement().setProperty("separators", value.name());
-	}
-
 	public void addSelectListener() {}
 
-	public enum Mode { None, SingleSelect, SingleSelectBegin, SingleSelectEnd, MultiSelect, Delete }
-	public enum Separators { All, None, Inner }
+	/**
+	 * Events
+	 *  - item-click
+	 *  - item-close
+	 *  - item-delete
+	 *  - item-toggle
+	 *  - load-more
+	 *  - selection-change
+	 */
 
-
-	// Events: item-click, item-close, item-delete, item-toggle, load-more, selection-change
 	@DomEvent("item-click")
-//	@DomEvent("itemClick")
 	public static class ItemClickEvent extends ComponentEvent<Ui5List> {
 		private Element item;
 		public ItemClickEvent(Ui5List source, boolean fromClient,
@@ -155,11 +191,30 @@ public class Ui5List extends Component implements HasComponents {
 		return addListener(ItemClickEvent.class, listener);
 	}
 
+
+	@DomEvent("item-close")
+	public static class ItemCloseEvent extends ComponentEvent<Ui5List> {
+		private Element item;
+		public ItemCloseEvent(Ui5List source, boolean fromClient,
+				@EventData("element.item") Element item) {
+			super(source, fromClient);
+			LOGGER.info("Item click event occured - item=" + item);
+			this.item = item;
+		}
+		public Element getElement() {
+			return item;
+		}
+	}
+
+	public Registration addItemCloseListener(ComponentEventListener<ItemCloseEvent> listener) {
+		return addListener(ItemCloseEvent.class, listener);
+	}
+
+
 	@DomEvent("selection-change")
-//	@DomEvent("selectionChange")
-	public static class SelectionEvent extends ComponentEvent<Ui5List> {
+	public static class SelectionChangeEvent extends ComponentEvent<Ui5List> {
 		private List<Element> selectedItems;
-		public SelectionEvent(Ui5List source, boolean fromClient,
+		public SelectionChangeEvent(Ui5List source, boolean fromClient,
 				@EventData("event.selectedItems") Element selectedItems,
 				@EventData("event.previouslySelectedItems") Element prevItems) {
 			super(source, fromClient);
@@ -171,8 +226,8 @@ public class Ui5List extends Component implements HasComponents {
 		}
 	}
 
-	public Registration addChangeListener(ComponentEventListener<SelectionEvent> listener) {
-		return addListener(SelectionEvent.class, listener);
+	public Registration addSelectionChangeListener(ComponentEventListener<SelectionChangeEvent> listener) {
+		return addListener(SelectionChangeEvent.class, listener);
 	}
 
 }

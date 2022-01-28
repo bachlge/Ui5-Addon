@@ -46,15 +46,14 @@ public class Ui5Timeline extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	/**
+	 * Default: Vertical
+	 * @param layout
+	 */
 	public void setLayout(TimelineLayout layout) {
 		this.getElement().setProperty("layout", layout.toString());
 	}
 
-	/**
-	 * 
-	 * Default: Vertical
-	 *
-	 */
 	public enum TimelineLayout { Vertical, Horizontal }
 
 }

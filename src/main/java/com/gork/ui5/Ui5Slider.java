@@ -15,12 +15,14 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-slider")
@@ -42,22 +44,8 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 		LOGGER.info("init ...");
 	}
 
-	// For the name property to have effect, you must add the following import to your project:
-	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
-	public void setName(String value) {
-		this.getElement().setProperty("name", value);
-	}
-
-	public void setShowTooltip(Boolean value) {
-		this.getElement().setProperty("showTooltip", value);
-	}
-
-	public void setShowTickmarks(Boolean value) {
-		this.getElement().setProperty("showTickmarks", value);
-	}
-
-	public void setStep(int value) {
-		this.getElement().setProperty("step", value);
+	public void setDisabled(Boolean value) {
+		this.getElement().setProperty("disabled", value);
 	}
 
 	public void setLabelInterval(int value) {
@@ -70,6 +58,24 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 
 	public void setMax(Float value) {
 		this.getElement().setProperty("max", value);
+	}
+
+	// For the name property to have effect, you must add the following import to your project:
+	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
+	public void setName(String value) {
+		this.getElement().setProperty("name", value);
+	}
+
+	public void setShowTickmarks(Boolean value) {
+		this.getElement().setProperty("showTickmarks", value);
+	}
+
+	public void setShowTooltip(Boolean value) {
+		this.getElement().setProperty("showTooltip", value);
+	}
+
+	public void setStep(int value) {
+		this.getElement().setProperty("step", value);
 	}
 
 	public void setValue(Float value) {
@@ -94,7 +100,24 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 			LOGGER.info("value changed to " + source.getElement().getProperty("value"));
 			Notification.show("value changed to " + source.getElement().getProperty("value"));
 		}
-		
+	}
+
+	public Registration addChangeListener(ComponentEventListener<ValueChangeEvent> listener) {
+		return addListener(ValueChangeEvent.class, listener);
+	}
+
+	@DomEvent("input")
+	public static class InputEvent extends ComponentEvent<Ui5Slider> {
+
+		public InputEvent(Ui5Slider source, boolean fromClient) {
+			super(source, fromClient);
+			LOGGER.info("value changed to " + source.getElement().getProperty("value"));
+			Notification.show("value changed to " + source.getElement().getProperty("value"));
+		}
+	}
+
+	public Registration addInputListener(ComponentEventListener<InputEvent> listener) {
+		return addListener(InputEvent.class, listener);
 	}
 
 

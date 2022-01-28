@@ -50,26 +50,38 @@ public class Ui5Panel extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	public void setHeaderText(String headerText) {
-		this.getElement().setProperty("headerText", headerText);
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
 	}
 
-	public void setCollapsed(Boolean collapsed) {
-		this.getElement().setProperty("collapsed", collapsed);
+	public void setAccessibleRole(String accessibleRole) {
+		this.getElement().setProperty("accessibleRole", accessibleRole);
 	}
 
-	public void setNoAnimation(Boolean noAnimation) {
-		this.getElement().setProperty("noAnimation", noAnimation);
+	public void setCollapsed(boolean value) {
+		this.getElement().setProperty("collapsed", value);
 	}
 
-	public void setFixed(Boolean fixed) {
-		this.getElement().setProperty("fixed", fixed);
+	public void setFixed(boolean value) {
+		this.getElement().setProperty("fixed", value);
 	}
 
+	/**
+	 * Default: H2
+	 * @param HeaderLevel
+	 */
 	public void setHeaderLevel(HeaderLevel HeaderLevel) {
 		this.getElement().setProperty("headerLevel", HeaderLevel.toString());
 	}
 
 	public enum HeaderLevel { H1, H2, H3, H4, H5, H6 }
+
+	public void setHeaderText(String headerText) {
+		this.getElement().setProperty("headerText", headerText);
+	}
+
+	public void setNoAnimation(Boolean value) {
+		this.getElement().setProperty("noAnimation", value);
+	}
 
 }

@@ -18,15 +18,15 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
-@Tag("ui5-combobox")
+@Tag("ui5-multi-combobox")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
-@JsModule("@ui5/webcomponents/dist/ComboBox.js")
+@JsModule("@ui5/webcomponents/dist/MultiComboBox.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
-public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolean> implements HasLabel {
+public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboBox, Boolean> implements HasLabel {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ComboBox.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5MultiComboBox.class);
 
-	public Ui5ComboBox() {
+	public Ui5MultiComboBox() {
 		super("value", false, false);
 		LOGGER.info("constructor ...");
 		addListener(ChangeEvent.class, null);
@@ -53,15 +53,15 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 		this.getElement().setProperty("disabled", disabled);
 	}
 
-	public void setFilter(ComboboxFilter filterType) {
+	/**
+	 * Default: StartsWithPerTerm
+	 * @param filter
+	 */
+	public void setFilter(MultiComboboxFilter filterType) {
 		this.getElement().setProperty("filter", filterType.toString());
 	}
 
-	public enum ComboboxFilter { StartsWithPerTerm, StartsWith, Contains }
-
-	public void setLoading(Boolean loading) {
-		this.getElement().setProperty("loading", loading);
-	}
+	public enum MultiComboboxFilter { StartsWithPerTerm, StartsWith, Contains, None }
 
 	// For the name property to have effect, you must add the following import to your project:
 	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
@@ -77,8 +77,12 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 		return Boolean.getBoolean(getElement().getProperty("readonly"));
 	}
 
-	public void setReadonly(Boolean readonly) {
-		this.getElement().setProperty("readonly", readonly);
+	public void setReadonly(Boolean value) {
+		this.getElement().setProperty("readonly", value);
+	}
+
+	public void setRequired(Boolean value) {
+		this.getElement().setProperty("required", value);
 	}
 
 	public void setValue(String value) {
@@ -95,10 +99,11 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 
 	public enum ComboboxValueState { None, Warning, Error, Success, Information }
 
-	@DomEvent("change")
-	public static class ChangeEvent extends ComponentEvent<Ui5ComboBox> {
 
-		public ChangeEvent(Ui5ComboBox source, boolean fromClient) {
+	@DomEvent("change")
+	public static class ChangeEvent extends ComponentEvent<Ui5MultiComboBox> {
+
+		public ChangeEvent(Ui5MultiComboBox source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("value changed to " + source.getElement().getProperty("checked"));
 			Notification.show("value changed to " + source.getElement().getProperty("checked"));
@@ -107,9 +112,9 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 	}
 
 	@DomEvent("input")
-	public static class InputEvent extends ComponentEvent<Ui5ComboBox> {
+	public static class InputEvent extends ComponentEvent<Ui5MultiComboBox> {
 
-		public InputEvent(Ui5ComboBox source, boolean fromClient) {
+		public InputEvent(Ui5MultiComboBox source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("input " + source.getElement().getProperty("checked"));
 			Notification.show("input " + source.getElement().getProperty("checked"));
@@ -117,10 +122,25 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 		
 	}
 
-	@DomEvent("selection-change")
-	public static class SelectionValueChangeEvent extends ComponentEvent<Ui5ComboBox> {
+	/**
+	 * Fired when the dropdown is opened or closed
+	 * @author georg
+	 *
+	 */
+	@DomEvent("open-change")
+	public static class OpenChangeEvent extends ComponentEvent<Ui5MultiComboBox> {
 
-		public SelectionValueChangeEvent(Ui5ComboBox source, boolean fromClient) {
+		public OpenChangeEvent(Ui5MultiComboBox source, boolean fromClient) {
+			super(source, fromClient);
+			LOGGER.info("open status changed " + source.getElement().getProperty("item"));
+			Notification.show("open status changed to " + source.getElement().getProperty("item"));
+		}
+		
+	}
+	@DomEvent("selection-change")
+	public static class SelectionValueChangeEvent extends ComponentEvent<Ui5MultiComboBox> {
+
+		public SelectionValueChangeEvent(Ui5MultiComboBox source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("selection changed to " + source.getElement().getProperty("item"));
 			Notification.show("selection changed to " + source.getElement().getProperty("item"));

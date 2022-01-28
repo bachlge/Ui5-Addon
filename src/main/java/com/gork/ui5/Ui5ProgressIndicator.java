@@ -28,12 +28,28 @@ public class Ui5ProgressIndicator extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	public void setDisabled(Boolean value) {
+		this.getElement().setProperty("disabled", value);
+	}
+
+	public void setDisplayValue(String displayValue) {
+		this.getElement().setProperty("displayValue", displayValue);
+	}
+
+	public void setHideValue(Boolean value) {
+		this.getElement().setProperty("hideValue", value);
+	}
+
 	public void setValue(int value) {
 		this.getElement().setProperty("value", value);
 	}
 
-	public void setValueState(ValueState design) {
-		this.getElement().setProperty("valueState", design.toString());
+	/**
+	 * Default: None
+	 * @param valueState
+	 */
+	public void setValueState(ValueState valueState) {
+		this.getElement().setProperty("valueState", valueState.toString());
 	}
 
 	public enum ValueState { None, Error, Warning, Success, Information }

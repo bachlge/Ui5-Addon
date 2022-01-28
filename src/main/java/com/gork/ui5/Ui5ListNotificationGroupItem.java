@@ -26,15 +26,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
-@Tag("ui5-li-notification")
+@Tag("ui5-li-notification-group")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
-@JsModule("@ui5/webcomponents-fiori/dist/NotificationListItem.js")
+@JsModule("@ui5/webcomponents-fiori/dist/NotificationListGroupItem.js")
 public class Ui5ListNotificationGroupItem extends Component implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ListNotificationGroupItem.class);
@@ -48,42 +52,77 @@ public class Ui5ListNotificationGroupItem extends Component implements HasCompon
 		LOGGER.info("init ...");
 	}
 
-	public void setTitleText(String titleText) {
-		this.getElement().setProperty("titleText", titleText);
+	public void setBusy(boolean value) {
+		this.getElement().setProperty("busy", value);
 	}
 
-	public void setRead(Boolean read) {
-		this.getElement().setProperty("read", read);
+	/**
+	 * Delay in milliseconds
+	 * @param value
+	 */
+	public void setBusyDelay(int value) {
+		this.getElement().setProperty("busyDelay", value);
 	}
 
-	public void setSlot(String slot) {
-		this.getElement().setProperty("slot", slot);
+	public void setCollapsed(boolean value) {
+		this.getElement().setProperty("collapsed", value);
 	}
 
-	public void setIcon(String value) {
-		this.getElement().setProperty("icon", value);
+	public void setShowClose(boolean value) {
+		this.getElement().setProperty("showClose", value);
 	}
 
-	public void setDescription(String value) {
-		this.getElement().setProperty("description", value);
-	}
-
-	public void setInfo(String value) {
-		this.getElement().setProperty("info", value);
-	}
-
-	public void setWrappingType(WrappingType wrappingType) {
-		this.getElement().setProperty("wrappingType", wrappingType.name());
+	public void setShowCounter(boolean value) {
+		this.getElement().setProperty("showCounter", value);
 	}
 
 	public void setPriority(Priority priority) {
 		this.getElement().setProperty("priority", priority.name());
 	}
 
-	public enum ButtonDesign { Default, Emphasized, Positive, Negative, Transparent, Attention }
-
 	public enum Priority { None, Low, Medium, High }
 
-	public enum WrappingType { None }
+	public void setRead(Boolean read) {
+		this.getElement().setProperty("read", read);
+	}
+
+	public void setTitleText(String titleText) {
+		this.getElement().setProperty("titleText", titleText);
+	}
+
+
+	/**
+	 * Slots: default, actions
+	 * @param slot
+	 */
+	public void setSlot(String slot) {
+		this.getElement().setProperty("slot", slot);
+	}
+
+
+	@DomEvent("close")
+	public static class CloseEvent extends ComponentEvent<Ui5ListNotificationItem> {
+		public CloseEvent(Ui5ListNotificationItem source, boolean fromClient) {
+			super(source, fromClient);
+			LOGGER.info("Close event occured");
+		}
+	}
+
+	public Registration addCloseListener(ComponentEventListener<CloseEvent> listener) {
+		return addListener(CloseEvent.class, listener);
+	}
+
+	@DomEvent("toggle")
+	public static class ToggleEvent extends ComponentEvent<Ui5ListNotificationGroupItem> {
+		public ToggleEvent(Ui5ListNotificationGroupItem source, boolean fromClient) {
+			super(source, fromClient);
+			LOGGER.info("Toggle event occured");
+		}
+	}
+
+	public Registration addToggleListener(ComponentEventListener<ToggleEvent> listener) {
+		return addListener(ToggleEvent.class, listener);
+	}
+
 
 }

@@ -24,6 +24,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @JsModule("@ui5/webcomponents/dist/Icon.js")
 @JsModule("@ui5/webcomponents-icons/dist/Allicons.js")
 
+/* -> Allicons.js is the universal import!??
 @JsModule("@ui5/webcomponents-icons/dist/home.js")
 @JsModule("@ui5/webcomponents-icons/dist/employee.js")
 @JsModule("@ui5/webcomponents-icons/dist/folder-blank.js")
@@ -32,7 +33,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @JsModule("@ui5/webcomponents-icons/dist/value-help.js")
 
 @JsModule("@ui5/webcomponents-icons-tnt/dist/antenna.js")
-
+*/
 
 public class Ui5Icon extends Component {
 
@@ -53,10 +54,37 @@ public class Ui5Icon extends Component {
 		LOGGER.info("init ...");
 	}
 
-	public void setIcon(String icon) {
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
+	}
+
+	public void setAccessibleRole(String accessibleRole) {
+		this.getElement().setProperty("accessibleRole", accessibleRole);
+	}
+
+	public void setInteractive(Boolean value) {
+		this.getElement().setProperty("interactive", value);
+	}
+
+	public void setName(String icon) {
 		this.getElement().setProperty("name", icon);
 	}
 
+	/**
+	 * Convenience Method
+	 * @param icon
+	 */
+	public void setIcon(String icon) {
+		setName(icon);
+	}
+
+	public void setShowTooltip(Boolean value) {
+		this.getElement().setProperty("showTooltip", value);
+	}
+
+	/**
+	 * Convenience Method
+	 */
 	public void setBig() {
 		this.getElement().setProperty("style", "width:3rem;height:3rem;font-size:1.5rem;color:crimson;background-color:#fafafa");
 	}

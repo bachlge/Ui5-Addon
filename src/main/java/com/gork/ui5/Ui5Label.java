@@ -31,6 +31,11 @@ public class Ui5Label extends Component implements HasComponents {
 		add(value);
 	}
 
+	@PostConstruct
+	private void init() {
+		LOGGER.info("init ...");
+	}
+
 	public void setFor(String value) {
 		this.getElement().setProperty("for", value);
 	}
@@ -47,6 +52,14 @@ public class Ui5Label extends Component implements HasComponents {
 		this.getElement().setProperty("wrapping-type", value.toString());
 	}
 
+	/**
+	 * Defines how the text of a component will be displayed when there is not enough space.
+	 * Available options are:
+	 * 		None - The text will be truncated with an ellipsis.
+	 * 		Normal - The text will wrap. The words will not be broken based on hyphenation.
+	 */
+	public enum WrappingType { None, Normal }
+
 	// Convenience
 	public void setWrap(boolean wrap) {
 		if (wrap) {
@@ -56,17 +69,5 @@ public class Ui5Label extends Component implements HasComponents {
 		}
 	}
 
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
-	}
-
-	/**
-	 * Defines how the text of a component will be displayed when there is not enough space.
-	 * Available options are:
-	 * 		None - The text will be truncated with an ellipsis.
-	 * 		Normal - The text will wrap. The words will not be broken based on hyphenation.
-	 */
-	public enum WrappingType { None, Normal }
 
 }

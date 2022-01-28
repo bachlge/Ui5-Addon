@@ -64,8 +64,8 @@ public class Ui5Avatar extends Component implements HasComponents {
 	 * Default: false
 	 * @param interactive
 	 */
-	public void setInteractive(Boolean interactive) {
-		this.getElement().setProperty("interactive", interactive);
+	public void setInteractive(Boolean value) {
+		this.getElement().setProperty("interactive", value);
 	}
 
 	/**

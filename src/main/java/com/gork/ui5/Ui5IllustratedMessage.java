@@ -34,6 +34,10 @@ public class Ui5IllustratedMessage extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	/**
+	 * Default: BeforeSearch
+	 * @param name
+	 */
 	public void setName(IllustrationMessageType name) {
 		this.getElement().setProperty("name", name.toString());
 	}
@@ -46,7 +50,17 @@ public class Ui5IllustratedMessage extends Component implements HasComponents {
 		this.getElement().setProperty("subtitleText", title);
 	}
 
-	public enum IllustrationMessageType { BeforeSearch, NoActivities, NoData, NoEntries, NoMail,
-		NoNotifications, NoSavedItems, NoSearchResults, NoTasks, UnableToLoad, UnableToUpload }
+	public enum IllustrationMessageType {
+		BeforeSearch,
+		NoActivities,
+		NoData,
+		NoEntries,
+		NoMail,
+		NoNotifications,
+		NoSavedItems,
+		NoSearchResults,
+		NoTasks,
+		UnableToLoad,
+		UnableToUpload }
 
 }

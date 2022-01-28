@@ -5,6 +5,7 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.gork.ui5.Ui5Avatar.AvatarColorScheme;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
@@ -29,8 +30,35 @@ public class Ui5MediaGallery extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	/**
+	 * if enbled, a display-area-click event is fired when the user clicks on the display area
+	 * default: false
+	 * @param value
+	 */
+	public void setInteractiveDisplayData(Boolean value) {
+		this.getElement().setProperty("interactiveDisplayData", value);
+	}
+
+	public void setLayout(MediaGalleryLayout layout) {
+		this.getElement().setProperty("layout", layout.toString());
+	}
+
 	public enum MediaGalleryLayout { Auto, Vertical, Horizontal }
+
+	public void setMenuHorizontalAlign(MediaGalleryMenuHorizontalAlign layout) {
+		this.getElement().setProperty("menuHorizontalAlign", layout.toString());
+	}
+
 	public enum MediaGalleryMenuHorizontalAlign { Left, Right }
+
+	public void setMenuVerticalAlign(MediaGalleryMenuVerticalAlign layout) {
+		this.getElement().setProperty("menuHorizontalAlign", layout.toString());
+	}
+
 	public enum MediaGalleryMenuVerticalAlign { Top, Bottom }
+
+	public void setShowAllThumbnails(Boolean value) {
+		this.getElement().setProperty("showAllThumbnails", value);
+	}
 
 }

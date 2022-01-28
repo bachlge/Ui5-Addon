@@ -5,20 +5,24 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.gork.ui5.Ui5Button.ButtonDesign;
 import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-togglebutton")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/ToggleButton.js")
+@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton, Boolean> implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ToggleButton.class);
@@ -34,6 +38,26 @@ public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton
 		LOGGER.info("init ...");
 	}
 
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
+	}
+
+	public void setAccessibleNameRef(String accessibleNameRef) {
+		this.getElement().setProperty("accessibleNameRef", accessibleNameRef);
+	}
+
+	/**
+	 * ButtonDesign reused from Ui5Button component
+	 * @param design
+	 */
+	public void setDesign(ButtonDesign design) {
+		this.getElement().setProperty("design", design.toString());
+	}
+
+	public void setDisabled(Boolean value) {
+		this.getElement().setProperty("disabled", value);
+	}
+
 	public void setIcon(String icon) {
 		this.getElement().setProperty("icon", icon);
 	}
@@ -42,15 +66,25 @@ public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton
 		this.getElement().setProperty("iconEnd", iconEnd);
 	}
 
+	// For the name property to have effect, you must add the following import to your project:
+	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
+	public void setName(String value) {
+		this.getElement().setProperty("name", value);
+	}
+
 	public void setPressed(Boolean pressed) {
 		this.getElement().setProperty("pressed", pressed);
 	}
 
-	public void setDesign(ToggleButtonDesign design) {
-		this.getElement().setProperty("design", design.toString());
+	/**
+	 * When set to true, the component will automatically submit the nearest form element upon press.
+	 * default: false
+	 * @param value
+	 */
+	public void setSubmits(Boolean value) {
+		this.getElement().setProperty("submits", value);
 	}
 
-	public enum ToggleButtonDesign { Default, Positive, Negative, Emphasized, Transparent }
 
 	@DomEvent("click")
 	public static class ClickEvent extends ComponentEvent<Ui5ToggleButton> {
@@ -60,7 +94,10 @@ public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton
 			LOGGER.info("ClickEvent ...");
 			Notification.show("clicked on togglebutton " + source.getElement().getProperty("pressed"));
 		}
-		
+	}
+
+	public Registration addClickListener(ComponentEventListener<ClickEvent> listener) {
+		return addListener(ClickEvent.class, listener);
 	}
 
 }
