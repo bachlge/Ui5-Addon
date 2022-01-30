@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/ComboBox/
+ * https://sap.github.io/ui5-webcomponents/playground/components/MultiComboBox/
  */
 package com.gork.ui5;
 

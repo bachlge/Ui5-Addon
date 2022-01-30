@@ -10,12 +10,14 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-checkbox")
@@ -29,7 +31,7 @@ public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolea
 	public Ui5CheckBox() {
 		super("value", false, false);
 		LOGGER.info("constructor ...");
-		addListener(ValueChangeEvent.class, null);
+//		addListener(ValueChangeEvent.class, null);
 	}
 
 	@PostConstruct
@@ -101,15 +103,17 @@ public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolea
 
 
 	@DomEvent("change")
-	public static class ValueChangeEvent extends ComponentEvent<Ui5CheckBox> {
+	public static class ChangeEvent extends ComponentEvent<Ui5CheckBox> {
 
-		public ValueChangeEvent(Ui5CheckBox source, boolean fromClient) {
+		public ChangeEvent(Ui5CheckBox source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("value changed to " + source.getElement().getProperty("checked"));
 			Notification.show("value changed to " + source.getElement().getProperty("checked"));
 		}
-		
 	}
 
+	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
+		return addListener(ChangeEvent.class, listener);
+	}
 
 }

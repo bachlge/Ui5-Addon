@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/Table/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -21,12 +24,21 @@ public class Ui5TableRow extends Component implements HasComponents {
 
 	public Ui5TableRow() {
 		LOGGER.info("constructor ...");
-		this.getElement().setProperty("slot", "default");
 	}
 
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
 	}
+
+	public void setSelected(Boolean value) {
+		this.getElement().setProperty("selected", value);
+	}
+
+	public void setType(TableRowType value) {
+		this.getElement().setProperty("type", value.name());
+	}
+
+	public enum TableRowType { Avtive, Inactive }
 
 }

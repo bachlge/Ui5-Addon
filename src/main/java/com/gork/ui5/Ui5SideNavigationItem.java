@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/ShellBar/
+ * https://sap.github.io/ui5-webcomponents/playground/components/SideNavigation/
  */
 package com.gork.ui5;
 
@@ -31,20 +31,24 @@ public class Ui5SideNavigationItem extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
-	public void setText(String text) {
-		this.getElement().setProperty("text", text);
+	public void setExpanded(Boolean value) {
+		this.getElement().setProperty("expanded", value);
 	}
 
 	public void setIcon(String icon) {
 		this.getElement().setProperty("icon", icon);
 	}
 
-	public void setExpanded(Boolean value) {
-		this.getElement().setProperty("expanded", value);
-	}
-
 	public void setSelectded(Boolean value) {
 		this.getElement().setProperty("selected", value);
+	}
+
+	public void setText(String text) {
+		this.getElement().setProperty("text", text);
+	}
+
+	public void setWholeItemToggleable(Boolean value) {
+		this.getElement().setProperty("wholeItemToggleable", value);
 	}
 
 }

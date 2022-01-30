@@ -28,6 +28,12 @@ public class Ui5Tab extends Component implements HasComponents {
 		LOGGER.info("init ...");
 	}
 
+	public void setDesign(SemanticColor color) {
+		this.getElement().setProperty("semanticColor", color.toString());
+	}
+
+	public enum SemanticColor { Default, Neutral, Positive, Critical, Negative }
+	
 	public void setText(String text) {
 		this.getElement().setProperty("text", text);
 	}
@@ -40,10 +46,12 @@ public class Ui5Tab extends Component implements HasComponents {
 		this.getElement().setProperty("icon", icon);
 	}
 
-	public void setSemanticColor(SemanticColor color) {
-		this.getElement().setProperty("semanticColor", color.toString());
+	public void setDisabled(Boolean value) {
+		this.getElement().setProperty("disabled", value);
 	}
 
-	public enum SemanticColor { Default, Neutral, Positive, Critical, Negative }
-	
+	public void setSelected(Boolean value) {
+		this.getElement().setProperty("selected", value);
+	}
+
 }

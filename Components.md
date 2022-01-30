@@ -17,8 +17,8 @@ Ui5DynamicSideContent
 
 ### API checked v1.1.2
 new ... need to integrate into Demo-View
-form ... imports InputElementsFormSupport.js, has name attribute set
-label ... implements HasLabel
+form ... imports `InputElementsFormSupport.js`, has `name` attribute
+label ... implements Vaadin-HasLabel
 Listener, Listener* ... Component has Listener, *need to be implemented, then integrated in Demo-View
 Fiori ... this is a Fiori Component (at the moment does not make any difference)
 
@@ -34,7 +34,7 @@ Fiori ... this is a Fiori Component (at the moment does not make any difference)
 - Ui5Card
 - Ui5CardHeader <= Listener
 - Ui5Carousel <= Listener
-- Ui5Checkbox (new) <= Listener
+- Ui5Checkbox (new) (form) <= Listener
 - Ui5ColorPalette <= Listener
 - Ui5ColorPaletteItem
 - Ui5ColorPopover (new) <= Listener
@@ -62,35 +62,44 @@ Fiori ... this is a Fiori Component (at the moment does not make any difference)
 - Ui5MultiInput (form) <= Listener
 - Ui5NotificationListItem => see Ui5ListNotificationItem
 - Ui5Panel
-
+- Ui5ProductSwitch (Fiori)
+- Ui5ProductSwitchItem (Fiori) (Listener)
 - Ui5ProgressIndicator
-
 - Ui5RadioButton (form) (Listener)
 - Ui5RatingIndicator (form) (label) (Listener)
 - Ui5SegmentedButton (Listener)
 - Ui5SegmentedButtonItem (new) (Listener)
+- Ui5ShellBar (Fiori) (Listener)
+- Ui5ShellBarItem (Fiori
+- Ui5SideNavigation (Fiori) (Listener)
+- Ui5SideNavigationItem (Fiori) (new) (Listener)
+- Ui5SideNavigationSubItem (Fiori)
 - Ui5Slider (form)(Listener)
 - Ui5SplitButton (new) <= Listener
 - Ui5StepInput (form) (Listener)
 - Ui5SuggestionGroupItem
 - Ui5Switch
+- Ui5TabContainer (Listener)
+- Ui5Tab
+- Ui5TabSeparator
+- Ui5Table
+- Ui5TableCell
+- Ui5TableColumn
+- Ui5TableGroupRow (new)
+- Ui5TableRow
 - Ui5Timeline (Fiori)
 - Ui5TimelineItem (Fiori) (Listener)
-- Ui5ToggleButton (Listener)
+- Ui5ToggleButton (form) (Listener)
 
 
 ### api check needed
 
 
 - Ui5Popover
-- Ui5ProductSwitch
-- Ui5ProductSwitchItem
 - Ui5RangeSlider
-- Ui5ShellBar
-- Ui5SideNavigation
-- Ui5SideNavigationItem
-- Ui5SideNavigationSubItem
 - Ui5SuggestionItem 
+
+
 
 
 ### to implement
@@ -99,8 +108,10 @@ Fiori ... this is a Fiori Component (at the moment does not make any difference)
 - Ui5DynamicSideContent (Fiori)
 - Ui5Page (Fiori)
 - Ui5ResponsivePopover
+- Ui5Select + Ui5Option
 - Ui5Title
 - Ui5Toast
+- Ui5Tree
 
 
 ### not implemented

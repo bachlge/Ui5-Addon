@@ -10,6 +10,7 @@ import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasComponents;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
@@ -20,7 +21,7 @@ import com.vaadin.flow.shared.Registration;
 @Tag("ui5-button")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/Button.js")
-public class Ui5Button extends Component implements HasComponents {
+public class Ui5Button extends Component implements HasComponents, HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Button.class);
 

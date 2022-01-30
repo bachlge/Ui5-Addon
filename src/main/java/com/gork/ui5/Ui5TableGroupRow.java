@@ -15,33 +15,20 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-table-column")
+@Tag("ui5-table-group-row")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
-@JsModule("@ui5/webcomponents/dist/TableColumn.js")
-public class Ui5TableColumn extends Component implements HasComponents {
+@JsModule("@ui5/webcomponents/dist/TableGroupRow.js")
+public class Ui5TableGroupRow extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TableColumn.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TableGroupRow.class);
 
-	public Ui5TableColumn() {
+	public Ui5TableGroupRow() {
 		LOGGER.info("constructor ...");
-		this.getElement().setProperty("slot", "columns");
 	}
 
 	@PostConstruct
 	private void init() {
 		LOGGER.info("init ...");
-	}
-
-	public void setDemandPopin(boolean value) {
-		this.getElement().setProperty("demandPopin", value);
-	}
-
-	public void setMinWidth(int value) {
-		this.getElement().setProperty("minWidth", value);
-	}
-
-	public void setPopinText(String value) {
-		this.getElement().setProperty("popinText", value);
 	}
 
 }

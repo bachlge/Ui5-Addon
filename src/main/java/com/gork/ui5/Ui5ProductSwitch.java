@@ -1,3 +1,6 @@
+/**
+ * https://sap.github.io/ui5-webcomponents/playground/components/ProductSwitch/
+ */
 package com.gork.ui5;
 
 import javax.annotation.PostConstruct;
@@ -21,7 +24,7 @@ public class Ui5ProductSwitch extends Component implements HasComponents {
 
 	public Ui5ProductSwitch() {
 		LOGGER.info("constructor ...");
-		this.getElement().setProperty("slot", "default");
+//		this.getElement().setProperty("slot", "default");
 	}
 
 	@PostConstruct

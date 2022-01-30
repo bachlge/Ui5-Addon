@@ -36,7 +36,7 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 	public Ui5Slider() {
 		super("value", 0, false);
 		LOGGER.info("constructor ...");
-		addListener(ValueChangeEvent.class, null);
+//		addListener(ValueChangeEvent.class, null);
 	}
 
 	@PostConstruct
@@ -93,17 +93,17 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 	}
 
 	@DomEvent("change")
-	public static class ValueChangeEvent extends ComponentEvent<Ui5Slider> {
+	public static class ChangeEvent extends ComponentEvent<Ui5Slider> {
 
-		public ValueChangeEvent(Ui5Slider source, boolean fromClient) {
+		public ChangeEvent(Ui5Slider source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("value changed to " + source.getElement().getProperty("value"));
 			Notification.show("value changed to " + source.getElement().getProperty("value"));
 		}
 	}
 
-	public Registration addChangeListener(ComponentEventListener<ValueChangeEvent> listener) {
-		return addListener(ValueChangeEvent.class, listener);
+	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
+		return addListener(ChangeEvent.class, listener);
 	}
 
 	@DomEvent("input")
@@ -119,6 +119,5 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 	public Registration addInputListener(ComponentEventListener<InputEvent> listener) {
 		return addListener(InputEvent.class, listener);
 	}
-
 
 }

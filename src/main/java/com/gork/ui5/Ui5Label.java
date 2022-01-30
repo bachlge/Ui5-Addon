@@ -27,7 +27,7 @@ public class Ui5Label extends Component implements HasComponents {
 	}
 
 	public Ui5Label(String value) {
-		super();
+		this();
 		add(value);
 	}
 
@@ -44,8 +44,22 @@ public class Ui5Label extends Component implements HasComponents {
 		this.getElement().setProperty("required", value);
 	}
 
+	/**
+	 * Convenience Method: set to true
+	 */
+	public void setRequired() {
+		setRequired(true);
+	}
+
 	public void setShowColon(boolean value) {
 		this.getElement().setProperty("showColon", value);
+	}
+
+	/**
+	 * Convenience Method: set to true
+	 */
+	public void setShowColon() {
+		setShowColon(true);
 	}
 
 	public void setWrappingType(WrappingType value) {
@@ -68,6 +82,5 @@ public class Ui5Label extends Component implements HasComponents {
 			setWrappingType(WrappingType.None);
 		}
 	}
-
 
 }

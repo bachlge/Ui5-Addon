@@ -211,6 +211,57 @@ public class Ui5List extends Component implements HasComponents {
 	}
 
 
+	@DomEvent("item-delete")
+	public static class ItemDeleteEvent extends ComponentEvent<Ui5List> {
+		private Element item;
+		public ItemDeleteEvent(Ui5List source, boolean fromClient,
+				@EventData("element.item") Element item) {
+			super(source, fromClient);
+			LOGGER.info("Item click event occured - item=" + item);
+			this.item = item;
+		}
+		public Element getElement() {
+			return item;
+		}
+	}
+
+	public Registration addItemDeleteListener(ComponentEventListener<ItemDeleteEvent> listener) {
+		return addListener(ItemDeleteEvent.class, listener);
+	}
+
+
+	@DomEvent("item-toggle")
+	public static class ItemToggleEvent extends ComponentEvent<Ui5List> {
+		private Element item;
+		public ItemToggleEvent(Ui5List source, boolean fromClient,
+				@EventData("element.item") Element item) {
+			super(source, fromClient);
+			LOGGER.info("Item click event occured - item=" + item);
+			this.item = item;
+		}
+		public Element getElement() {
+			return item;
+		}
+	}
+
+	public Registration addItemToggleListener(ComponentEventListener<ItemDeleteEvent> listener) {
+		return addListener(ItemDeleteEvent.class, listener);
+	}
+
+
+	@DomEvent("load-more")
+	public static class LoadMoreEvent extends ComponentEvent<Ui5List> {
+		public LoadMoreEvent(Ui5List source, boolean fromClient) {
+			super(source, fromClient);
+			LOGGER.info("Load More event occured ...");
+		}
+	}
+
+	public Registration addLoadMoreListener(ComponentEventListener<LoadMoreEvent> listener) {
+		return addListener(LoadMoreEvent.class, listener);
+	}
+
+
 	@DomEvent("selection-change")
 	public static class SelectionChangeEvent extends ComponentEvent<Ui5List> {
 		private List<Element> selectedItems;

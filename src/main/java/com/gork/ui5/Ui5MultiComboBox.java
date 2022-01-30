@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/ComboBox/
+ * https://sap.github.io/ui5-webcomponents/playground/components/MultiComboBox/
  */
 package com.gork.ui5;
 
@@ -8,26 +8,31 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.vaadin.flow.component.AbstractSinglePropertyField;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasLabel;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-combobox")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
 @JsModule("@ui5/webcomponents/dist/MultiComboBox.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
-public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboBox, Boolean> implements HasLabel {
+//public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboBox, Boolean> implements HasComponents, HasLabel, HasSize {
+public class Ui5MultiComboBox extends Component implements HasComponents, HasLabel, HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5MultiComboBox.class);
 
 	public Ui5MultiComboBox() {
-		super("value", false, false);
+//		super("value", false, false);
 		LOGGER.info("constructor ...");
 		addListener(ChangeEvent.class, null);
 	}
@@ -100,6 +105,10 @@ public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboB
 	public enum ComboboxValueState { None, Warning, Error, Success, Information }
 
 
+	/**
+	 * Fired when the input operation has finished by pressing Enter or on focusout.
+	 *
+	 */
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5MultiComboBox> {
 
@@ -108,9 +117,16 @@ public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboB
 			LOGGER.info("value changed to " + source.getElement().getProperty("checked"));
 			Notification.show("value changed to " + source.getElement().getProperty("checked"));
 		}
-		
 	}
 
+	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
+		return addListener(ChangeEvent.class, listener);
+	}
+
+	/**
+	 * Fired when the value of the component changes at each keystroke.
+	 *
+	 */
 	@DomEvent("input")
 	public static class InputEvent extends ComponentEvent<Ui5MultiComboBox> {
 
@@ -119,12 +135,14 @@ public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboB
 			LOGGER.info("input " + source.getElement().getProperty("checked"));
 			Notification.show("input " + source.getElement().getProperty("checked"));
 		}
-		
+	}
+
+	public Registration addInputListener(ComponentEventListener<InputEvent> listener) {
+		return addListener(InputEvent.class, listener);
 	}
 
 	/**
 	 * Fired when the dropdown is opened or closed
-	 * @author georg
 	 *
 	 */
 	@DomEvent("open-change")
@@ -132,20 +150,33 @@ public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboB
 
 		public OpenChangeEvent(Ui5MultiComboBox source, boolean fromClient) {
 			super(source, fromClient);
-			LOGGER.info("open status changed " + source.getElement().getProperty("item"));
-			Notification.show("open status changed to " + source.getElement().getProperty("item"));
+			LOGGER.info("OpenChangeEvent " + source.getElement().getProperty("item"));
+			Notification.show("OpenChangeEvent " + source.getElement().getProperty("item"));
 		}
-		
 	}
-	@DomEvent("selection-change")
-	public static class SelectionValueChangeEvent extends ComponentEvent<Ui5MultiComboBox> {
 
-		public SelectionValueChangeEvent(Ui5MultiComboBox source, boolean fromClient) {
+	public Registration addOpenChangeListener(ComponentEventListener<OpenChangeEvent> listener) {
+		return addListener(OpenChangeEvent.class, listener);
+	}
+
+	/**
+	 * Fired when selection is changed by user interaction in SingleSelect and MultiSelect modes.
+	 * items type: Array
+	 * an array of the selected items.
+	 *
+	 */
+	@DomEvent("selection-change")
+	public static class SelectionChangeEvent extends ComponentEvent<Ui5MultiComboBox> {
+
+		public SelectionChangeEvent(Ui5MultiComboBox source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("selection changed to " + source.getElement().getProperty("item"));
 			Notification.show("selection changed to " + source.getElement().getProperty("item"));
 		}
-		
+	}
+
+	public Registration addSelectionChangeListener(ComponentEventListener<SelectionChangeEvent> listener) {
+		return addListener(SelectionChangeEvent.class, listener);
 	}
 
 }

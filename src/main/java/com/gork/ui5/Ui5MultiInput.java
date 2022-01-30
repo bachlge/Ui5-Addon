@@ -19,6 +19,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasLabel;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
@@ -31,7 +32,7 @@ import com.vaadin.flow.shared.Registration;
 @JsModule("@ui5/webcomponents/dist/MultiInput.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
-public class Ui5MultiInput extends Component implements HasLabel, HasComponents {
+public class Ui5MultiInput extends Component implements HasComponents, HasLabel, HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5MultiInput.class);
 
@@ -107,6 +108,32 @@ public class Ui5MultiInput extends Component implements HasLabel, HasComponents 
 
 	public enum ValueState { None, Error, Warning, Success, Information }
 
+
+	/**
+	 * Convenience Method
+	 * add Token to `tokens`-Slot of the MultiInput Component
+	 *
+	 * @param token
+	 */
+	public void addToken(Ui5Token token) {
+		token.setSlot("tokens");
+		add(token);
+	}
+
+	/**
+	 * Convenience Method
+	 * add multiple Tokens to `tokens`-Slot of the MultiInput Component
+	 *
+	 * @param token
+	 */
+	public void addTokens(Ui5Token... tokens) {
+		for(Ui5Token token : tokens) {
+			token.setSlot("tokens");
+			add(token);
+		}
+	}
+
+
 	@DomEvent("token-delete")
 	public static class TokenDeleteEvent extends ComponentEvent<Ui5MultiInput> {
 
@@ -120,4 +147,5 @@ public class Ui5MultiInput extends Component implements HasLabel, HasComponents 
 	public Registration addTokenDeleteListener(ComponentEventListener<TokenDeleteEvent> listener) {
 		return addListener(TokenDeleteEvent.class, listener);
 	}
+
 }

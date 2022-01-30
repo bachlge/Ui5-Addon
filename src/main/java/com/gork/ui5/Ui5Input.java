@@ -18,6 +18,7 @@ import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasLabel;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
@@ -30,7 +31,7 @@ import com.vaadin.flow.shared.Registration;
 @JsModule("@ui5/webcomponents/dist/Input.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
-public class Ui5Input extends AbstractSinglePropertyField<Ui5Input, String> implements HasLabel {
+public class Ui5Input extends AbstractSinglePropertyField<Ui5Input, String> implements HasLabel, HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Input.class);
 
