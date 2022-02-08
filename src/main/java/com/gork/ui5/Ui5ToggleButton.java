@@ -10,6 +10,7 @@ import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.EventData;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
@@ -30,7 +31,7 @@ public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton
 	public Ui5ToggleButton() {
 		super("value", false, false);
 		LOGGER.info("constructor ...");
-		addListener(ClickEvent.class, null);
+//		addListener(ClickEvent.class, null);
 	}
 
 	@PostConstruct
@@ -89,10 +90,16 @@ public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton
 	@DomEvent("click")
 	public static class ClickEvent extends ComponentEvent<Ui5ToggleButton> {
 
-		public ClickEvent(Ui5ToggleButton source, boolean fromClient) {
+		private final boolean value;
+
+		public ClickEvent(Ui5ToggleButton source, boolean fromClient,
+				@EventData("element.pressed") boolean value) {
 			super(source, fromClient);
-			LOGGER.info("ClickEvent ...");
-			Notification.show("clicked on togglebutton " + source.getElement().getProperty("pressed"));
+			this.value = value;
+			Notification.show("Ui5ToggleButton.ClickEvent - pressed=" + value);
+		}
+		public boolean getPressed() {
+			return value;
 		}
 	}
 

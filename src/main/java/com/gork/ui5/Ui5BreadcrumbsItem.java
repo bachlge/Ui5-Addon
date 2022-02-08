@@ -38,11 +38,18 @@ public class Ui5BreadcrumbsItem extends Component implements HasComponents {
 	public void setHref(String href) {
 		this.getElement().setProperty("href", href);
 	}
+	public String getHref() {
+		return this.getElement().getProperty("href");
+	}
 
 	public void setTarget(Target target) {
 		this.getElement().setProperty("target", target.toString());
 	}
 
 	public enum Target { _self, _top, _blank, _parent, _search }
+
+	public String toString() {
+		return getHref();
+	}
 
 }

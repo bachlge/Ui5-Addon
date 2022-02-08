@@ -12,6 +12,7 @@ import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.EventData;
 import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
@@ -105,10 +106,16 @@ public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolea
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5CheckBox> {
 
-		public ChangeEvent(Ui5CheckBox source, boolean fromClient) {
+		private final boolean value;
+
+		public ChangeEvent(Ui5CheckBox source, boolean fromClient,
+				@EventData("element.checked") boolean value) {
 			super(source, fromClient);
-			LOGGER.info("value changed to " + source.getElement().getProperty("checked"));
-			Notification.show("value changed to " + source.getElement().getProperty("checked"));
+			this.value = value;
+			Notification.show("Ui5CheckBox.ChangeEvent - value changed to " + value);
+		}
+		public boolean getChecked() {
+			return value;
 		}
 	}
 

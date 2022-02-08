@@ -17,12 +17,15 @@ import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.EventData;
 import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
+
+import elemental.json.JsonNumber;
 
 @SuppressWarnings("serial")
 @Tag("ui5-slider")
@@ -92,13 +95,24 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 		this.getElement().setProperty("value", value);
 	}
 
+
+	/**
+	 * Fired when the value changes and the user has finished interacting with the slider.
+	 *
+	 */	
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5Slider> {
 
-		public ChangeEvent(Ui5Slider source, boolean fromClient) {
+		private final JsonNumber value;
+
+		public ChangeEvent(Ui5Slider source, boolean fromClient,
+				@EventData("element.value") JsonNumber value) {
 			super(source, fromClient);
-			LOGGER.info("value changed to " + source.getElement().getProperty("value"));
-			Notification.show("value changed to " + source.getElement().getProperty("value"));
+			this.value = value;
+			Notification.show("Ui5Slider.ChangeEvent - value changed to " + value.asNumber());
+		}
+		public double getValue() {
+			return value.asNumber();
 		}
 	}
 
@@ -106,13 +120,23 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 		return addListener(ChangeEvent.class, listener);
 	}
 
+	/**
+	 * Fired when the value changes due to user interaction that is not yet finished - during mouse/touch dragging.
+	 *
+	 */	
 	@DomEvent("input")
 	public static class InputEvent extends ComponentEvent<Ui5Slider> {
 
-		public InputEvent(Ui5Slider source, boolean fromClient) {
+		private final JsonNumber value;
+
+		public InputEvent(Ui5Slider source, boolean fromClient,
+				@EventData("element.value") JsonNumber value) {
 			super(source, fromClient);
-			LOGGER.info("value changed to " + source.getElement().getProperty("value"));
-			Notification.show("value changed to " + source.getElement().getProperty("value"));
+			this.value = value;
+			Notification.show("Ui5Slider.InputEvent - value changed to " + value.asNumber());
+		}
+		public double getValue() {
+			return value.asNumber();
 		}
 	}
 

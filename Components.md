@@ -26,7 +26,7 @@ Fiori ... this is a Fiori Component (at the moment does not make any difference)
 - Ui5AvatarGroup <= Listener*
 - Ui5Badge	
 - Ui5Bar (Fiori)
-- Ui5Breadcrumbs
+- Ui5Breadcrumbs <= Listener
 - Ui5BreadcrumbsItem
 - Ui5BusyIndicator
 - Ui5Button <= Listener
@@ -61,6 +61,7 @@ Fiori ... this is a Fiori Component (at the moment does not make any difference)
 - Ui5MultiComboBoxItem (new)
 - Ui5MultiInput (form) <= Listener
 - Ui5NotificationListItem => see Ui5ListNotificationItem
+- Ui5Option
 - Ui5Panel
 - Ui5ProductSwitch (Fiori)
 - Ui5ProductSwitchItem (Fiori) (Listener)
@@ -71,6 +72,7 @@ Fiori ... this is a Fiori Component (at the moment does not make any difference)
 - Ui5SegmentedButtonItem (new) (Listener)
 - Ui5ShellBar (Fiori) (Listener)
 - Ui5ShellBarItem (Fiori
+- Ui5Select
 - Ui5SideNavigation (Fiori) (Listener)
 - Ui5SideNavigationItem (Fiori) (new) (Listener)
 - Ui5SideNavigationSubItem (Fiori)
@@ -108,7 +110,6 @@ Fiori ... this is a Fiori Component (at the moment does not make any difference)
 - Ui5DynamicSideContent (Fiori)
 - Ui5Page (Fiori)
 - Ui5ResponsivePopover
-- Ui5Select + Ui5Option
 - Ui5Title
 - Ui5Toast
 - Ui5Tree

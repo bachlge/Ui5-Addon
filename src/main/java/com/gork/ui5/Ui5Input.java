@@ -17,6 +17,7 @@ import com.vaadin.flow.component.AbstractSinglePropertyField;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.EventData;
 import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
@@ -38,7 +39,6 @@ public class Ui5Input extends AbstractSinglePropertyField<Ui5Input, String> impl
 	public Ui5Input() {
 		super("value", "", false);
 		LOGGER.info("constructor ...");
-		addListener(ValueChangeEvent.class, null);
 	}
 
 	@PostConstruct
@@ -114,17 +114,43 @@ public class Ui5Input extends AbstractSinglePropertyField<Ui5Input, String> impl
 	}
 
 	@DomEvent("change")
-	public static class ValueChangeEvent extends ComponentEvent<Ui5Input> {
+	public static class ChangeEvent extends ComponentEvent<Ui5Input> {
 
-		public ValueChangeEvent(Ui5Input source, boolean fromClient) {
+		final String value;
+
+		public ChangeEvent(Ui5Input source, boolean fromClient,
+				@EventData("element.value") String value) {
 			super(source, fromClient);
-			LOGGER.info("value changed to " + source.getElement().getProperty("value"));
-			Notification.show("value changed to " + source.getElement().getProperty("value"));
+			this.value = value;
+			Notification.show("Ui5Input.ChangeEvent - value changed to " + value);
+		}
+		public String getValue() {
+			return value;
 		}
 	}
 
-	public Registration addChangeListener(ComponentEventListener<ValueChangeEvent> listener) {
-		return addListener(ValueChangeEvent.class, listener);
+	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
+		return addListener(ChangeEvent.class, listener);
+	}
+
+	@DomEvent("input")
+	public static class InputEvent extends ComponentEvent<Ui5Input> {
+
+		private final String value;
+
+		public InputEvent(Ui5Input source, boolean fromClient,
+				@EventData("element.value") String value) {
+			super(source, fromClient);
+			this.value = value;
+			Notification.show("Ui5Input.InputEvent - value changed to " + value);
+		}
+		public String getValue() {
+			return value;
+		}
+	}
+
+	public Registration addInputListener(ComponentEventListener<InputEvent> listener) {
+		return addListener(InputEvent.class, listener);
 	}
 
 }
