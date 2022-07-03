@@ -16,8 +16,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-card")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.4.0")
 @JsModule("@ui5/webcomponents/dist/Card.js")
 //@JsModule("@ui5/webcomponents-icons/dist/example.js")
 //@JsModule("@ui5/webcomponents-icons/dist/folder-blank.js")

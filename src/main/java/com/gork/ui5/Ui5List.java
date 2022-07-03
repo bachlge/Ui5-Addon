@@ -44,7 +44,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-list")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
 @JsModule("@ui5/webcomponents/dist/List.js")
 public class Ui5List extends Component implements HasComponents {
 

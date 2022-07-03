@@ -18,7 +18,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-range-slider")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
 @JsModule("@ui5/webcomponents/dist/RangeSlider.js")
 public class Ui5RangeSlider extends CustomField implements HasLabel, HasValue.ValueChangeListener, HasSize {
 
@@ -89,7 +89,6 @@ public class Ui5RangeSlider extends CustomField implements HasLabel, HasValue.Va
 		this.getElement().setProperty("endValue", value);
 	}
 
-	@Override
 	public void valueChanged(ValueChangeEvent event) {
 		// TODO Auto-generated method stub
 	}

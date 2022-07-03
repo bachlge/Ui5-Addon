@@ -20,7 +20,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-rating-indicator")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
 @JsModule("@ui5/webcomponents/dist/RatingIndicator.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5RatingIndicator extends AbstractSinglePropertyField<Ui5RatingIndicator, Integer> {
@@ -30,7 +30,7 @@ public class Ui5RatingIndicator extends AbstractSinglePropertyField<Ui5RatingInd
 	public Ui5RatingIndicator() {
 		super("value", 0, false);
 		LOGGER.info("constructor ...");
-		addListener(ValueChangeEvent.class, this::showValue);
+//		addListener(ValueChangeEvent.class, this::showValue);
 	}
 
 	@PostConstruct

@@ -19,7 +19,7 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-combobox")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
 @JsModule("@ui5/webcomponents/dist/ComboBox.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolean> implements HasLabel {

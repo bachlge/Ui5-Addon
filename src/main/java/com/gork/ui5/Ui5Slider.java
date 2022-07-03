@@ -29,7 +29,7 @@ import elemental.json.JsonNumber;
 
 @SuppressWarnings("serial")
 @Tag("ui5-slider")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
 @JsModule("@ui5/webcomponents/dist/Slider.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js") // for `name`-property to have effect
 public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> implements HasLabel {

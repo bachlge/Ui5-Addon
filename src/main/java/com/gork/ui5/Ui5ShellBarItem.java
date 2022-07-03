@@ -21,7 +21,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-shell-bar-item")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.4.0")
 @JsModule("@ui5/webcomponents-fiori/dist/ShellBarItem.js")
 public class Ui5ShellBarItem extends Component implements HasComponents {
 

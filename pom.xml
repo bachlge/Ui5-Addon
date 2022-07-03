@@ -7,10 +7,12 @@
     <description>A Collection of Java Classes wrapping UI5 WebComponents</description>
 
     <properties>
-        <vaadin.version>22.0.4</vaadin.version>
-
+        <java.version>17</java.version>
+        <vaadin.version>23.0.9</vaadin.version>
+<!--
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 

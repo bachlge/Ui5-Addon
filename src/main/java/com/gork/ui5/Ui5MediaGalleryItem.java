@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-media-gallery-item")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.4.0")
 @JsModule("@ui5/webcomponents-fiori/dist/MediaGalleryItem.js")
 public class Ui5MediaGalleryItem extends Component implements HasComponents {
 

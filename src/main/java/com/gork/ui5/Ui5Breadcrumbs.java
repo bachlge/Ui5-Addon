@@ -23,7 +23,7 @@ import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-breadcrumbs")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
 @JsModule("@ui5/webcomponents/dist/Breadcrumbs.js")
 public class Ui5Breadcrumbs extends Component implements HasComponents {
 

@@ -3,9 +3,6 @@
  */
 package com.gork.ui5;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
@@ -25,21 +22,18 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
 
-import elemental.json.Json;
 import elemental.json.JsonArray;
 import elemental.json.JsonObject;
-import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-combobox")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
 @JsModule("@ui5/webcomponents/dist/MultiComboBox.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 //public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboBox, Boolean> implements HasComponents, HasLabel, HasSize {
 public class Ui5MultiComboBox extends Component implements HasComponents, HasLabel, HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5MultiComboBox.class);
-	private static List<Ui5MultiComboBoxItem> items = new ArrayList<>();
 
 	public Ui5MultiComboBox() {
 //		super("value", false, false);
@@ -53,7 +47,6 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 
 	public void addItem(Ui5MultiComboBoxItem item) {
 		this.add(item);
-		items.add(item);
 	}
 
 	public void setAccessibleName(String accessibleName) {
@@ -180,34 +173,27 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 	 *
 	 */
 	@DomEvent("selection-change")
-	public static class SelectionChangeEvent extends ComponentEvent<Ui5MultiComboBox> {
+	public static class SelectionChangeEvent<R extends Ui5MultiComboBox> extends ComponentEvent<Ui5MultiComboBox> {
 
 		private final String placeholder;
 		private final boolean bubbles;
-		private final JsonArray itemsa;
+		private JsonArray items;
 
 		public SelectionChangeEvent(Ui5MultiComboBox source, boolean fromClient,
 				@EventData("element.placeholder") String placeholder,
 				@EventData("event.bubbles") boolean bubbles,
-				@EventData("event.detail") String itemsa) {
+				@EventData("event.detail") JsonObject details) {
 			super(source, fromClient);
 			LOGGER.info("Ui5MultiComboBox.SelectionChangeEvent");
 			LOGGER.info("Ui5MultiComboBoxSelectionChangeEvent: placeholder=" + placeholder);
 			LOGGER.info("Ui5MultiComboBoxSelectionChangeEvent: bubbles=" + bubbles);
-			LOGGER.info("Ui5MultiComboBoxSelectionChangeEvent: itemsa=" + itemsa);
 			this.placeholder = placeholder;
 			this.bubbles = bubbles;
 //			this.itemsa = itemsa;
-			this.itemsa = Json.createArray();
+//			this.itemsa = Json.createArray();
 //			LOGGER.info("Count=" + itemsa.length());
 		}
 
-		public String getItems() {
-			return "bubbles=" + bubbles;
-		}
-		public String getItemsa() {
-			return "items" + itemsa;
-		}
 	}
 
 	public Registration addSelectionChangeListener(ComponentEventListener<SelectionChangeEvent> listener) {

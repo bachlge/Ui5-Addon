@@ -16,7 +16,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-illustrated-message")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.1.2")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.4.0")
 @JsModule("@ui5/webcomponents-fiori/dist/IllustratedMessage.js")
 @JsModule("@ui5/webcomponents-fiori/dist/illustrations/BeforeSearch.js")
 @JsModule("@ui5/webcomponents-fiori/dist/illustrations/NoData.js")
