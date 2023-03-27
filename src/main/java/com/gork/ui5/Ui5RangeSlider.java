@@ -3,24 +3,21 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.vaadin.flow.component.HasLabel;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasSize;
-import com.vaadin.flow.component.HasValue;
 import com.vaadin.flow.component.Tag;
-import com.vaadin.flow.component.customfield.CustomField;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-range-slider")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/RangeSlider.js")
-public class Ui5RangeSlider extends CustomField implements HasLabel, HasValue.ValueChangeListener, HasSize {
+//public class Ui5RangeSlider extends CustomField implements HasLabel, HasValue.ValueChangeListener, HasSize {
+public class Ui5RangeSlider extends Component implements HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5RangeSlider.class);
 
@@ -30,11 +27,6 @@ public class Ui5RangeSlider extends CustomField implements HasLabel, HasValue.Va
 		setShowTickmarks(true);
 		setLabelInterval(1);
 		//setStep(1); // 1 is the default
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setShowTooltip(Boolean value) {
@@ -87,22 +79,6 @@ public class Ui5RangeSlider extends CustomField implements HasLabel, HasValue.Va
 
 	public void setEndValue(Float value) {
 		this.getElement().setProperty("endValue", value);
-	}
-
-	public void valueChanged(ValueChangeEvent event) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	protected Object generateModelValue() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	protected void setPresentationValue(Object newPresentationValue) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

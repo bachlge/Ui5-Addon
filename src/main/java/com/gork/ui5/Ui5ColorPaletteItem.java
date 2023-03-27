@@ -1,7 +1,5 @@
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +11,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-color-palette-item")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/ColorPaletteItem.js")
 public class Ui5ColorPaletteItem extends Component implements HasComponents {
 
@@ -27,11 +25,6 @@ public class Ui5ColorPaletteItem extends Component implements HasComponents {
 		LOGGER.info("constructor(String color) ...");
 		setValue(color);
 		
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void getValue() {

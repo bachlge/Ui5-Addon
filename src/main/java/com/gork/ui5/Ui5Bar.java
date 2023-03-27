@@ -3,8 +3,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-bar")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.11.0")
 @JsModule("@ui5/webcomponents-fiori/dist/Bar.js")
 public class Ui5Bar extends Component implements HasComponents {
 
@@ -24,11 +22,6 @@ public class Ui5Bar extends Component implements HasComponents {
 
 	public Ui5Bar() {
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	/**

@@ -3,8 +3,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-illustrated-message")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.11.0")
 @JsModule("@ui5/webcomponents-fiori/dist/IllustratedMessage.js")
 @JsModule("@ui5/webcomponents-fiori/dist/illustrations/BeforeSearch.js")
 @JsModule("@ui5/webcomponents-fiori/dist/illustrations/NoData.js")
@@ -27,11 +25,6 @@ public class Ui5IllustratedMessage extends Component implements HasComponents {
 
 	public Ui5IllustratedMessage() {
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	/**
@@ -61,6 +54,7 @@ public class Ui5IllustratedMessage extends Component implements HasComponents {
 		NoSearchResults,
 		NoTasks,
 		UnableToLoad,
-		UnableToUpload }
+		UnableToUpload,
+	}
 
 }

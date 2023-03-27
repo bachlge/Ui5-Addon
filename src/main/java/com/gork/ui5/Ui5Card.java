@@ -3,25 +3,24 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-card")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/Card.js")
 //@JsModule("@ui5/webcomponents-icons/dist/example.js")
 //@JsModule("@ui5/webcomponents-icons/dist/folder-blank.js")
-public class Ui5Card extends Component implements HasComponents {
+public class Ui5Card extends Component implements HasComponents, HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Card.class);
 
@@ -32,11 +31,6 @@ public class Ui5Card extends Component implements HasComponents {
 //		setIcon("example"); // default icon
 		header.setSlot("header");
 		add(header);
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleName(String accessibleName) {

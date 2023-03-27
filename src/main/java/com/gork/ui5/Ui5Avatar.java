@@ -3,8 +3,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-avatar")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/Avatar.js")
 public class Ui5Avatar extends Component implements HasComponents {
 
@@ -30,11 +28,6 @@ public class Ui5Avatar extends Component implements HasComponents {
 	public Ui5Avatar(String initials) {
 		this();
 		setInitials(initials);
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleName(String accessibleName) {

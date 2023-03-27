@@ -1,7 +1,5 @@
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +14,7 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-color-palette")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/ColorPalette.js")
 public class Ui5ColorPalettePopover extends Component implements HasComponents {
 
@@ -24,11 +22,6 @@ public class Ui5ColorPalettePopover extends Component implements HasComponents {
 
 	public Ui5ColorPalettePopover() {
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setDefaultColor(String color) {

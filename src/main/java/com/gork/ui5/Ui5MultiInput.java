@@ -8,8 +8,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +29,7 @@ import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/MultiInput.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
@@ -41,11 +39,6 @@ public class Ui5MultiInput extends Component implements HasComponents, HasLabel,
 
 	public Ui5MultiInput() {
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleName(String accessibleName) {

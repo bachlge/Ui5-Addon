@@ -5,8 +5,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,9 +15,9 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-icon")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.4.0")
-@NpmPackage(value = "@ui5/webcomponents-icons-tnt", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents-icons-tnt", version = "^1.11.0")
 
 @JsModule("@ui5/webcomponents/dist/Icon.js")
 @JsModule("@ui5/webcomponents-icons/dist/Allicons.js")
@@ -47,11 +45,6 @@ public class Ui5Icon extends Component {
 	public Ui5Icon(String name) {
 		LOGGER.info("constructor(name) ...");
 		setIcon(name);
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleName(String accessibleName) {

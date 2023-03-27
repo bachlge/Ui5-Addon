@@ -1,9 +1,9 @@
 /**
+ * 
  * https://sap.github.io/ui5-webcomponents/playground/components/ProductSwitch/
+ * 
  */
 package com.gork.ui5;
-
-import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-product-switch-item")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.11.0")
 @JsModule("@ui5/webcomponents-fiori/dist/ProductSwitchItem.js")
 public class Ui5ProductSwitchItem extends Component implements HasComponents {
 
@@ -29,11 +29,6 @@ public class Ui5ProductSwitchItem extends Component implements HasComponents {
 
 	public Ui5ProductSwitchItem() {
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setIcon(String value) {
@@ -55,7 +50,7 @@ public class Ui5ProductSwitchItem extends Component implements HasComponents {
 	}
 
 	public void setSubtitleText(String value) {
-		this.getElement().setProperty("subUi5ProductSwitchItem", value);
+		this.getElement().setProperty("subtitleText", value);
 	}
 
 	@DomEvent("click")

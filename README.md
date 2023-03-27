@@ -10,17 +10,24 @@ add dependency in your `pom.xml`:
 <dependency>
    <groupId>com.gork</groupId>
    <artifactId>ui5-addon</artifactId>
-   <version>1.0-SNAPSHOT</version>
+   <version>1.0.0</version>
 </dependency>
 ```
 
 additionally add in the using application the dependencies like (don't know why this is necessary!)
 
 ```
+1. open console
+2. go to project root dir, eg:
 cd /Users/georg/Develop/vaadin/flow/ui5-addon-demo
+cd /Users/georg/Develop/vaadin/flow/fam
+3. run scripts
 npm install @ui5/webcomponents
 npm install @ui5/webcomponents-fiori
+
 ```
+
+
 
 ## Demo Application
 

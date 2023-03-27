@@ -3,8 +3,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,11 +13,10 @@ import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
-import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-combobox")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/ComboBox.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolean> implements HasLabel {
@@ -30,11 +27,6 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 		super("value", false, false);
 		LOGGER.info("constructor ...");
 		addListener(ChangeEvent.class, null);
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleName(String accessibleName) {
@@ -101,7 +93,7 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 		public ChangeEvent(Ui5ComboBox source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("value changed to " + source.getElement().getProperty("checked"));
-			Notification.show("value changed to " + source.getElement().getProperty("checked"));
+//			Notification.show("value changed to " + source.getElement().getProperty("checked"));
 		}
 		
 	}
@@ -112,7 +104,7 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 		public InputEvent(Ui5ComboBox source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("input " + source.getElement().getProperty("checked"));
-			Notification.show("input " + source.getElement().getProperty("checked"));
+//			Notification.show("input " + source.getElement().getProperty("checked"));
 		}
 		
 	}
@@ -123,7 +115,7 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 		public SelectionValueChangeEvent(Ui5ComboBox source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("selection changed to " + source.getElement().getProperty("item"));
-			Notification.show("selection changed to " + source.getElement().getProperty("item"));
+//			Notification.show("selection changed to " + source.getElement().getProperty("item"));
 		}
 		
 	}

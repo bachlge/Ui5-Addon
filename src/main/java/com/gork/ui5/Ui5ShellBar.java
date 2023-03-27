@@ -3,8 +3,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +19,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-shellbar")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.11.0")
 @JsModule("@ui5/webcomponents-fiori/dist/ShellBar.js")
 public class Ui5ShellBar extends Component implements HasComponents {
 
@@ -31,11 +29,6 @@ public class Ui5ShellBar extends Component implements HasComponents {
 		LOGGER.info("constructor ...");
 		this.showCoPilot(true); // show by default
 		this.showProductSwitch(true); // show by default
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleTexts(String accessibleTexts) {

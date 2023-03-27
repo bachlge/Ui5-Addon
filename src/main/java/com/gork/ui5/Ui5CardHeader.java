@@ -3,8 +3,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,8 +17,8 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-card-header")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/CardHeader.js")
 public class Ui5CardHeader extends Component implements HasComponents {
 
@@ -30,11 +28,6 @@ public class Ui5CardHeader extends Component implements HasComponents {
 		LOGGER.info("constructor ...");
 //		setIcon("example"); // default icon
 		getElement().setProperty("slot", "header");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setIcon(String icon) {

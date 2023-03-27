@@ -20,8 +20,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +35,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-li-notification-group")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents-fiori/dist/NotificationListGroupItem.js")
 public class Ui5ListNotificationGroupItem extends Component implements HasComponents {
 
@@ -45,11 +43,6 @@ public class Ui5ListNotificationGroupItem extends Component implements HasCompon
 
 	public Ui5ListNotificationGroupItem() {
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setBusy(boolean value) {

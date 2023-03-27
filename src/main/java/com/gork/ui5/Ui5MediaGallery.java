@@ -1,7 +1,5 @@
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +11,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-media-gallery")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.11.0")
 @JsModule("@ui5/webcomponents-fiori/dist/MediaGallery.js")
 public class Ui5MediaGallery extends Component implements HasComponents {
 
@@ -22,11 +20,6 @@ public class Ui5MediaGallery extends Component implements HasComponents {
 	public Ui5MediaGallery() {
 		LOGGER.info("constructor ...");
 		this.getElement().setProperty("slot", "default");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	/**

@@ -8,8 +8,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,12 +20,11 @@ import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-switch")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/Switch.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> implements HasLabel {
@@ -40,11 +37,6 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 		setTextOn("Yes");
 		setTextOff("No");
 		addListener(ChangeEvent.class, null);
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleNameRef(String accessibleNameRef) {
@@ -105,7 +97,7 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 				@EventData("element.checked") boolean value) {
 			super(source, fromClient);
 			this.value = value;
-			Notification.show("Ui5Switch.ChangeEvent - value changed to " + value);
+//			Notification.show("Ui5Switch.ChangeEvent - value changed to " + value);
 		}
 		public boolean getChecked() {
 			return value;

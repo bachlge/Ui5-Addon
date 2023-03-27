@@ -8,8 +8,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,14 +20,13 @@ import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
 
 import elemental.json.JsonNumber;
 
 @SuppressWarnings("serial")
 @Tag("ui5-slider")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/Slider.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js") // for `name`-property to have effect
 public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> implements HasLabel {
@@ -40,11 +37,6 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 		super("value", 0, false);
 		LOGGER.info("constructor ...");
 //		addListener(ValueChangeEvent.class, null);
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setDisabled(Boolean value) {
@@ -109,7 +101,7 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 				@EventData("element.value") JsonNumber value) {
 			super(source, fromClient);
 			this.value = value;
-			Notification.show("Ui5Slider.ChangeEvent - value changed to " + value.asNumber());
+//			Notification.show("Ui5Slider.ChangeEvent - value changed to " + value.asNumber());
 		}
 		public double getValue() {
 			return value.asNumber();
@@ -133,7 +125,7 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 				@EventData("element.value") JsonNumber value) {
 			super(source, fromClient);
 			this.value = value;
-			Notification.show("Ui5Slider.InputEvent - value changed to " + value.asNumber());
+//			Notification.show("Ui5Slider.InputEvent - value changed to " + value.asNumber());
 		}
 		public double getValue() {
 			return value.asNumber();

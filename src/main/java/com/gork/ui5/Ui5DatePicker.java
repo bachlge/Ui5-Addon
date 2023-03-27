@@ -1,7 +1,5 @@
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +13,7 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-date-picker")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/DatePicker.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5DatePicker extends AbstractSinglePropertyField<Ui5Input, String> {
@@ -25,11 +23,6 @@ public class Ui5DatePicker extends AbstractSinglePropertyField<Ui5Input, String>
 	public Ui5DatePicker() {
 		super("value", "", false);
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleName(String accessibleName) {

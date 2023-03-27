@@ -1,7 +1,5 @@
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +15,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-radiobutton")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/RadioButton.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5RadioButton extends Component {
@@ -26,11 +24,6 @@ public class Ui5RadioButton extends Component {
 
 	public Ui5RadioButton() {
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleNameRef(String accessibleNameRef) {

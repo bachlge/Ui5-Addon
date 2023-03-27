@@ -8,8 +8,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +26,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/Input.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
@@ -39,11 +37,6 @@ public class Ui5Input extends AbstractSinglePropertyField<Ui5Input, String> impl
 	public Ui5Input() {
 		super("value", "", false);
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleName(String accessibleName) {

@@ -3,8 +3,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +25,7 @@ import elemental.json.JsonObject;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-combobox")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/MultiComboBox.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 //public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboBox, Boolean> implements HasComponents, HasLabel, HasSize {
@@ -38,11 +36,6 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 	public Ui5MultiComboBox() {
 //		super("value", false, false);
 		LOGGER.info("constructor ...");
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void addItem(Ui5MultiComboBoxItem item) {

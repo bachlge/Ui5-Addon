@@ -3,8 +3,6 @@
  */
 package com.gork.ui5;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +18,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-rating-indicator")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
 @JsModule("@ui5/webcomponents/dist/RatingIndicator.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5RatingIndicator extends AbstractSinglePropertyField<Ui5RatingIndicator, Integer> {
@@ -31,11 +29,6 @@ public class Ui5RatingIndicator extends AbstractSinglePropertyField<Ui5RatingInd
 		super("value", 0, false);
 		LOGGER.info("constructor ...");
 //		addListener(ValueChangeEvent.class, this::showValue);
-	}
-
-	@PostConstruct
-	private void init() {
-		LOGGER.info("init ...");
 	}
 
 	public void setAccessibleName(String accessibleName) {
