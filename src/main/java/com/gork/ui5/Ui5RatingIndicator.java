@@ -18,7 +18,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-rating-indicator")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/RatingIndicator.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5RatingIndicator extends AbstractSinglePropertyField<Ui5RatingIndicator, Integer> {

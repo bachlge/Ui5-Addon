@@ -24,7 +24,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-switch")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/Switch.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> implements HasLabel {

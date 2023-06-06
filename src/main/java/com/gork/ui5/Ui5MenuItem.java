@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/Breadcrumbs/
+ * https://sap.github.io/ui5-webcomponents/playground/components/Menu/
  */
 package com.gork.ui5;
 
@@ -14,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-menu-item")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/MenuItem.js")
 public class Ui5MenuItem extends Component implements HasComponents {
 

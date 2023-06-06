@@ -15,7 +15,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-radiobutton")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/RadioButton.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5RadioButton extends Component {
@@ -26,13 +26,24 @@ public class Ui5RadioButton extends Component {
 		LOGGER.info("constructor ...");
 	}
 
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
+	}
+
 	public void setAccessibleNameRef(String accessibleNameRef) {
 		this.getElement().setProperty("accessibleNameRef", accessibleNameRef);
 	}
 
+	/**
+	 * Default: false
+	 */
 	public void setChecked(Boolean value) {
 		this.getElement().setProperty("checked", value);
 	}
+
+	/**
+	 * Default: false
+	 */
 	public void setDisabled(Boolean value) {
 		this.getElement().setProperty("disabled", value);
 	}
@@ -45,15 +56,18 @@ public class Ui5RadioButton extends Component {
 		this.getElement().setProperty("name", name);
 	}
 
+	/**
+	 * Default: false
+	 */
 	public void setReadonly(Boolean value) {
 		this.getElement().setProperty("readonly", value);
 	}
 
 	/**
-	 * @deprecated use @setChecked instead
+	 * Default: false
 	 */
-	public void setSelected(Boolean selected) {
-		this.getElement().setProperty("selected", selected);
+	public void setRequired(Boolean value) {
+		this.getElement().setProperty("required", value);
 	}
 
 	public void setText(String text) {
@@ -68,7 +82,15 @@ public class Ui5RadioButton extends Component {
 		this.getElement().setProperty("valueState", valueState.toString());
 	}
 
-	public enum ValueState { None, Warning, Error }
+	/**
+	 * Default: None
+	 */
+	public enum ValueState { None, Warning, Error, Success, Information }
+
+	/**
+	 * Default: None
+	 */
+	public enum WrappingType { None, Normal }
 
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5RadioButton> {

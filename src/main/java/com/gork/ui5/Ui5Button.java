@@ -16,7 +16,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-button")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/Button.js")
 public class Ui5Button extends Component implements HasComponents, HasSize {
 
@@ -34,6 +34,10 @@ public class Ui5Button extends Component implements HasComponents, HasSize {
 
 	public void setAccessibleName(String accessibleName) {
 		this.getElement().setProperty("accessibleName", accessibleName);
+	}
+
+	public void setAccessibleNameRef(String accessibleNameRef) {
+		this.getElement().setProperty("accessibleNameRef", accessibleNameRef);
 	}
 
 	public void setDesign(ButtonDesign design) {
@@ -72,6 +76,10 @@ public class Ui5Button extends Component implements HasComponents, HasSize {
 	 */
 	public void setSubmits(Boolean value) {
 		this.getElement().setProperty("submits", value);
+	}
+
+	public void setTooltip(String tooltip) {
+		this.getElement().setProperty("tooltip", tooltip);
 	}
 
 	@DomEvent("click")

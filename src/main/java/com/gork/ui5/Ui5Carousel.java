@@ -17,9 +17,10 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-carousel")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/Carousel.js")
+@JsModule("@ui5/webcomponents-base/dist/features/F6Navigation.js")
 public class Ui5Carousel extends Component implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Carousel.class);
@@ -51,19 +52,26 @@ public class Ui5Carousel extends Component implements HasComponents {
 	}
 
 	// default: 1
-	public void setItemsPerPageL(String value) {
-		this.getElement().setProperty("itemsPerPageL", value);
+	public void setItemsPerPageL(Number value) {
+		this.getElement().setProperty("itemsPerPageL", value.intValue());
 	}
 
 	// default: 1
-	public void setItemsPerPageM(String value) {
-		this.getElement().setProperty("itemsPerPageM", value);
+	public void setItemsPerPageM(Number value) {
+		this.getElement().setProperty("itemsPerPageM", value.intValue());
 	}
 
 	// default: 1
-	public void setItemsPerPageS(String value) {
-		this.getElement().setProperty("temsPerPageS", value);
+	public void setItemsPerPageS(Number value) {
+		this.getElement().setProperty("temsPerPageS", value.intValue());
 	}
+
+	// default: Default
+	public void setPageIndicatorStyle(PageIndicatorStyle pageIndicatorStyle) {
+		this.getElement().setProperty("pageIndicatorStyle", pageIndicatorStyle.toString());
+	}
+
+	public enum PageIndicatorStyle { Default, Numeric }
 
 	public void navigateTo(Integer itemIndex) {
 		this.getElement().setProperty("itemIndex", itemIndex);
@@ -79,7 +87,5 @@ public class Ui5Carousel extends Component implements HasComponents {
 		}
 		
 	}
-
-
 
 }

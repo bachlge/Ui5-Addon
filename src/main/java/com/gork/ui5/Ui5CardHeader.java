@@ -17,8 +17,8 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-card-header")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/CardHeader.js")
 public class Ui5CardHeader extends Component implements HasComponents {
 

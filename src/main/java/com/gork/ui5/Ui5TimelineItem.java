@@ -25,10 +25,8 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timeline-item")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.11.0")
-//@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.4.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.14.0")
 @JsModule("@ui5/webcomponents-fiori/dist/TimelineItem.js")
-//@JsModule("@ui5/webcomponents-icons/dist/calendar.js")
 public class Ui5TimelineItem extends Component implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TimelineItem.class);
@@ -46,32 +44,11 @@ public class Ui5TimelineItem extends Component implements HasComponents {
 		this.getElement().setProperty("name", name);
 	}
 
-	/**
-	 * @deprecated use @setName instead 
-	 */
-	public void setItemName(String name) {
-		setName(name);
-	}
-
 	public void setTitleText(String title) {
 		this.getElement().setProperty("titleText", title);
 	}
 
-	/**
-	 * @deprecated use @setTitleText instead
-	 */
-	public void setTitle(String title) {
-		setTitleText(title);
-	}
-
 	public void setSubtitleText(String title) {
-		this.getElement().setProperty("subtitleText", title);
-	}
-
-	/**
-	 * @deprecated use @setSubtitleText instead
-	 */
-	public void setSubTitle(String title) {
 		this.getElement().setProperty("subtitleText", title);
 	}
 
@@ -80,14 +57,7 @@ public class Ui5TimelineItem extends Component implements HasComponents {
 	}
 
 	/**
-	 * @deprecated use setNameClickable instead
-	 */
-	public void setItemNameClickable(boolean clickable) {
-		setNameClickable(clickable);
-	}
-
-	/**
-	 * Conveniance Method
+	 * Convenience Method
 	 * @param color
 	 */
 	public void setColor(String color) {

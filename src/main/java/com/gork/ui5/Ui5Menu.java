@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/Breadcrumbs/
+ * https://sap.github.io/ui5-webcomponents/playground/components/Menu/
  */
 package com.gork.ui5;
 
@@ -21,7 +21,7 @@ import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-menu")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/Menu.js")
 public class Ui5Menu extends Component implements HasComponents {
 

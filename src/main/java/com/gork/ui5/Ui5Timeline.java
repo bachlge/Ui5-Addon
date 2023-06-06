@@ -29,7 +29,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timeline")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.14.0")
 @JsModule("@ui5/webcomponents-fiori/dist/Timeline.js")
 public class Ui5Timeline extends Component implements HasComponents {
 
@@ -37,6 +37,10 @@ public class Ui5Timeline extends Component implements HasComponents {
 
 	public Ui5Timeline() {
 		LOGGER.info("constructor ...");
+	}
+
+	public void setAccessibleName(String accessibleName) {
+		this.getElement().setProperty("accessibleName", accessibleName);
 	}
 
 	/**

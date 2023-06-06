@@ -14,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-side-navigation-sub-item")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.11.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.14.0")
 @JsModule("@ui5/webcomponents-fiori/dist/SideNavigationSubItem.js")
 public class Ui5SideNavigationSubItem extends Component implements HasComponents {
 
