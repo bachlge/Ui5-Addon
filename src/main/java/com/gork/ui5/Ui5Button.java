@@ -12,6 +12,7 @@ import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
@@ -24,7 +25,6 @@ public class Ui5Button extends Component implements HasComponents, HasSize {
 
 	public Ui5Button() {
 		LOGGER.info("constructor ...");
-		addListener(ClickEvent.class, null);
 	}
 
 	public Ui5Button(String text) {
@@ -82,18 +82,23 @@ public class Ui5Button extends Component implements HasComponents, HasSize {
 		this.getElement().setProperty("tooltip", tooltip);
 	}
 
+	public Registration addClickListener(ComponentEventListener<ClickEvent> listener) {
+		return addListener(ClickEvent.class, listener);
+	}
+
+	/**
+	 * 
+	 * Fired when the component is activated either with a mouse/tap or by using the Enter or Space key.
+	 *
+	 */
 	@DomEvent("click")
 	public static class ClickEvent extends ComponentEvent<Ui5Button> {
 
 		public ClickEvent(Ui5Button source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("ClickEvent ...");
-//			Notification.show("clicked on button " + source.getElement().getProperty("text"));
+			Notification.show("Ui5ButtonComponent: clicked on '" + source.getElement().getProperty("text") + "'");
 		}
-	}
-
-	public Registration addClickListener(ComponentEventListener<ClickEvent> listener) {
-		return addListener(ClickEvent.class, listener);
 	}
 
 }

@@ -17,6 +17,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.EventData;
 import com.vaadin.flow.component.HasLabel;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
@@ -27,7 +28,7 @@ import com.vaadin.flow.shared.Registration;
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/Switch.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
-public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> implements HasLabel {
+public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> implements HasLabel, HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Switch.class);
 
@@ -36,7 +37,6 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 		LOGGER.info("constructor ...");
 		setTextOn("Yes");
 		setTextOff("No");
-		addListener(ChangeEvent.class, null);
 	}
 
 	public void setAccessibleNameRef(String accessibleNameRef) {
@@ -88,6 +88,10 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 		}
 	}
 
+	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
+		return addListener(ChangeEvent.class, listener);
+	}
+
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5Switch> {
 
@@ -102,10 +106,6 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 		public boolean getChecked() {
 			return value;
 		}
-	}
-
-	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
-		return addListener(ChangeEvent.class, listener);
 	}
 
 }

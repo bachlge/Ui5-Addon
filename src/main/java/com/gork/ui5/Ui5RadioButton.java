@@ -7,6 +7,7 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
@@ -14,11 +15,11 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
-@Tag("ui5-radiobutton")
+@Tag("ui5-radio-button")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/RadioButton.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
-public class Ui5RadioButton extends Component {
+public class Ui5RadioButton extends Component implements HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5RadioButton.class);
 
@@ -92,18 +93,26 @@ public class Ui5RadioButton extends Component {
 	 */
 	public enum WrappingType { None, Normal }
 
+
+	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
+		return addListener(ChangeEvent.class, listener);
+	}
+
+	/**
+	 * Fired when the component checked state changes.
+	 * 
+	 * NOTE: if a Radio Button with same name (=group) is activated, only the active Button fires!
+	 *
+	 */
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5RadioButton> {
 
 		public ChangeEvent(Ui5RadioButton source, boolean fromClient) {
 			super(source, fromClient);
-			LOGGER.info("value changed to " + source.getElement().getProperty("value"));
-			Notification.show("value changed to " + source.getElement().getProperty("value"));
+			LOGGER.info("Ui5RadioButton component value changed to " + source.getElement().getProperty("text"));
+			Notification.show("Ui5RadioButton component value changed to " + source.getElement().getProperty("text"));	
 		}
 	}
 
-	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
-		return addListener(ChangeEvent.class, listener);
-	}
 
 }

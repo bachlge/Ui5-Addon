@@ -55,7 +55,24 @@ Binding ... means that the component is extending AbstractSinglePropertyField
 HasComponents ... Components can be added 
 Event ... Listeners can be attached for listed event(s)
 
-For a fUll list, visit the [Playground](https://sap.github.io/ui5-webcomponents/playground/components) or have a look on the Sources in [Github](https://github.com/SAP/ui5-webcomponents)
+For a full list, visit the [Playground](https://sap.github.io/ui5-webcomponents/playground/components) or have a look on the Sources in [Github](https://github.com/SAP/ui5-webcomponents)
+
+## Events that have been successfully tested in the demo application
+
+- Ui5Checkbox change (returns one boolean value)
+- Ui5RadioButton change (returns no value)
+- Ui5Slider change (returns one float value)
+- Ui5Switch change (returns one boolean value)
+- Ui5ToggleButton change (returns one boolean value)
+
+## Events that need furter investigation
+
+- Ui5Breadcrumbs item-click (complicated hadling, should it be added on Item level?)
+- Ui5Button click (component event fires, npe in demo application)
+- Ui5RangeSlider change (fires twice, should return two values, returns none)
+- Ui5ToggleButton change (always is false, what is really returned in @EventData("element.pressed")?)
+
+
 
 ## Known bugs & limitations
 

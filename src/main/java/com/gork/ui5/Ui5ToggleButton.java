@@ -17,7 +17,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
-@Tag("ui5-togglebutton")
+@Tag("ui5-toggle-button")
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/ToggleButton.js")
@@ -29,7 +29,6 @@ public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton
 	public Ui5ToggleButton() {
 		super("value", false, false);
 		LOGGER.info("constructor ...");
-//		addListener(ClickEvent.class, null);
 	}
 
 	public void setAccessibleName(String accessibleName) {
@@ -84,6 +83,10 @@ public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton
 	}
 
 
+	public Registration addClickListener(ComponentEventListener<ClickEvent> listener) {
+		return addListener(ClickEvent.class, listener);
+	}
+
 	@DomEvent("click")
 	public static class ClickEvent extends ComponentEvent<Ui5ToggleButton> {
 
@@ -98,10 +101,6 @@ public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton
 		public boolean getPressed() {
 			return value;
 		}
-	}
-
-	public Registration addClickListener(ComponentEventListener<ClickEvent> listener) {
-		return addListener(ClickEvent.class, listener);
 	}
 
 }

@@ -36,7 +36,6 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 	public Ui5Slider() {
 		super("value", 0, false);
 		LOGGER.info("constructor ...");
-//		addListener(ValueChangeEvent.class, null);
 	}
 
 	public void setDisabled(Boolean value) {

@@ -61,6 +61,9 @@ public class Ui5Breadcrumbs extends Component implements HasComponents {
 		this.getElement().setProperty("bla", bla);
 	}
 
+	public Registration addItemClickListener(ComponentEventListener<ItemClickEvent> listener) {
+		return addListener(ItemClickEvent.class, listener);
+	}
 
 	@DomEvent("item-click")
 	public static class ItemClickEvent extends ComponentEvent<Ui5Breadcrumbs> {
@@ -91,10 +94,6 @@ public class Ui5Breadcrumbs extends Component implements HasComponents {
 		public String getS() {
 			return s;
 		}
-	}
-
-	public Registration addItemClickListener(ComponentEventListener<ItemClickEvent> listener) {
-		return addListener(ItemClickEvent.class, listener);
 	}
 
 }

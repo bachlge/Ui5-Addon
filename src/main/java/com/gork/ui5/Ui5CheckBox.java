@@ -12,6 +12,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.EventData;
 import com.vaadin.flow.component.HasLabel;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
@@ -23,20 +24,26 @@ import com.vaadin.flow.shared.Registration;
 @NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
 @JsModule("@ui5/webcomponents/dist/CheckBox.js")
 // For the name property to have effect, you must add the following import to your project:
-// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
-public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolean> implements HasLabel {
+public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolean> implements HasLabel, HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5CheckBox.class);
 
 	public Ui5CheckBox() {
 		super("value", false, false);
 		LOGGER.info("constructor ...");
-//		addListener(ValueChangeEvent.class, null);
 	}
 
 	public boolean getChecked() {
 		return Boolean.getBoolean(getElement().getProperty("checked"));
+	}
+
+	/**
+	 * convenience method
+	 * sets property `checked` to true
+	 */
+	public void setChecked() {
+		setChecked(true);
 	}
 
 	public void setChecked(Boolean checked) {
@@ -59,6 +66,14 @@ public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolea
 		this.getElement().setProperty("indeterminate", indeterminate);
 	}
 
+	public String getName() {
+		return this.getElement().getProperty("name");
+	}
+
+	/**
+	 * Determines the name with which the component will be submitted in an HTML form.
+	 * @param value
+	 */
 	public void setName(String value) {
 		this.getElement().setProperty("name", value);
 	}
@@ -71,11 +86,23 @@ public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolea
 		this.getElement().setProperty("readonly", readonly);
 	}
 
-	// for convenience and for combatibility with Vaadin 
+	/**
+	 * set `text`-property
+	 * for convenience and for compatibility with Vaadin 
+	 * @param text
+	 */
 	public void setLabel(String text) {
 		this.getElement().setProperty("text", text);
 	}
-	
+
+	public String getText() {
+		return this.getElement().getProperty("text");
+	}
+
+	/**
+	 * set `text`-property (=label)
+	 * @param text
+	 */
 	public void setText(String text) {
 		this.getElement().setProperty("text", text);
 	}
@@ -92,7 +119,7 @@ public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolea
 
 	/**
 	 * Default: None
-	 * @param valueState
+	 * @param wrappingType
 	 */
 	public void setWrappingType(WrappingType wrappingType) {
 		this.getElement().setProperty("wrappingType", wrappingType.toString());
@@ -101,6 +128,10 @@ public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolea
 	public enum WrappingType { None, Normal }
 
 
+	/**
+	 * Fired when the component checked state changes.
+	 *
+	 */
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5CheckBox> {
 
@@ -110,7 +141,7 @@ public class Ui5CheckBox extends AbstractSinglePropertyField<Ui5CheckBox, Boolea
 				@EventData("element.checked") boolean value) {
 			super(source, fromClient);
 			this.value = value;
-			Notification.show("Ui5CheckBox.ChangeEvent - value changed to " + value);
+			Notification.show("Ui5CheckBox component: ChangeEvent - value changed to " + value);
 		}
 		public boolean getChecked() {
 			return value;
