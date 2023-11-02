@@ -8,15 +8,16 @@ import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
+import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-label")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
 @JsModule("@ui5/webcomponents/dist/Label.js")
-public class Ui5Label extends Component implements HasComponents {
+public class Ui5Label extends Component implements HasComponents, HasStyle {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Label.class);
 

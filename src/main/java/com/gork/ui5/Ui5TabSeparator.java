@@ -14,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-tab-separator")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
 @JsModule("@ui5/webcomponents/dist/TabSeparator.js")
 public class Ui5TabSeparator extends Component implements HasComponents {
 

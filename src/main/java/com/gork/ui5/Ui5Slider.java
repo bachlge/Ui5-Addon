@@ -26,15 +26,15 @@ import elemental.json.JsonNumber;
 
 @SuppressWarnings("serial")
 @Tag("ui5-slider")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
 @JsModule("@ui5/webcomponents/dist/Slider.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js") // for `name`-property to have effect
-public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> implements HasLabel {
+public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Double> implements HasLabel {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Slider.class);
 
 	public Ui5Slider() {
-		super("value", 0, false);
+		super("value", 0d, false);
 		LOGGER.info("constructor ...");
 	}
 
@@ -50,7 +50,17 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 		this.getElement().setProperty("min", value);
 	}
 
+	// Convenience
+	public void setMin(int value) {
+		this.getElement().setProperty("min", value);
+	}
+
 	public void setMax(Float value) {
+		this.getElement().setProperty("max", value);
+	}
+
+	// Convenience
+	public void setMax(int value) {
 		this.getElement().setProperty("max", value);
 	}
 
@@ -72,12 +82,22 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 		this.getElement().setProperty("step", value);
 	}
 
+	public int getIntValue() {
+		return Integer.parseInt(getElement().getProperty("value"));
+	}
+
+	// Convenience
+	public void setValue(Integer value) {
+		this.getElement().setProperty("value", value);
+	}
+
+	// Convenience
 	public void setValue(Float value) {
 		this.getElement().setProperty("value", value);
 	}
 
 	// Convenience
-	public void setValue(Integer value) {
+	public void setValue(int value) {
 		this.getElement().setProperty("value", value);
 	}
 
@@ -100,7 +120,10 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 				@EventData("element.value") JsonNumber value) {
 			super(source, fromClient);
 			this.value = value;
+			// only this line of code makes the component knowing it's current value!
+			source.setValue(Float.valueOf(value.toJson()));
 //			Notification.show("Ui5Slider.ChangeEvent - value changed to " + value.asNumber());
+			if (!fromClient) return;
 		}
 		public double getValue() {
 			return value.asNumber();
@@ -110,6 +133,7 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
 		return addListener(ChangeEvent.class, listener);
 	}
+
 
 	/**
 	 * Fired when the value changes due to user interaction that is not yet finished - during mouse/touch dragging.
@@ -124,6 +148,7 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Integer> i
 				@EventData("element.value") JsonNumber value) {
 			super(source, fromClient);
 			this.value = value;
+			if (!fromClient) return;
 //			Notification.show("Ui5Slider.InputEvent - value changed to " + value.asNumber());
 		}
 		public double getValue() {

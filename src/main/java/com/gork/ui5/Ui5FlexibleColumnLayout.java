@@ -18,6 +18,7 @@ import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasComponents;
+import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
@@ -26,16 +27,18 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-flexible-column-layout")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.19.0")
 @JsModule("@ui5/webcomponents-fiori/dist/FlexibleColumnLayout.js")
-public class Ui5FlexibleColumnLayout extends Component implements HasComponents {
+public class Ui5FlexibleColumnLayout extends Component implements HasComponents, HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5FlexibleColumnLayout.class);
 
 	public Ui5FlexibleColumnLayout() {
 		LOGGER.info("constructor ...");
 		// otherwise width is 0
-    	getElement().getStyle().set("width", "100%");
+//    	getElement().getStyle().set("width", "100%");
+//    	getElement().getStyle().set("height", "100%");
+    	setSizeFull();
 
 	}
 

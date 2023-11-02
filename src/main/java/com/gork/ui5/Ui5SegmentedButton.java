@@ -20,7 +20,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-segmentedbutton")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
 @JsModule("@ui5/webcomponents/dist/SegmentedButton.js")
 public class Ui5SegmentedButton extends Component implements HasComponents {
 

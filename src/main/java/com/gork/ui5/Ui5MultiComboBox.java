@@ -3,6 +3,9 @@
  */
 package com.gork.ui5;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,10 +25,11 @@ import com.vaadin.flow.shared.Registration;
 
 import elemental.json.JsonArray;
 import elemental.json.JsonObject;
+import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-combobox")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
 @JsModule("@ui5/webcomponents/dist/MultiComboBox.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 //public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboBox, Boolean> implements HasComponents, HasLabel, HasSize {
@@ -35,6 +39,7 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 
 	public Ui5MultiComboBox() {
 //		super("value", false, false);
+		setWidthFull();
 		LOGGER.info("constructor ...");
 	}
 
@@ -78,6 +83,22 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 		this.getElement().setProperty("placeholder", placeholder);
 	}
 
+	/**
+	 * Defines if the user input will be prevented, if no matching item has been found
+	 * Default: false
+	 * @param value
+	 */
+	public void setAllowCustomValues(Boolean value) {
+		this.getElement().setProperty("allowCustomValues", value);
+	}
+
+	/**
+	 * convenience method
+	 */
+	public void setAllowCustomValues() {
+		setAllowCustomValues(true);
+	}
+
 	public boolean getReadonly() {
 		return Boolean.getBoolean(getElement().getProperty("readonly"));
 	}
@@ -90,11 +111,16 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 		this.getElement().setProperty("required", value);
 	}
 
+	/**
+	 * Defines the value of the component.
+	 * @param value
+	 */
 	public void setValue(String value) {
 		this.getElement().setProperty("value", value);
 	}
 
 	/**
+	 * Defines the value state of the component.
 	 * Default: None
 	 * @param valueState
 	 */
@@ -114,14 +140,14 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 
 		public ChangeEvent(Ui5MultiComboBox source, boolean fromClient) {
 			super(source, fromClient);
-			LOGGER.info("Ui5MultiComboBox.ChangeEvent - value=" + source.getElement().getProperty("checked"));
-			Notification.show("value changed to " + source.getElement().getProperty("checked"));
+			LOGGER.info("Ui5MultiComboBox.ChangeEvent");
 		}
 	}
 
 	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
 		return addListener(ChangeEvent.class, listener);
 	}
+
 
 	/**
 	 * Fired when the value of the component changes at each keystroke.
@@ -132,14 +158,14 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 
 		public InputEvent(Ui5MultiComboBox source, boolean fromClient) {
 			super(source, fromClient);
-			LOGGER.info("input " + source.getElement().getProperty("checked"));
-			Notification.show("Ui5MultiComboBox.InputEvent - input=" + source.getElement().getProperty("checked"));
+			LOGGER.info("Ui5MultiComboBox.InputEvent");
 		}
 	}
 
 	public Registration addInputListener(ComponentEventListener<InputEvent> listener) {
 		return addListener(InputEvent.class, listener);
 	}
+
 
 	/**
 	 * Fired when the dropdown is opened or closed
@@ -159,6 +185,7 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 		return addListener(OpenChangeEvent.class, listener);
 	}
 
+
 	/**
 	 * Fired when selection is changed by user interaction in SingleSelect and MultiSelect modes.
 	 * items type: Array
@@ -166,25 +193,28 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 	 *
 	 */
 	@DomEvent("selection-change")
-	public static class SelectionChangeEvent<R extends Ui5MultiComboBox> extends ComponentEvent<Ui5MultiComboBox> {
+//	public static class SelectionChangeEvent<R extends Ui5MultiComboBox> extends ComponentEvent<Ui5MultiComboBox> {
+	public static class SelectionChangeEvent extends ComponentEvent<Ui5MultiComboBox> {
 
-		private final String placeholder;
-		private final boolean bubbles;
 		private JsonArray items;
 
-		public SelectionChangeEvent(Ui5MultiComboBox source, boolean fromClient,
-				@EventData("element.placeholder") String placeholder,
-				@EventData("event.bubbles") boolean bubbles,
-				@EventData("event.detail") JsonObject details) {
+		public SelectionChangeEvent(Ui5MultiComboBox source, boolean fromClient) {
+//		public SelectionChangeEvent(Ui5MultiComboBox source, boolean fromClient,
+//				@EventData("element.items") JsonArray items) {
 			super(source, fromClient);
 			LOGGER.info("Ui5MultiComboBox.SelectionChangeEvent");
-			LOGGER.info("Ui5MultiComboBoxSelectionChangeEvent: placeholder=" + placeholder);
-			LOGGER.info("Ui5MultiComboBoxSelectionChangeEvent: bubbles=" + bubbles);
-			this.placeholder = placeholder;
-			this.bubbles = bubbles;
-//			this.itemsa = itemsa;
-//			this.itemsa = Json.createArray();
-//			LOGGER.info("Count=" + itemsa.length());
+//			LOGGER.info("details=", details);
+			if (!fromClient) return;
+//			this.items = detail.getArray("items");
+//			LOGGER.info("Ui5MultiComboBoxSelectionChangeEvent: items=" + items);
+		}
+
+		public List<Object> getValues() {
+			ArrayList<Object> listdata = new ArrayList<Object>();
+			for (int i = 0; i < items.length(); i++) {
+				listdata.add(items.get(i));
+			}
+			return listdata;
 		}
 
 	}

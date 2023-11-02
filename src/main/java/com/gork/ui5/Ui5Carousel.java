@@ -17,8 +17,8 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-carousel")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.19.0")
 @JsModule("@ui5/webcomponents/dist/Carousel.js")
 @JsModule("@ui5/webcomponents-base/dist/features/F6Navigation.js")
 public class Ui5Carousel extends Component implements HasComponents {

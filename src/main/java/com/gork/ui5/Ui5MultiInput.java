@@ -29,7 +29,7 @@ import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
 @JsModule("@ui5/webcomponents/dist/MultiInput.js")
 @JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")

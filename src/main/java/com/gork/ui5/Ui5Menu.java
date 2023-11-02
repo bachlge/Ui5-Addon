@@ -21,7 +21,7 @@ import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-menu")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.14.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
 @JsModule("@ui5/webcomponents/dist/Menu.js")
 public class Ui5Menu extends Component implements HasComponents {
 
