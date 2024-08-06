@@ -35,8 +35,8 @@ public class Ui5ShellBar extends Component implements HasComponents {
 		this.getElement().setProperty("accessibleTexts", accessibleTexts);
 	}
 
-	public void setNotificationCount(String notificationCount) {
-		this.getElement().setProperty("notificationCount", notificationCount);
+	public void setNotificationsCount(String notificationsCount) {
+		this.getElement().setProperty("notificationsCount", notificationsCount);
 	}
 
 	public void setPrimaryTitle(String title) {
@@ -57,6 +57,10 @@ public class Ui5ShellBar extends Component implements HasComponents {
 
 	public void showProductSwitch(Boolean productswitch) {
 		this.getElement().setProperty("showProductSwitch", productswitch);
+	}
+
+	public void showSearchField(Boolean searchField) {
+		this.getElement().setProperty("showSearchField", searchField);
 	}
 
 	@DomEvent("co-pilot-click")

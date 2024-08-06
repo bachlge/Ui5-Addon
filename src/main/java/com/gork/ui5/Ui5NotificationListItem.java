@@ -39,12 +39,11 @@ import com.vaadin.flow.shared.Registration;
 @Tag("ui5-li-notification")
 @NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents-fiori/dist/NotificationListItem.js")
-@JsModule("@ui5/webcomponents-fiori/dist/NotificationAction.js")
-public class Ui5ListNotificationItem extends Component implements HasComponents {
+public class Ui5NotificationListItem extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ListNotificationItem.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5NotificationListItem.class);
 
-	public Ui5ListNotificationItem() {
+	public Ui5NotificationListItem() {
 		LOGGER.info("constructor ...");
 	}
 
@@ -91,9 +90,9 @@ public class Ui5ListNotificationItem extends Component implements HasComponents 
 
 
 	@DomEvent("close")
-	public static class CloseEvent extends ComponentEvent<Ui5ListNotificationItem> {
+	public static class CloseEvent extends ComponentEvent<Ui5NotificationListItem> {
 		private Element item;
-		public CloseEvent(Ui5ListNotificationItem source, boolean fromClient,
+		public CloseEvent(Ui5NotificationListItem source, boolean fromClient,
 				@EventData("element.item") Element item) {
 			super(source, fromClient);
 			LOGGER.info("Item click event occured - item=" + item);

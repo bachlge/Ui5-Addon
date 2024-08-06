@@ -14,8 +14,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-bar")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.24.8")
-@JsModule("@ui5/webcomponents-fiori/dist/Bar.js")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@JsModule("@ui5/webcomponents/dist/Bar.js")
 public class Ui5Bar extends Component implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Bar.class);

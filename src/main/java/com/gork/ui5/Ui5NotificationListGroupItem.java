@@ -35,13 +35,13 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-li-notification-group")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.1.1")
 @JsModule("@ui5/webcomponents-fiori/dist/NotificationListGroupItem.js")
-public class Ui5ListNotificationGroupItem extends Component implements HasComponents {
+public class Ui5NotificationListGroupItem extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ListNotificationGroupItem.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5NotificationListGroupItem.class);
 
-	public Ui5ListNotificationGroupItem() {
+	public Ui5NotificationListGroupItem() {
 		LOGGER.info("constructor ...");
 	}
 
@@ -94,8 +94,8 @@ public class Ui5ListNotificationGroupItem extends Component implements HasCompon
 
 
 	@DomEvent("close")
-	public static class CloseEvent extends ComponentEvent<Ui5ListNotificationItem> {
-		public CloseEvent(Ui5ListNotificationItem source, boolean fromClient) {
+	public static class CloseEvent extends ComponentEvent<Ui5NotificationListItem> {
+		public CloseEvent(Ui5NotificationListItem source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("Close event occured");
 		}
@@ -106,8 +106,8 @@ public class Ui5ListNotificationGroupItem extends Component implements HasCompon
 	}
 
 	@DomEvent("toggle")
-	public static class ToggleEvent extends ComponentEvent<Ui5ListNotificationGroupItem> {
-		public ToggleEvent(Ui5ListNotificationGroupItem source, boolean fromClient) {
+	public static class ToggleEvent extends ComponentEvent<Ui5NotificationListGroupItem> {
+		public ToggleEvent(Ui5NotificationListGroupItem source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("Toggle event occured");
 		}
