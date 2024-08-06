@@ -32,13 +32,13 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-li-custom")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
-@JsModule("@ui5/webcomponents/dist/CustomListItem.js")
-public class Ui5ListCustomItem extends Component implements HasComponents {
+@NpmPackage(value = "@ui5/webcomponents", version = "^1.24.8")
+@JsModule("@ui5/webcomponents/dist/ListItemCustom.js")
+public class Ui5ListItemCustom extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ListCustomItem.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ListItemCustom.class);
 
-	public Ui5ListCustomItem() {
+	public Ui5ListItemCustom() {
 		LOGGER.info("constructor ...");
 	}
 
@@ -64,9 +64,9 @@ public class Ui5ListCustomItem extends Component implements HasComponents {
 
 
 	@DomEvent("detail-click")
-	public static class DetailClickEvent extends ComponentEvent<Ui5ListCustomItem> {
+	public static class DetailClickEvent extends ComponentEvent<Ui5ListItemCustom> {
 		private Element item;
-		public DetailClickEvent(Ui5ListCustomItem source, boolean fromClient, @EventData("event.item.bla") Element item) {
+		public DetailClickEvent(Ui5ListItemCustom source, boolean fromClient, @EventData("event.item.bla") Element item) {
 			super(source, fromClient);
 			LOGGER.info("Custom List item detail-click event occured");
 			this.item = item;

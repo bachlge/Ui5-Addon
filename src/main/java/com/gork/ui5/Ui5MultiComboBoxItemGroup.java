@@ -13,18 +13,18 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-mcb-group-item")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
-@JsModule("@ui5/webcomponents/dist/MultiComboBoxGroupItem.js")
-public class Ui5MultiComboBoxGroupItem extends Component implements HasComponents {
+@Tag("ui5-mcb-item-group")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@JsModule("@ui5/webcomponents/dist/MultiComboBoxItemGroup.js")
+public class Ui5MultiComboBoxItemGroup extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5MultiComboBoxGroupItem.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5MultiComboBoxItemGroup.class);
 
-	public Ui5MultiComboBoxGroupItem() {
+	public Ui5MultiComboBoxItemGroup() {
 		LOGGER.info("constructor ...");
 	}
 
-	public Ui5MultiComboBoxGroupItem(String text) {
+	public Ui5MultiComboBoxItemGroup(String text) {
 		LOGGER.info("constructor ...");
 		setText(text);
 	}

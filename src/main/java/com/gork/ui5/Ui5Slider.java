@@ -26,9 +26,8 @@ import elemental.json.JsonNumber;
 
 @SuppressWarnings("serial")
 @Tag("ui5-slider")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/Slider.js")
-@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js") // for `name`-property to have effect
 public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Double> implements HasLabel {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5Slider.class);
@@ -64,8 +63,6 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Double> im
 		this.getElement().setProperty("max", value);
 	}
 
-	// For the name property to have effect, you must add the following import to your project:
-	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 	public void setName(String value) {
 		this.getElement().setProperty("name", value);
 	}

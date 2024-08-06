@@ -13,9 +13,8 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-date-picker")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/DatePicker.js")
-@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5DatePicker extends AbstractSinglePropertyField<Ui5Input, String> {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5DatePicker.class);
@@ -33,19 +32,6 @@ public class Ui5DatePicker extends AbstractSinglePropertyField<Ui5Input, String>
 		this.getElement().setProperty("accessibleNameRef", accessibleNameRef);
 	}
 
-
-	/**
-	 * Determines the name with which the component will be submitted in an HTML form.
-	 * 
-	 * Important: For the name property to have effect, you must add the following import to your project:
-	 *	import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
-	 *
-	 * Note: When set, a native input HTML element will be created inside the component
-	 * so that it can be submitted as part of an HTML form.
-	 * Do not use this property unless you need to submit a form.
-	 * 
-	 * @param value
-	 */
 	public void setName(String value) {
 		this.getElement().setProperty("name", value);
 	}

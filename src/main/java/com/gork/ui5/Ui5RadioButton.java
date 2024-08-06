@@ -16,9 +16,8 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-radio-button")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/RadioButton.js")
-@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5RadioButton extends Component implements HasSize {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5RadioButton.class);

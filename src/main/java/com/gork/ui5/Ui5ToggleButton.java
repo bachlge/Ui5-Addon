@@ -18,10 +18,9 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-toggle-button")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/ToggleButton.js")
-@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton, Boolean> implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ToggleButton.class);
@@ -59,8 +58,6 @@ public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton
 		this.getElement().setProperty("iconEnd", iconEnd);
 	}
 
-	// For the name property to have effect, you must add the following import to your project:
-	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 	public void setName(String value) {
 		this.getElement().setProperty("name", value);
 	}

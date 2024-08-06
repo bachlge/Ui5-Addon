@@ -1,5 +1,6 @@
 /**
  * https://sap.github.io/ui5-webcomponents/playground/components/Table/
+ * https://sap.github.io/ui5-webcomponents/components/TableHeaderRow/
  */
 package com.gork.ui5;
 
@@ -14,13 +15,13 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-table-group-row")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
-@JsModule("@ui5/webcomponents/dist/TableGroupRow.js")
-public class Ui5TableGroupRow extends Component implements HasComponents {
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@JsModule("@ui5/webcomponents/dist/TableHeaderRow.js")
+public class Ui5TableHeaderRow extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TableGroupRow.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TableHeaderRow.class);
 
-	public Ui5TableGroupRow() {
+	public Ui5TableHeaderRow() {
 		LOGGER.info("constructor ...");
 	}
 

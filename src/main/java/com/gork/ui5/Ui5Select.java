@@ -21,9 +21,8 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-select")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/Select.js")
-@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 //public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboBox, Boolean> implements HasComponents, HasLabel, HasSize {
 public class Ui5Select extends Component implements HasComponents, HasLabel, HasSize {
 
@@ -49,8 +48,6 @@ public class Ui5Select extends Component implements HasComponents, HasLabel, Has
 		this.getElement().setProperty("disabled", disabled);
 	}
 
-	// For the name property to have effect, you must add the following import to your project:
-	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 	public void setName(String value) {
 		this.getElement().setProperty("name", value);
 	}

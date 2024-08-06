@@ -13,7 +13,6 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
-import com.vaadin.flow.component.EventData;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.HasSize;
@@ -24,14 +23,11 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
 
 import elemental.json.JsonArray;
-import elemental.json.JsonObject;
-import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-combobox")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/MultiComboBox.js")
-@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 //public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboBox, Boolean> implements HasComponents, HasLabel, HasSize {
 public class Ui5MultiComboBox extends Component implements HasComponents, HasLabel, HasSize {
 
@@ -73,8 +69,6 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 
 	public enum MultiComboboxFilter { StartsWithPerTerm, StartsWith, Contains, None }
 
-	// For the name property to have effect, you must add the following import to your project:
-	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 	public void setName(String value) {
 		this.getElement().setProperty("name", value);
 	}

@@ -14,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-menu-item")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/MenuItem.js")
 public class Ui5MenuItem extends Component implements HasComponents {
 

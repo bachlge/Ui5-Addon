@@ -31,7 +31,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timeline")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.1.1")
 @JsModule("@ui5/webcomponents-fiori/dist/Timeline.js")
 public class Ui5Timeline extends Component implements HasComponents, HasSize, HasStyle {
 

@@ -14,13 +14,13 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-table-column")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
-@JsModule("@ui5/webcomponents/dist/TableColumn.js")
-public class Ui5TableColumn extends Component implements HasComponents {
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@JsModule("@ui5/webcomponents/dist/TableHeaderCell.js")
+public class Ui5TableHeaderCell extends Component implements HasComponents {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TableColumn.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TableHeaderCell.class);
 
-	public Ui5TableColumn() {
+	public Ui5TableHeaderCell() {
 		LOGGER.info("constructor ...");
 		this.getElement().setProperty("slot", "columns");
 	}

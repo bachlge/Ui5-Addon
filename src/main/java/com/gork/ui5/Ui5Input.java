@@ -26,9 +26,8 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/Input.js")
-@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
 public class Ui5Input extends AbstractSinglePropertyField<Ui5Input, String> implements HasLabel, HasSize {
 
@@ -55,8 +54,6 @@ public class Ui5Input extends AbstractSinglePropertyField<Ui5Input, String> impl
 		this.getElement().setProperty("maxLength", value);
 	}
 
-	// For the name property to have effect, you must add the following import to your project:
-	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 	public void setName(String value) {
 		this.getElement().setProperty("name", value);
 	}

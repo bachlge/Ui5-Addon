@@ -16,9 +16,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-combobox")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/ComboBox.js")
-@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolean> implements HasLabel {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5ComboBox.class);
@@ -55,8 +54,6 @@ public class Ui5ComboBox extends AbstractSinglePropertyField<Ui5ComboBox, Boolea
 		this.getElement().setProperty("loading", loading);
 	}
 
-	// For the name property to have effect, you must add the following import to your project:
-	// import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 	public void setName(String value) {
 		this.getElement().setProperty("name", value);
 	}

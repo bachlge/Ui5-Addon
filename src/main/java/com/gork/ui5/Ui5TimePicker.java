@@ -10,9 +10,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timepicker")
-@NpmPackage(value = "@ui5/webcomponents", version = "^1.19.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
 @JsModule("@ui5/webcomponents/dist/TimePicker.js")
-@JsModule("@ui5/webcomponents/dist/features/InputElementsFormSupport.js")
 public class Ui5TimePicker extends Component {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TimePicker.class);
