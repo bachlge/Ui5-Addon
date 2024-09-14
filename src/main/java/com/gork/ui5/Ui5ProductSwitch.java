@@ -26,6 +26,7 @@ public class Ui5ProductSwitch extends Component implements HasComponents, HasSiz
 	public Ui5ProductSwitch() {
 		LOGGER.info("constructor ...");
 		setWidthFull();
+		// default value for columns
 //		this.getElement().setProperty("slot", "default");
 	}
 
