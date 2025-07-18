@@ -15,7 +15,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-text")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/Text.js")
 public class Ui5Text extends Component implements HasComponents, HasStyle {
 

@@ -34,7 +34,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-panel")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/Panel.js")
 public class Ui5Panel extends Component implements HasComponents, HasSize {
 
@@ -52,12 +52,61 @@ public class Ui5Panel extends Component implements HasComponents, HasSize {
 		this.getElement().setProperty("accessibleRole", accessibleRole);
 	}
 
+	/**
+	 * default: false
+	 */
 	public void setCollapsed(boolean value) {
 		this.getElement().setProperty("collapsed", value);
 	}
 
+	/**
+	 * convenience method
+	 */
+	public void setCollapsed() {
+		setCollapsed(true);
+	}
+
+
+	/**
+	 * default: false
+	 */
 	public void setFixed(boolean value) {
 		this.getElement().setProperty("fixed", value);
+	}
+
+	/**
+	 * convenience method
+	 */
+	public void setFixed() {
+		setFixed(true);
+	}
+
+	/**
+	 * default: false
+	 */
+	public void setNoAnimation(boolean value) {
+		this.getElement().setProperty("noAnimation", value);
+	}
+
+	/**
+	 * convenience method
+	 */
+	public void setNoAnimation() {
+		setNoAnimation(true);
+	}
+
+	/**
+	 * default: false
+	 */
+	public void setStickyHeader(boolean value) {
+		this.getElement().setProperty("stickyHeader", value);
+	}
+
+	/**
+	 * convenience method
+	 */
+	public void setStickyHeader() {
+		setStickyHeader(true);
 	}
 
 	/**
@@ -72,6 +121,18 @@ public class Ui5Panel extends Component implements HasComponents, HasSize {
 
 	public void setHeaderText(String headerText) {
 		this.getElement().setProperty("headerText", headerText);
+	}
+
+	public void addToHeader(Component component) {
+		component.getElement().setAttribute("slot", Slot.header.toString());
+		add(component);
+	}
+
+	/**
+	 * there is also a slot `defaut` which is omitted because of default is a keyword
+	 */
+	public enum Slot {
+		header,
 	}
 
 	public void setNoAnimation(Boolean value) {

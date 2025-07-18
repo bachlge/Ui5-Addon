@@ -14,7 +14,7 @@ import com.vaadin.flow.component.notification.Notification;
 
 @SuppressWarnings("serial")
 @Tag("ui5-color-palette")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/ColorPalette.js")
 public class Ui5ColorPalettePopover extends Component implements HasComponents {
 

@@ -18,8 +18,8 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-toggle-button")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/ToggleButton.js")
 public class Ui5ToggleButton extends AbstractSinglePropertyField<Ui5ToggleButton, Boolean> implements HasComponents {
 

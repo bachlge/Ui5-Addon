@@ -25,7 +25,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-switch")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/Switch.js")
 public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> implements HasLabel, HasSize {
 
@@ -85,9 +85,7 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 		}
 	}
 
-	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
-		return addListener(ChangeEvent.class, listener);
-	}
+	/*----- Events -----*/
 
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5Switch> {
@@ -103,6 +101,10 @@ public class Ui5Switch extends AbstractSinglePropertyField<Ui5Switch, Boolean> i
 		public boolean getChecked() {
 			return value;
 		}
+	}
+
+	public Registration addChangeListener(ComponentEventListener<ChangeEvent> listener) {
+		return addListener(ChangeEvent.class, listener);
 	}
 
 }

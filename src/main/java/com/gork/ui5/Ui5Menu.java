@@ -21,7 +21,7 @@ import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-menu")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/Menu.js")
 public class Ui5Menu extends Component implements HasComponents {
 
@@ -34,6 +34,8 @@ public class Ui5Menu extends Component implements HasComponents {
 	public void setHeaderText(String headerText) {
 		this.getElement().setProperty("headerText", headerText);
 	}
+
+	/*----- Events -----*/
 
 	@DomEvent("click")
 	public static class ClickEvent extends ComponentEvent<Ui5Menu> {

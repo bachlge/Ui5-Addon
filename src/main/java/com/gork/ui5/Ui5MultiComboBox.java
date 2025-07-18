@@ -26,7 +26,7 @@ import elemental.json.JsonArray;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-combobox")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/MultiComboBox.js")
 //public class Ui5MultiComboBox extends AbstractSinglePropertyField<Ui5MultiComboBox, Boolean> implements HasComponents, HasLabel, HasSize {
 public class Ui5MultiComboBox extends Component implements HasComponents, HasLabel, HasSize {

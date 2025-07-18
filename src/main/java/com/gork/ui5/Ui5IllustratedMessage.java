@@ -14,11 +14,13 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-illustrated-message")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
 @JsModule("@ui5/webcomponents-fiori/dist/IllustratedMessage.js")
 @JsModule("@ui5/webcomponents-icons/dist/Allicons.js")
+@JsModule("@ui5/webcomponents-fiori/dist/illustrations/BalloonSky.js")
 @JsModule("@ui5/webcomponents-fiori/dist/illustrations/BeforeSearch.js")
 @JsModule("@ui5/webcomponents-fiori/dist/illustrations/NoData.js")
+@JsModule("@ui5/webcomponents-fiori/dist/illustrations/NoSearchResults.js")
 @JsModule("@ui5/webcomponents-fiori/dist/illustrations/UnableToUpload.js")
 @JsModule("@ui5/webcomponents-fiori/dist/illustrations/tnt/Lock.js") // TntLock
 @JsModule("@ui5/webcomponents-fiori/dist/illustrations/tnt/Success.js") // TntSuccess
@@ -28,6 +30,14 @@ public class Ui5IllustratedMessage extends Component implements HasComponents {
 
 	public Ui5IllustratedMessage() {
 		LOGGER.info("constructor ...");
+	}
+
+	/**
+	 * Convenience Constructor
+	 */
+	public Ui5IllustratedMessage(IllustrationMessageType name) {
+		this();
+		setName(name);
 	}
 
 	/**

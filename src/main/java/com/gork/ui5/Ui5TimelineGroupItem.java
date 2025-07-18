@@ -25,47 +25,30 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
-@Tag("ui5-timeline-item")
+@Tag("ui5-timeline-group-item")
 @NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
-@JsModule("@ui5/webcomponents-fiori/dist/TimelineItem.js")
-public class Ui5TimelineItem extends Component implements HasComponents, HasStyle {
+@JsModule("@ui5/webcomponents-fiori/dist/TimelineGroupItem.js")
+public class Ui5TimelineGroupItem extends Component implements HasComponents, HasStyle {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TimelineItem.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5TimelineGroupItem.class);
 
-	public Ui5TimelineItem() {
+	public Ui5TimelineGroupItem() {
 		LOGGER.info("constructor ...");
-		setIcon("calendar"); // default icon
 	}
 
-	public void setIcon(String icon) {
-		this.getElement().setProperty("icon", icon);
+	public void setGroupName(String string) {
+		this.getElement().setProperty("groupName", string);
 	}
 
-	public String getName() {
-		return this.getElement().getProperty("name");
-	}
-
-	public void setName(String name) {
-		this.getElement().setProperty("name", name);
-	}
-
-	public void setTitleText(String title) {
-		this.getElement().setProperty("titleText", title);
-	}
-
-	public void setSubtitleText(String title) {
-		this.getElement().setProperty("subtitleText", title);
-	}
-
-	public void setNameClickable(boolean value) {
-		this.getElement().setProperty("nameClickable", value);
+	public void setCollapsed(boolean value) {
+		this.getElement().setProperty("collapsed", value);
 	}
 
 	/**
 	 * Convenience Method
 	 */
-	public void setNameClickable() {
-		setNameClickable(true);
+	public void setCollapsed() {
+		setCollapsed(true);
 	}
 
 	/**
@@ -82,10 +65,12 @@ public class Ui5TimelineItem extends Component implements HasComponents, HasStyl
 		return this.getElement().getProperty(propertyName);
 	}
 
-	@DomEvent("name-click")
-	public static class ClickEvent extends ComponentEvent<Ui5TimelineItem> {
+	/*----- Events -----*/
 
-		public ClickEvent(Ui5TimelineItem source, boolean fromClient) {
+	@DomEvent("name-click")
+	public static class ClickEvent extends ComponentEvent<Ui5TimelineGroupItem> {
+
+		public ClickEvent(Ui5TimelineGroupItem source, boolean fromClient) {
 			super(source, fromClient);
 			LOGGER.info("Ui5TimelineItem ClickEvent ...");
 		}

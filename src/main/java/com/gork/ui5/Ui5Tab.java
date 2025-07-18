@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/TabContainer/
+ * https://sap.github.io/ui5-webcomponents/components/Tab/
  */
 package com.gork.ui5;
 
@@ -14,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-tab")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/Tab.js")
 public class Ui5Tab extends Component implements HasComponents {
 

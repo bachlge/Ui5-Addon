@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/Timeline/
+ * https://sap.github.io/ui5-webcomponents/components/fiori/Timeline/
  * 
  * How to use:
  * 
@@ -31,7 +31,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-timeline")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
 @JsModule("@ui5/webcomponents-fiori/dist/Timeline.js")
 public class Ui5Timeline extends Component implements HasComponents, HasSize, HasStyle {
 
@@ -47,7 +47,6 @@ public class Ui5Timeline extends Component implements HasComponents, HasSize, Ha
 
 	/**
 	 * Default: Vertical
-	 * @param layout
 	 */
 	public void setLayout(TimelineLayout layout) {
 		this.getElement().setProperty("layout", layout.toString());

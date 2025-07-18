@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/ShellBar/
+ * https://sap.github.io/ui5-webcomponents/components/fiori/ShellBarItem/
  */
 package com.gork.ui5;
 
@@ -19,7 +19,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-shell-bar-item")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
 @JsModule("@ui5/webcomponents-fiori/dist/ShellBarItem.js")
 public class Ui5ShellBarItem extends Component implements HasComponents {
 

@@ -1,5 +1,5 @@
 /**
- * https://sap.github.io/ui5-webcomponents/playground/components/Badge/
+ * https://sap.github.io/ui5-webcomponents/components/Tag/
  * 
  * this replaced the deprecated Badge component
  */
@@ -15,8 +15,8 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-badge")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@Tag("ui5-tag")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/Tag.js")
 public class Ui5Tag extends Component implements HasComponents {
 

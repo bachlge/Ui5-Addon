@@ -13,9 +13,9 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
-@Tag("ui5-form-item")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
-@JsModule("@ui5/webcomponents/dist/FormItem.js")
+@Tag("ui5-form-group")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
+@JsModule("@ui5/webcomponents/dist/FormGroup.js")
 public class Ui5FormGroup extends Component implements HasComponents {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5FormGroup.class);

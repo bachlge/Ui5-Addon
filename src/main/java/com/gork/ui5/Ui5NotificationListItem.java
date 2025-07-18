@@ -37,7 +37,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-li-notification")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents-fiori/dist/NotificationListItem.js")
 public class Ui5NotificationListItem extends Component implements HasComponents {
 

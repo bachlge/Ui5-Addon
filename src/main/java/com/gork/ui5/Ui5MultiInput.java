@@ -29,7 +29,7 @@ import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-input")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
 @JsModule("@ui5/webcomponents/dist/MultiInput.js")
 @JsModule("@ui5/webcomponents/dist/features/InputSuggestions.js")
 public class Ui5MultiInput extends Component implements HasComponents, HasLabel, HasSize {

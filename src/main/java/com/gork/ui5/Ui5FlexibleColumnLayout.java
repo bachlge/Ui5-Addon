@@ -1,6 +1,6 @@
 /**
  * 
- * https://sap.github.io/ui5-webcomponents/playground/components/FlexibleColumnLayout/
+ * https://sap.github.io/ui5-webcomponents/components/fiori/FlexibleColumnLayout/
  * 
  * Slots:
  * 		startColumn
@@ -27,7 +27,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-flexible-column-layout")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.1.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
 @JsModule("@ui5/webcomponents-fiori/dist/FlexibleColumnLayout.js")
 public class Ui5FlexibleColumnLayout extends Component implements HasComponents, HasSize {
 
@@ -70,6 +70,8 @@ public class Ui5FlexibleColumnLayout extends Component implements HasComponents,
 		ThreeColumnsEndExpanded,
 		ThreeColumnsStartExpandedEndHidden,
 		ThreeColumnsMidExpandedEndHidden,
+		ThreeColumnsStartHiddenMidExpanded,
+		ThreeColumnsStartHiddenEndExpanded,
 		MidColumnFullScreen,
 		EndColumnFullScreen
 		}
