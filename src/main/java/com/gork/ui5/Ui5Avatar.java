@@ -7,11 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-avatar")
@@ -81,6 +86,10 @@ public class Ui5Avatar extends Component implements HasComponents, HasSize {
 		this.getElement().setProperty("initials", initials);
 	}
 
+	public String getInitials() {
+		return this.getElement().getProperty("initials");
+	}
+
 	/**
 	 * Defines if the avatar is interactive (focusable and pressable)
 	 * Note: This property won't have effect if the disabled property is set to true.
@@ -146,5 +155,27 @@ public class Ui5Avatar extends Component implements HasComponents, HasSize {
 	@Deprecated
 	public enum ImageFitType { Contain, Cover }
 
-	
+
+	/*----- Events -----*/
+
+	/**
+	 * 
+	 * Fired when the component is activated either with a mouse/tap or by using the Enter or Space key.
+	 *
+	 */
+	@DomEvent("click")
+	public static class ClickEvent extends ComponentEvent<Ui5Avatar> {
+
+		public ClickEvent(Ui5Avatar source, boolean fromClient) {
+			super(source, fromClient);
+			LOGGER.info("ClickEvent ...");
+			Notification.show("Ui5Avatar Component: clicked on '" + source.getElement().getProperty("initials") + "'");
+		}
+	}
+
+	public Registration addClickListener(ComponentEventListener<ClickEvent> listener) {
+		return addListener(ClickEvent.class, listener);
+	}
+
+
 }

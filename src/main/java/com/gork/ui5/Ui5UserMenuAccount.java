@@ -14,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @SuppressWarnings("serial")
 @Tag("ui5-user-menu-account")
 
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.13.1")
 
 @JsModule("@ui5/webcomponents-fiori/dist/UserMenuAccount.js")
 @JsModule("@ui5/webcomponents-icons/dist/person-placeholder.js")
@@ -31,6 +31,7 @@ public class Ui5UserMenuAccount extends Component {//implements HasComponents, H
 		LOGGER.info("constructor ...");
 		setAvatarSrc("person-placeholder"); // default Avatar
 		setAvatarInitials("?.?."); // default Avatar Initials
+		getElement().setProperty("slot", "accounts");
 	}
 
 	public void setOpen(Boolean open) {

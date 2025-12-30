@@ -6,6 +6,7 @@ package com.gork.ui5;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
@@ -16,8 +17,6 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.shared.Registration;
-
-import elemental.json.JsonValue;
 
 @SuppressWarnings("serial")
 @Tag("ui5-menu")
@@ -53,7 +52,7 @@ public class Ui5Menu extends Component implements HasComponents {
 		}
 	
 		public String getItem() {
-			return item.asString();
+			return item.toString();
 		}
 
 		public String getText() {

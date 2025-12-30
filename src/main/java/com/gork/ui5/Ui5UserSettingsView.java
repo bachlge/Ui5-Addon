@@ -14,7 +14,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @SuppressWarnings("serial")
 @Tag("ui5-user-settings-view")
 
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.13.1")
 
 @JsModule("@ui5/webcomponents-fiori/dist/UserSettingsView.js")
 

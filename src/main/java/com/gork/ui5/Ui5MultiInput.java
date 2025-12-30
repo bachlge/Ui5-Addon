@@ -25,7 +25,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
 
-import elemental.json.JsonValue;
+import tools.jackson.databind.JsonNode;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-input")
@@ -138,7 +138,7 @@ public class Ui5MultiInput extends Component implements HasComponents, HasLabel,
 		private final String tokens;
 
 		public TokenDeleteEvent(Ui5MultiInput source, boolean fromClient,
-				@EventData("element.token") JsonValue token) {
+				@EventData("element.token") JsonNode token) {
 			super(source, fromClient);
 			this.tokens = "dummy token value";
 			LOGGER.info("Token=" + token);

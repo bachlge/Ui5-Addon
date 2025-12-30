@@ -82,9 +82,8 @@ public class Ui5Button extends Component implements HasComponents, HasSize {
 		this.getElement().setProperty("tooltip", tooltip);
 	}
 
-	public Registration addClickListener(ComponentEventListener<ClickEvent> listener) {
-		return addListener(ClickEvent.class, listener);
-	}
+
+	/*----- Events -----*/
 
 	/**
 	 * 
@@ -99,6 +98,10 @@ public class Ui5Button extends Component implements HasComponents, HasSize {
 			LOGGER.info("ClickEvent ...");
 			Notification.show("Ui5ButtonComponent: clicked on '" + source.getElement().getProperty("text") + "'");
 		}
+	}
+
+	public Registration addClickListener(ComponentEventListener<ClickEvent> listener) {
+		return addListener(ClickEvent.class, listener);
 	}
 
 }

@@ -17,6 +17,7 @@ import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.DomEvent;
 import com.vaadin.flow.component.EventData;
+import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.JsModule;
@@ -24,7 +25,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.shared.HasTooltip;
 import com.vaadin.flow.shared.Registration;
 
-import elemental.json.JsonNumber;
+import tools.jackson.databind.JsonNode;
 
 @SuppressWarnings("serial")
 @Tag("ui5-range-slider")
@@ -33,7 +34,7 @@ import elemental.json.JsonNumber;
 @JsModule("@ui5/webcomponents/dist/RangeSlider.js")
 @JsModule("@ui5/webcomponents-icons/dist/direction-arrows.js")
 //public class Ui5RangeSlider extends CustomField implements HasLabel, HasValue.ValueChangeListener, HasSize {
-public class Ui5RangeSlider extends Component implements HasSize, HasTooltip {
+public class Ui5RangeSlider extends Component implements HasSize, HasLabel, HasTooltip {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Ui5RangeSlider.class);
 
@@ -115,12 +116,12 @@ public class Ui5RangeSlider extends Component implements HasSize, HasTooltip {
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5RangeSlider> {
 
-		private final JsonNumber startValue;
-		private final JsonNumber endValue;
+		private final JsonNode startValue;
+		private final JsonNode endValue;
 
 		public ChangeEvent(Ui5RangeSlider source, boolean fromClient,
-				@EventData("element.startValue") JsonNumber startValue,
-				@EventData("element.endValue") JsonNumber endValue) {
+				@EventData("element.startValue") JsonNode startValue,
+				@EventData("element.endValue") JsonNode endValue) {
 			super(source, fromClient);
 			this.startValue = startValue;
 			this.endValue = endValue;
@@ -130,11 +131,11 @@ public class Ui5RangeSlider extends Component implements HasSize, HasTooltip {
 		}
 
 		public Number getStartValue() {
-			return startValue.asNumber();
+			return startValue.numberValue();
 		}
 
 		public Number getEndValue() {
-			return endValue.asNumber();
+			return endValue.numberValue();
 		}
 
 	}

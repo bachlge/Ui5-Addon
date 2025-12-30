@@ -21,7 +21,7 @@ import com.vaadin.flow.shared.Registration;
 @SuppressWarnings("serial")
 @Tag("ui5-user-settings-dialog")
 
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.13.1")
 
 @JsModule("@ui5/webcomponents-fiori/dist/UserSettingsDialog.js")
 

@@ -22,7 +22,7 @@ import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.shared.Registration;
 
-import elemental.json.JsonNumber;
+import tools.jackson.databind.JsonNode;
 
 @SuppressWarnings("serial")
 @Tag("ui5-slider")
@@ -111,19 +111,19 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Double> im
 	@DomEvent("change")
 	public static class ChangeEvent extends ComponentEvent<Ui5Slider> {
 
-		private final JsonNumber value;
+		private final JsonNode value;
 
 		public ChangeEvent(Ui5Slider source, boolean fromClient,
-				@EventData("element.value") JsonNumber value) {
+				@EventData("element.value") JsonNode value) {
 			super(source, fromClient);
 			this.value = value;
 			// only this line of code makes the component knowing it's current value!
-			source.setValue(Float.valueOf(value.toJson()));
+			source.setValue(value.asInt());
 //			Notification.show("Ui5Slider.ChangeEvent - value changed to " + value.asNumber());
 			if (!fromClient) return;
 		}
 		public double getValue() {
-			return value.asNumber();
+			return value.asDouble();
 		}
 	}
 
@@ -139,17 +139,17 @@ public class Ui5Slider extends AbstractSinglePropertyField<Ui5Slider, Double> im
 	@DomEvent("input")
 	public static class InputEvent extends ComponentEvent<Ui5Slider> {
 
-		private final JsonNumber value;
+		private final JsonNode value;
 
 		public InputEvent(Ui5Slider source, boolean fromClient,
-				@EventData("element.value") JsonNumber value) {
+				@EventData("element.value") JsonNode value) {
 			super(source, fromClient);
 			this.value = value;
 			if (!fromClient) return;
 //			Notification.show("Ui5Slider.InputEvent - value changed to " + value.asNumber());
 		}
 		public double getValue() {
-			return value.asNumber();
+			return value.asDouble();
 		}
 	}
 

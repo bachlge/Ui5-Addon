@@ -21,7 +21,7 @@ import com.vaadin.flow.shared.Registration;
 @SuppressWarnings("serial")
 @Tag("ui5-user-menu")
 
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.13.1")
 
 @JsModule("@ui5/webcomponents-fiori/dist/UserMenu.js")
 
@@ -38,6 +38,10 @@ public class Ui5UserMenu extends Component implements HasComponents, HasSize {
 		this.setShowManageAccount();
 		this.setShowOtherAccounts();
 		this.setShowEditAccounts();
+		this.setShowEditButton();
+		this.setMinWidth("10%");
+		this.setMaxHeight("10%");
+		this.setOpen();
 	}
 
 	/**

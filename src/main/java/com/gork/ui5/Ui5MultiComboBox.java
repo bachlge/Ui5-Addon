@@ -22,7 +22,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.shared.Registration;
 
-import elemental.json.JsonArray;
+import tools.jackson.databind.JsonNode;
 
 @SuppressWarnings("serial")
 @Tag("ui5-multi-combobox")
@@ -190,7 +190,7 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 //	public static class SelectionChangeEvent<R extends Ui5MultiComboBox> extends ComponentEvent<Ui5MultiComboBox> {
 	public static class SelectionChangeEvent extends ComponentEvent<Ui5MultiComboBox> {
 
-		private JsonArray items;
+		private JsonNode items;
 
 		public SelectionChangeEvent(Ui5MultiComboBox source, boolean fromClient) {
 //		public SelectionChangeEvent(Ui5MultiComboBox source, boolean fromClient,
@@ -205,7 +205,7 @@ public class Ui5MultiComboBox extends Component implements HasComponents, HasLab
 
 		public List<Object> getValues() {
 			ArrayList<Object> listdata = new ArrayList<Object>();
-			for (int i = 0; i < items.length(); i++) {
+			for (int i = 0; i < items.size(); i++) {
 				listdata.add(items.get(i));
 			}
 			return listdata;

@@ -3,13 +3,9 @@
  */
 package com.gork.ui5;
 
-import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
@@ -78,11 +74,6 @@ public class Ui5ShellBar extends Component implements HasComponents {
 	 */
 	public void showSearchField() {
 		showSearchField(true);
-	}
-
-	public void setAccessibilityAttributes(Map<?,?> attributes) throws JsonProcessingException {
-		ObjectMapper objectMapper = new ObjectMapper();
-		this.getElement().setProperty("accessibilityAttributes", objectMapper.writeValueAsString(attributes));
 	}
 
 	@Deprecated

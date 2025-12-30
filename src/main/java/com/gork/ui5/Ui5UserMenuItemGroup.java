@@ -14,10 +14,10 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @SuppressWarnings("serial")
 @Tag("ui5-user-menu-item-group")
 
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.13.1")
 
-//@JsModule("@ui5/webcomponents-fiori/dist/UserMenuItemGroup.js")
-@JsModule("@ui5/webcomponents-fiori/dist/UserMenuItem.js")
+@JsModule("@ui5/webcomponents-fiori/dist/UserMenuItemGroup.js")
+//@JsModule("@ui5/webcomponents-fiori/dist/UserMenuItem.js")
 
 public class Ui5UserMenuItemGroup extends Component {//implements HasComponents, HasSize {
 

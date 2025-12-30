@@ -8,8 +8,6 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
@@ -23,7 +21,7 @@ import com.vaadin.flow.shared.Registration;
 @SuppressWarnings("serial")
 @Tag("ui5-user-menu-item")
 
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.13.1")
 
 @JsModule("@ui5/webcomponents-fiori/dist/UserMenuItem.js")
 
@@ -102,11 +100,6 @@ public class Ui5UserMenuItem extends Component {//implements HasComponents, HasS
 	 */
 	public void setChecked() {
 		setChecked(true);
-	}
-
-	public void setAccessibilityAttributes(Map<?,?> attributes) throws JsonProcessingException {
-		ObjectMapper objectMapper = new ObjectMapper();
-		this.getElement().setProperty("accessibilityAttributes", objectMapper.writeValueAsString(attributes));
 	}
 
 	/**
