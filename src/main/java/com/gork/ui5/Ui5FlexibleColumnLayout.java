@@ -27,7 +27,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-flexible-column-layout")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.23.0")
 @JsModule("@ui5/webcomponents-fiori/dist/FlexibleColumnLayout.js")
 public class Ui5FlexibleColumnLayout extends Component implements HasComponents, HasSize {
 
@@ -77,7 +77,7 @@ public class Ui5FlexibleColumnLayout extends Component implements HasComponents,
 		}
 
 	/**
-	 * Convienience Method
+	 * Convenience Method
 	 * @param component
 	 * @param slot
 	 */
