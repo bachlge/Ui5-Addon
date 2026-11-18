@@ -19,7 +19,7 @@ import com.vaadin.flow.shared.Registration;
 @SuppressWarnings("serial")
 @Tag("ui5-user-settings-item")
 
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.13.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.29.0")
 
 @JsModule("@ui5/webcomponents-fiori/dist/UserSettingsItem.js")
 

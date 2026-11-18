@@ -3,8 +3,6 @@
  */
 package com.gork.ui5;
 
-import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +19,7 @@ import com.vaadin.flow.shared.Registration;
 @SuppressWarnings("serial")
 @Tag("ui5-user-menu-item")
 
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.13.1")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.29.0")
 
 @JsModule("@ui5/webcomponents-fiori/dist/UserMenuItem.js")
 

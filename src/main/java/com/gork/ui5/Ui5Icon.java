@@ -16,10 +16,10 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @SuppressWarnings("serial")
 @Tag("ui5-icon")
 
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
-@NpmPackage(value = "@ui5/webcomponents-icons", version = "^2.12.0")
-@NpmPackage(value = "@ui5/webcomponents-icons-tnt", version = "^2.12.0")
-@NpmPackage(value = "@ui5/webcomponents-icons-business-suite", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.29.0")
+@NpmPackage(value = "@ui5/webcomponents-icons", version = "^2.29.0")
+@NpmPackage(value = "@ui5/webcomponents-icons-tnt", version = "^2.29.0")
+@NpmPackage(value = "@ui5/webcomponents-icons-business-suite", version = "^2.29.0")
 
 @JsModule("@ui5/webcomponents/dist/Icon.js")
 @JsModule("@ui5/webcomponents-icons/dist/Allicons.js")

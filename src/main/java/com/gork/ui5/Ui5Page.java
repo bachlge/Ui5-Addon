@@ -23,7 +23,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-page")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.22.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.29.0")
 @JsModule("@ui5/webcomponents-fiori/dist/Page.js")
 public class Ui5Page extends Component implements HasComponents, HasSize, HasStyle {
 

@@ -22,7 +22,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @SuppressWarnings("serial")
 @Tag("ui5-wizard-step")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.22.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.29.0")
 @JsModule("@ui5/webcomponents-fiori/dist/WizardStep.js")
 public class Ui5WizardStep extends Component implements HasComponents, HasStyle {
 

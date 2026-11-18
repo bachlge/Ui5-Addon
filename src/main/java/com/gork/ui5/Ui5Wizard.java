@@ -23,7 +23,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-wizard")
-@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.22.0")
+@NpmPackage(value = "@ui5/webcomponents-fiori", version = "^2.29.0")
 @JsModule("@ui5/webcomponents-fiori/dist/Wizard.js")
 public class Ui5Wizard extends Component implements HasComponents, HasSize, HasStyle {
 

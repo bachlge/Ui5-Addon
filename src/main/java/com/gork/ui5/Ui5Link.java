@@ -18,7 +18,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-link")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.29.0")
 @JsModule("@ui5/webcomponents/dist/Link.js")
 public class Ui5Link extends Component {
 

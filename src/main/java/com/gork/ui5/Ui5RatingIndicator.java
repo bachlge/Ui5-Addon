@@ -18,7 +18,7 @@ import com.vaadin.flow.shared.Registration;
 
 @SuppressWarnings("serial")
 @Tag("ui5-rating-indicator")
-@NpmPackage(value = "@ui5/webcomponents", version = "^2.12.0")
+@NpmPackage(value = "@ui5/webcomponents", version = "^2.29.0")
 @JsModule("@ui5/webcomponents/dist/RatingIndicator.js")
 public class Ui5RatingIndicator extends AbstractSinglePropertyField<Ui5RatingIndicator, Integer> {
 
@@ -74,7 +74,7 @@ public class Ui5RatingIndicator extends AbstractSinglePropertyField<Ui5RatingInd
 	}
 
 	// convenience method
-	private void showValue(ValueChangeEvent event) {
+	private static void showValue(ValueChangeEvent event) {
 		LOGGER.info("value changed (ValueChangeEvent)");
 		LOGGER.info("" + event.getSource().getElement().getProperty("value"));
 		Notification.show("" + event.getSource().getElement().getProperty("value"));
@@ -85,6 +85,7 @@ public class Ui5RatingIndicator extends AbstractSinglePropertyField<Ui5RatingInd
 
 		public ValueChangeEvent(Ui5RatingIndicator source, boolean fromClient) {
 			super(source, fromClient);
+			showValue(this);
 			LOGGER.info("value changed to " + source.getElement().getProperty("value"));
 			Notification.show("value changed to " + source.getElement().getProperty("value"));
 		}
